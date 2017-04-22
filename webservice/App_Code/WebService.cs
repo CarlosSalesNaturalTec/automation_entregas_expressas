@@ -17,10 +17,10 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string teste(string v1)
+    public string teste(string param1)
     {
-        string url = "Aleluia";
-        return url;
+        string msg = "Aleluia";
+        return msg;
     }
 
     [WebMethod]
