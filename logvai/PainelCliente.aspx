@@ -25,9 +25,7 @@
     </div>
 
     <div style="margin-left: 15%">
-
         <iframe src="EntregaNova.aspx" width="100%" height="840" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
-
     </div>
 
 </body>

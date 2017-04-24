@@ -52,7 +52,7 @@
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border" type="password" placeholder="Digite sua senha" name="psw" required>
                     
-                    <input type="button" class="w3-button w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();"  />
+                    <input type="button" class="w3-button w3-block w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();"  />
                 </div>
             </form>
 

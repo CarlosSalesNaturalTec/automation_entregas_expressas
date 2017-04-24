@@ -57,6 +57,11 @@
                         />
                         <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px"
                         />
+                        <br/><br/>
+                        <div class="w3-row w3-small">
+                            &nbsp;&nbsp;&nbsp;<input class="w3-check" type="checkbox" name="chkRetorno" value="retorno">
+                            <label>Adicionar Retorno</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
                         <br><br>
                     </div>
 

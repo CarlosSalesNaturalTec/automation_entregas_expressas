@@ -8,17 +8,43 @@
     <title>LOGVAI - Nova Entrega</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+            width:50%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <div class="w3-container w3-half w3-center w3-gray">
-        <h6>Nova Entrega</h6>
+    <div class="w3-half">
+        <header class="w3-container w3-light-gray w3-center w3-text-gray">
+            <h6>Nova Entrega</h6>
+        </header>
     </div>
-
-    <div class="w3-container w3-half ">
-        mapa
-    </div>
+    <div id="map" class="w3-right"></div>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -12.8730, lng: -38.3598 },
+                zoom: 11
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&callback=initMap"
+        async defer></script>
 
 </body>
 
