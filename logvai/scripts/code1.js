@@ -96,14 +96,15 @@ function calculaValor() {
     var pontoQuant = 2;
     var kmValor = 2.2;
     var adicionalBanco = 15;
-
-    var radios = document.getElementsByName("OpTipo");
+    
+    var radios = document.getElementsByName("OpTempo");
     var tipoServ = radios[1].checked;
-
-    var valorTotal = (pontoQuant * pontoValor) + (DistanciaKM * kmValor)
     if (tipoServ == true) {
         valorTotal += adicionalBanco;
     }
+
+    var valorTotal = (pontoQuant * pontoValor) + (DistanciaKM * kmValor)
+    
 
     document.getElementById("txtValor").textContent = "R$ " + valorTotal.toFixed(2);
 
