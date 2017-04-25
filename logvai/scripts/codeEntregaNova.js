@@ -1,6 +1,4 @@
-document.getElementById("inputPonto1").focus();
-
-var Ponto1;
+﻿var Ponto1;
 var Ponto2;
 var DistanciaKM;
 
@@ -9,14 +7,19 @@ var LatLngPonto2;
 var NaoLocalizado1 = true;
 var NaoLocalizado2 = true;
 
-function ExibirModal() {
-    document.getElementById('id01').style.display = 'block';
-    document.getElementById('input_User').focus();
-}
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -12.990281, lng: -38.472187 },
+        zoom: 12
+    });
+    var input1 = document.getElementById('inputPonto1');
+    var input2 = document.getElementById('inputPonto2');
 
-function SignIn() {
-    document.getElementById('id01').style.display = 'none';
-    window.open('SignIn.aspx', 'iframe_a');
+    var autocomplete1 = new google.maps.places.Autocomplete(input1);
+    autocomplete1.bindTo('bounds', map);
+
+    var autocomplete2 = new google.maps.places.Autocomplete(input2);
+    autocomplete2.bindTo('bounds', map);
 }
 
 function CalculoGeral() {
@@ -108,7 +111,7 @@ function CalculoTempoEValor() {
 
     var tipo = document.getElementsByName('OpTempo');
     var tipotempo = tipo[0].checked;
-    if (tipotempo == true) { kmValor = 1.2; } else { kmValor = 2.2; }
+    if (tipotempo == true) { kmValor = 1.8; } else { kmValor = 2.2; }
 
     var chkretorno = document.getElementsByName('chkRetorno');
     var chkretorno2 = chkretorno[0].checked;
@@ -145,6 +148,11 @@ function coordponto1() {
         };
     });
 
+    var marker = new google.maps.Marker({
+        position: LatLngPonto1,
+        map: map
+    });
+
 }
 
 function coordponto2() {
@@ -162,28 +170,4 @@ function coordponto2() {
         };
     });
 
-}
-
-function TentarLoginCot() {
-
-    var v1 = document.getElementById("input_User").value;
-    var v2 = document.getElementById("input_pwd").value;
-
-    if (v1 == "") { alert('Informe nome do Usuário!'); document.getElementById('input_User').focus(); return; }
-    if (v2 == "") { alert('Informe Senha!'); document.getElementById('input_pwd').focus(); return; }
-
-    $.ajax({
-        type: "POST",
-        url: "WebService.asmx/login",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '"}',
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-            var linkurl = response.d;
-            window.open(linkurl, '_parent');
-        },
-        failure: function (response) {
-            alert('Tente Novamente');
-        }
-    });
 }

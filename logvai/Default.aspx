@@ -47,16 +47,16 @@
             <form class="w3-container">
                 <div class="w3-section">
                     <label><b>Usuario</b></label>
-                    <input id="input_User" class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Nome do Usuário" name="usrname"
+                    <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário" name="usrname"
                         required>
                     <label><b>Senha</b></label>
-                    <input id="input_pwd" class="w3-input w3-border" type="password" placeholder="Digite sua senha" name="psw" required>
+                    <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
                     
-                    <input type="button" class="w3-button w3-block w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();"  />
+                    <input type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();"  />
                 </div>
             </form>
 
-            <div class="w3-container w3-center">
+            <div class="w3-container w3-center w3-text-blue">
                 <p><a href="#" onclick="SignIn();">Criar Conta</a></p>
             </div>
         </div>

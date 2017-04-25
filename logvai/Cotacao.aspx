@@ -36,31 +36,30 @@
                         <br />
                         
                         <!-- PONTO1 -->
-                        <span class="w3-badge w3-light-blue">A</span>
+                        <span id="badge1" class="w3-badge w3-gray">A</span>
                         <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Origem" style="width: 400px" />
-                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No" style="width: 80px" />
+                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No" style="width: 80px" onblur="coordponto1();" />
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento" style="width: 200px" />&nbsp;&nbsp;&nbsp;
-                            <input class="w3-check" type="checkbox" name="OpTipoPonto1"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
+                            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento" style="width: 400px" />
                         </p>
                         <!-- PONTO1 -->
 
 
                         <!-- PONTO2 -->
-                        <span class="w3-badge w3-light-blue">B</span>
+                        <span id="badge2" class="w3-badge w3-gray">B</span>
                         <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto2" placeholder="Destino" style="width: 400px" />
-                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" />
+                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" onblur="coordponto2();" />
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento2" placeholder="Complemento" style="width: 200px" />&nbsp;&nbsp;&nbsp;
-                            <input class="w3-check" type="checkbox" name="OpTipoPonto2" value="BancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
+                            <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
                         </p>
                         <!-- PONTO2 -->
 
 
                         <!-- PONTO3 -->
                         <div class="w3-row">
-                            <span class="w3-badge w3-light-blue">C</span>
-                            &nbsp;<input class="w3-check" type="checkbox" name="chkRetorno" value="retorno">
+                            <span id="badge3" class="w3-badge w3-gray">C</span>
+                            <input class="w3-check" type="checkbox" name="chkRetorno">
                             <label class="w3-small">Retornar ao endereço inicial</label>
                         </div>
                         <br>
@@ -90,7 +89,7 @@
                     <br>
                     <div class="w3-container w3-border w3-light-gray">
                         <br>
-                        <button id="btCalcular" class="w3-button w3-block w3-round w3-blue w3-hover-green" onclick="GeoCodeCalc01();">Calcular</button>
+                        <button id="btCalcular" class="w3-button w3-block w3-round w3-blue w3-hover-green" onclick="CalculoGeral();">Calcular</button>
                         <br>
                         <div class="w3-container">
                             <div class="w3-third w3-center w3-text-gray">Distância:</div>
@@ -110,10 +109,8 @@
                             </div>
                         </div>
 
-                        <div id="idDiv1" style="display: none">
-                            <br>
-                            <button id="btSolicitar" class="w3-button w3-block w3-round w3-green w3-hover-blue" onclick="ExibirModal();">Gostou? Solicite Agora</button>
-                            <br>
+                        <div id="idDiv1" class="w3-center w3-text-green" style="display: none">
+                            <p><a href="#" onclick="ExibirModal();" >Gostou? Solicite agora!</a></p>
                         </div>
                     </div>
                     <br>
@@ -144,15 +141,14 @@
             <form class="w3-container">
                 <div class="w3-section">
                     <label><b>Usuario</b></label>
-                    <input id="input_User" class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Nome do Usuário" name="usrname"
-                        required>
+                    <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário">
                     <label><b>Senha</b></label>
-                    <input class="w3-input w3-border" type="password" placeholder="Digite sua senha" name="psw" required>
-                    <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Entrar</button>
+                    <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
+                    <input type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLoginCot();"  />
                 </div>
             </form>
 
-            <div class="w3-container w3-center">
+            <div class="w3-container w3-center w3-text-blue">
                 <p><a href="SignIn.aspx" target="iframe_a">Criar Conta</a></p>
             </div>
         </div>
@@ -160,14 +156,8 @@
     <!-- Modal Login -->
 
     <!-- Scripts diversos -->
+    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/code1.js"></script>
-    <script type="text/javascript">
-        function ExibirModal() {
-            document.getElementById('id01').style.display = 'block';
-            document.getElementById('input_User').focus();
-        }
-    </script>
-
 
 </body>
 </html>

@@ -35,24 +35,20 @@
 
         <!-- PONTO1 -->
         <div class="w3-container">
-            <p><span class="w3-badge w3-light-blue">A</span> Local de retirada (coleta)</p>
+            <p><span id="badge1" class="w3-badge w3-light-blue">A</span> Local de retirada (coleta)</p>
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
-            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No." style="width: 80px" />
-            <p>
-                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento" style="width: 200px" />&nbsp;&nbsp;&nbsp;
-                <input class="w3-check" type="checkbox" name="OpTipoPonto1" value="BancoPonto1"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
-            </p>
-            <p>
-                <textarea class="w3-input w3-border w3-round" name="detalhes1" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea></p>
+            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No." style="width: 80px" onblur="coordponto1();" />
+            <p><input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento" style="width: 400px" />&nbsp;&nbsp;&nbsp;</p>
+            <p><textarea class="w3-input w3-border w3-round" name="detalhes1" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea></p>
         </div>
         <!-- PONTO1 -->
 
 
         <!-- PONTO2 -->
         <div class="w3-container">
-            <p><span class="w3-badge w3-light-blue">B</span> Local de destino (entrega)</p>
+            <p><span id="badge2" class="w3-badge w3-light-blue">B</span> Local de destino (entrega)</p>
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto2" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
-            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" />
+            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" onblur="coordponto2();" />
             <p>
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento2" placeholder="Complemento" style="width: 200px" />&nbsp;&nbsp;&nbsp;
                 <input class="w3-check" type="checkbox" name="OpTipoPonto2" value="BancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
@@ -120,7 +116,7 @@
     <div id="map" class="w3-right"></div>
     <!-- MAPA -->
 
-    <script src="scripts/CodeGeolocation.js"></script>
+    <script src="scripts/codeEntregaNova.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>

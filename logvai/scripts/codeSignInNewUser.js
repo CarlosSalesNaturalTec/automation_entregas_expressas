@@ -15,10 +15,10 @@ function NovoUsuario() {
     var v9 = document.getElementById("input_telefone").value;
 
     if (v1 == "") { alert('Informe nome do Usuário!'); document.getElementById('input_User').focus(); return; }
-    if (v2 == "") { alert('Informe Senha!'); document.getElementById('input_User').focus(); return; }
+    if (v2 == "") { alert('Informe Senha!'); document.getElementById('input_psw').focus(); return; }
     if (v2 != v2a) { alert('Senhas não conferem!'); document.getElementById('input_pswConf').focus(); return; }
-    if (v3 == "") { alert('Informe CPF/CNPJ!'); document.getElementById('input_User').focus(); return; }
-    if (v4 == "") { alert('Informe Nome ou Razão Social!'); document.getElementById('input_User').focus(); return; }
+    if (v3 == "") { alert('Informe CPF/CNPJ!'); document.getElementById('input_cpfCnpj').focus(); return; }
+    if (v4 == "") { alert('Informe Nome ou Razão Social!'); document.getElementById('input_nomeRazao').focus(); return; }
     if (v6 == "") { alert('Informe endereço!'); document.getElementById('input_endereco').focus(); return; }
     if (v7 == "") { alert('Informe número do endereço!'); document.getElementById('input_numero').focus(); return; }
     if (v9 == "") { alert('Informe telefone!'); document.getElementById('input_telefone').focus(); return; }
