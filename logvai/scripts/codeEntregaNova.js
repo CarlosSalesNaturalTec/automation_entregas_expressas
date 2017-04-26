@@ -7,8 +7,13 @@ var LatLngPonto2;
 var NaoLocalizado1 = true;
 var NaoLocalizado2 = true;
 
+var map;
+var marker;
+var markers = [];
+
+
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -12.990281, lng: -38.472187 },
         zoom: 12
     });
@@ -142,15 +147,14 @@ function coordponto1() {
             LatLngPonto1 = results[0].geometry.location;
             document.getElementById("badge1").className = "w3-badge w3-green";
             NaoLocalizado1 = false;
+
+            deleteMarker();
+            addMarcador(LatLngPonto1);
+
         } else {
             document.getElementById("badge1").className = "w3-badge w3-red";
             NaoLocalizado1 = true;
         };
-    });
-
-    var marker = new google.maps.Marker({
-        position: LatLngPonto1,
-        map: map
     });
 
 }
@@ -164,10 +168,31 @@ function coordponto2() {
             LatLngPonto2 = results[0].geometry.location;
             document.getElementById("badge2").className = "w3-badge w3-green";
             NaoLocalizado2 = false;
+
+            addMarcador(LatLngPonto2);
         } else {
             document.getElementById("badge2").className = "w3-badge w3-red";
             NaoLocalizado2 = true;
         };
     });
 
+    
+
+}
+
+function addMarcador(coordenada) {
+
+    marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: coordenada
+    });
+    markers.push(marker);
+}
+
+function deleteMarker() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
 }
