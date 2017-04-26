@@ -4,11 +4,6 @@ var Ponto1;
 var Ponto2;
 var DistanciaKM;
 
-var LatLngPonto1;
-var LatLngPonto2;
-var NaoLocalizado1 = true;
-var NaoLocalizado2 = true;
-
 function ExibirModal() {
     document.getElementById('id01').style.display = 'block';
     document.getElementById('input_User').focus();
@@ -21,29 +16,9 @@ function SignIn() {
 
 function CalculoGeral() {
 
-    if (NaoLocalizado1) {
-        alert('Endereço Inicial NÃO localizado');
-        document.getElementById('inputPonto1').focus();
-        return;
-    }
-
-    if (NaoLocalizado2) {
-        alert('Endereço de Destino NÃO localizado');
-        document.getElementById('inputPonto2').focus();
-        return;
-    }
-
-    var chkretorno = document.getElementsByName('chkRetorno');
-    var chkretorno2 = chkretorno[0].checked;
-    if (chkretorno2 == true) {
-        document.getElementById("badge3").className = "w3-badge w3-green";
-    } else {
-        document.getElementById("badge3").className = "w3-badge w3-gray";
-    }
-
+    // UI - User Interface 
     document.getElementById("btCalcular").style.cursor = "progress";
     document.getElementById("txtDist").textContent = " 0Km"
-    document.getElementById("txtDuracao").textContent = " 0min";
     document.getElementById("txtValor").textContent = " R$";
 
     Ponto1 = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
@@ -83,12 +58,7 @@ function retorno(response, status) {
                 DistanciaKM += (distance.value / 1000);
             }
 
-            var duracao = response.rows[0].elements[0].duration;
-            var duracao_text = duracao.text;
-
             document.getElementById("txtDist").textContent = DistanciaKM.toFixed(2) + 'Km';
-            document.getElementById("txtDuracao").textContent = duracao_text;
-
             document.getElementById("btCalcular").style.cursor = "pointer";
             document.getElementById("idDiv1").style.display = "block"
 
@@ -108,7 +78,7 @@ function CalculoTempoEValor() {
 
     var tipo = document.getElementsByName('OpTempo');
     var tipotempo = tipo[0].checked;
-    if (tipotempo == true) { kmValor = 1.2; } else { kmValor = 2.2; }
+    if (tipotempo == true) { kmValor = 1.5; } else { kmValor = 2.2; }
 
     var chkretorno = document.getElementsByName('chkRetorno');
     var chkretorno2 = chkretorno[0].checked;
@@ -127,40 +97,6 @@ function CalculoTempoEValor() {
     }
 
     document.getElementById("txtValor").textContent = "R$ " + valorTotal.toFixed(2);
-
-}
-
-function coordponto1() {
-
-    var addressInput = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: addressInput }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            LatLngPonto1 = results[0].geometry.location;
-            document.getElementById("badge1").className = "w3-badge w3-green";
-            NaoLocalizado1 = false;
-        } else {
-            document.getElementById("badge1").className = "w3-badge w3-red";
-            NaoLocalizado1 = true;
-        };
-    });
-
-}
-
-function coordponto2() {
-
-    var addressInput = document.getElementById('inputPonto2').value + "," + document.getElementById('inputNumero2').value;
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: addressInput }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            LatLngPonto2 = results[0].geometry.location;
-            document.getElementById("badge2").className = "w3-badge w3-green";
-            NaoLocalizado2 = false;
-        } else {
-            document.getElementById("badge2").className = "w3-badge w3-red";
-            NaoLocalizado2 = true;
-        };
-    });
 
 }
 

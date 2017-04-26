@@ -2,21 +2,21 @@
 var Ponto2;
 var DistanciaKM;
 
-var LatLngPonto1;
-var LatLngPonto2;
-var NaoLocalizado1 = true;
-var NaoLocalizado2 = true;
-
 var map;
-var marker;
-var markers = [];
+var directionsService;
+var directionsDisplay;
 
+document.getElementById('inputPonto1').focus();
 
 function initMap() {
+
+    // Mapa
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -12.990281, lng: -38.472187 },
         zoom: 12
     });
+
+    // Autocomplete
     var input1 = document.getElementById('inputPonto1');
     var input2 = document.getElementById('inputPonto2');
 
@@ -25,38 +25,26 @@ function initMap() {
 
     var autocomplete2 = new google.maps.places.Autocomplete(input2);
     autocomplete2.bindTo('bounds', map);
+    
+    //tracar roteiro
+    directionsService = new google.maps.DirectionsService;
+    directionsDisplay = new google.maps.DirectionsRenderer;
+
+    directionsDisplay.setMap(map);
+
 }
 
 function CalculoGeral() {
 
-    if (NaoLocalizado1) {
-        alert('Endereço Inicial NÃO localizado');
-        document.getElementById('inputPonto1').focus();
-        return;
-    }
-
-    if (NaoLocalizado2) {
-        alert('Endereço de Destino NÃO localizado');
-        document.getElementById('inputPonto2').focus();
-        return;
-    }
-
-    var chkretorno = document.getElementsByName('chkRetorno');
-    var chkretorno2 = chkretorno[0].checked;
-    if (chkretorno2 == true) {
-        document.getElementById("badge3").className = "w3-badge w3-green";
-    } else {
-        document.getElementById("badge3").className = "w3-badge w3-gray";
-    }
-
+    // UI - User Interface
     document.getElementById("btCalcular").style.cursor = "progress";
     document.getElementById("txtDist").textContent = " 0Km"
-    document.getElementById("txtDuracao").textContent = " 0min";
     document.getElementById("txtValor").textContent = " R$";
 
     Ponto1 = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
     Ponto2 = document.getElementById('inputPonto2').value + "," + document.getElementById('inputNumero2').value;
 
+    //calcula distancia e tempo
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
         {
@@ -77,25 +65,12 @@ function retorno(response, status) {
         var destination = response.destinationAddresses[0];
         if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
             document.getElementById("btCalcular").style.cursor = "pointer";
-            alert("Não foi possível encontrar roteiro entre: "
-                + document.getElementById('inputPonto1').value + " E " + document.getElementById('inputPonto2').value);
+            alert("Não foi possível encontrar roteiro! Verifique os endereços digitados");
         } else {
-
             var distance = response.rows[0].elements[0].distance;
             DistanciaKM = (distance.value / 1000);
 
-            var chkretorno = document.getElementsByName('chkRetorno');
-            var chkretorno2 = chkretorno[0].checked;
-            if (chkretorno2 == true) {
-                distance = response.rows[1].elements[1].distance;
-                DistanciaKM += (distance.value / 1000);
-            }
-
-            var duracao = response.rows[0].elements[0].duration;
-            var duracao_text = duracao.text;
-
             document.getElementById("txtDist").textContent = DistanciaKM.toFixed(2) + 'Km';
-            document.getElementById("txtDuracao").textContent = duracao_text;
 
             document.getElementById("btCalcular").style.cursor = "pointer";
             document.getElementById("idDiv1").style.display = "block"
@@ -108,23 +83,15 @@ function retorno(response, status) {
 function CalculoTempoEValor() {
 
     var valorTotal;
-    var pontoQuant;
+    var pontoQuant=2;
     var kmValor;
 
     var pontoValor = 5;
-    var adicionalBanco = 15;
+    var adicionalBanco = 0;
 
     var tipo = document.getElementsByName('OpTempo');
     var tipotempo = tipo[0].checked;
-    if (tipotempo == true) { kmValor = 1.8; } else { kmValor = 2.2; }
-
-    var chkretorno = document.getElementsByName('chkRetorno');
-    var chkretorno2 = chkretorno[0].checked;
-    if (chkretorno2 == true) {
-        pontoQuant = 3
-    } else {
-        pontoQuant = 2
-    }
+    if (tipotempo == true) { kmValor = 1.2; } else { kmValor = 2.2; }
 
     valorTotal = (pontoQuant * pontoValor) + (DistanciaKM * kmValor);
 
@@ -136,63 +103,58 @@ function CalculoTempoEValor() {
 
     document.getElementById("txtValor").textContent = "R$ " + valorTotal.toFixed(2);
 
-}
-
-function coordponto1() {
-
-    var addressInput = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: addressInput }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            LatLngPonto1 = results[0].geometry.location;
-            document.getElementById("badge1").className = "w3-badge w3-green";
-            NaoLocalizado1 = false;
-
-            deleteMarker();
-            addMarcador(LatLngPonto1);
-
-        } else {
-            document.getElementById("badge1").className = "w3-badge w3-red";
-            NaoLocalizado1 = true;
-        };
-    });
+    // Exibe roteiro no mapa
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
 
 }
 
-function coordponto2() {
-
-    var addressInput = document.getElementById('inputPonto2').value + "," + document.getElementById('inputNumero2').value;
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: addressInput }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            LatLngPonto2 = results[0].geometry.location;
-            document.getElementById("badge2").className = "w3-badge w3-green";
-            NaoLocalizado2 = false;
-
-            addMarcador(LatLngPonto2);
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    directionsService.route({
+        origin: Ponto1,
+        destination: Ponto2,
+        travelMode: 'DRIVING'
+    }, function (response, status) {
+        if (status === 'OK') {
+            directionsDisplay.setDirections(response);
         } else {
-            document.getElementById("badge2").className = "w3-badge w3-red";
-            NaoLocalizado2 = true;
-        };
+            //window.alert('Directions request failed due to ' + status);
+        }
     });
+}
 
+function concluirSolicitacao() {
+    
+    document.getElementById("btSolicitar").style.cursor = "progress";
+
+    var v1 = document.getElementById("IDHidden").value;
+    var v2 = document.getElementById("inputPonto1").value;
+    var v3 = document.getElementById("inputNumero1").value;
+    var v4 = document.getElementById("inputComplemento1").value;
+    var v5 = document.getElementById("detalhes1").value;        
+    var v6 = document.getElementById("xxx").value;              //telefone
+    var v7 = document.getElementById("xxx").value;              //data slicitação
+    var v9 = document.getElementById("xxx").value;              //latitude
+    var v10 = document.getElementById("xxx").value;             //longitude
+    
     
 
-}
 
-function addMarcador(coordenada) {
+       
 
-    marker = new google.maps.Marker({
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP,
-        position: coordenada
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/entregaSalvar",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            var linkurl = response.d;
+            window.open(linkurl, '_parent');
+        },
+        failure: function (response) {
+            document.getElementById("btSignIn").style.cursor = "pointer";
+            alert('Tente Novamente');
+        }
     });
-    markers.push(marker);
-}
-
-function deleteMarker() {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
 }

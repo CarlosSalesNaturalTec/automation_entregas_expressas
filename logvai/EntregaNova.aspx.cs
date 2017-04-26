@@ -9,6 +9,6 @@ public partial class NovaEntrega : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        IDHidden.Value = Session["IDUser"].ToString();
     }
 }

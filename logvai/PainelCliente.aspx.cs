@@ -9,6 +9,7 @@ public partial class PainelCliente : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Session["IDUser"] = Request.QueryString["v1"];
         lblUser.Text = Request.QueryString["v2"];
     }
 }

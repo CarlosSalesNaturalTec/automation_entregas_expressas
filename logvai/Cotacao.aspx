@@ -30,50 +30,46 @@
                     <br>
 
                     <div class="w3-container w3-border">
-                        <div class="w3-row w3-small w3-gray w3-center w3-text-blue">
-                            <label>Endereços</label>
+                        <div class="w3-row w3-small w3-gray w3-center">
+                            <strong><label>Endereços</label></strong>
                         </div>
                         <br />
                         
                         <!-- PONTO1 -->
-                        <span id="badge1" class="w3-badge w3-gray">A</span>
-                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Origem" style="width: 400px" />
-                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No" style="width: 80px" onblur="coordponto1();" />
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento" style="width: 400px" />
-                        </p>
+                        <p>
+                        <i class="fa fa-map-o" aria-hidden="true"></i>
+                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Origem" style="width: 400px"  />
+                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No" style="width: 80px"/></p>
                         <!-- PONTO1 -->
 
 
                         <!-- PONTO2 -->
-                        <span id="badge2" class="w3-badge w3-gray">B</span>
+                        <i class="fa fa-map-o" aria-hidden="true"></i>
                         <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto2" placeholder="Destino" style="width: 400px" />
-                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" onblur="coordponto2();" />
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento2" placeholder="Complemento" style="width: 200px" />&nbsp;&nbsp;&nbsp;
-                            <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
-                        </p>
-                        <!-- PONTO2 -->
+                        <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" />    
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;<input class="w3-check" type="checkbox" name="chkRetorno">
+                            <label class="w3-small">Retornar ao endereço de Origem.</label></p>
+                        <!-- PONTO2 --> 
 
 
                         <!-- PONTO3 -->
                         <div class="w3-row">
-                            <span id="badge3" class="w3-badge w3-gray">C</span>
-                            <input class="w3-check" type="checkbox" name="chkRetorno">
-                            <label class="w3-small">Retornar ao endereço inicial</label>
+                            &nbsp;&nbsp;&nbsp;
+                            <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-small">&nbsp;O serviço será realizado em um Banco, Repartição Pública ou Correios.</label>
                         </div>
                         <br>
+                        <br />
                         <!-- PONTO3 -->
 
                         
                         <!-- TEMPO DE ATENDIMENTO -->
-                        <div class="w3-row w3-small w3-gray w3-center w3-text-blue">
-                            <label>Tempo de Atendimento</label>
+                        <div class="w3-row w3-small w3-gray w3-center">
+                            <strong><label>Tempo de Atendimento</label></strong>
                         </div>
                         <div class="w3-row w3-small">
                             <div class="w3-half">
-                                &nbsp;&nbsp;&nbsp;<input class="w3-radio" type="radio" name="OpTempo" value="tempo1" checked>
-                                <label>Normal (em até 4 horas)</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="w3-radio" type="radio" name="OpTempo" value="tempo1" checked>
+                                <label>Normal (horário comercial)</label>
                             </div>
                             <div class="w3-half">
                                 <input class="w3-radio" type="radio" name="OpTempo" value="tempo2">
@@ -81,7 +77,7 @@
                             </div>
                         </div>
                         <br>
-                        <!-- TOTAIS -->
+                        <!-- TEMPO DE ATENDIMENTO -->
 
                     </div>
 
@@ -92,19 +88,15 @@
                         <button id="btCalcular" class="w3-button w3-block w3-round w3-blue w3-hover-green" onclick="CalculoGeral();">Calcular</button>
                         <br>
                         <div class="w3-container">
-                            <div class="w3-third w3-center w3-text-gray">Distância:</div>
-                            <div class="w3-third w3-center w3-text-gray">Duração:</div>
-                            <div class="w3-third w3-center w3-text-gray">Valor:</div>
+                            <div class="w3-half w3-center w3-text-gray">Distância:</div>
+                            <div class="w3-half w3-center w3-text-gray">Valor:</div>
                         </div>
 
                         <div class="w3-container">
-                            <div class="w3-third w3-center">
+                            <div class="w3-half w3-center">
                                 <strong><span id="txtDist" class="w3-text-blue">0Km</span></strong>
                             </div>
-                            <div class="w3-third w3-center">
-                                <strong><span id="txtDuracao" class="w3-text-blue">0min</span></strong>
-                            </div>
-                            <div class="w3-third w3-center">
+                            <div class="w3-half w3-center">
                                 <strong><span id="txtValor" class="w3-text-blue">R$ 0,00</span></strong>
                             </div>
                         </div>
