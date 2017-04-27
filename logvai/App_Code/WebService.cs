@@ -77,18 +77,30 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
     [WebMethod]
-    public string entregaSalvar(string param1, string param2, string param3, string param4, string param5,
-        string param6, string param7, string param8, string param9, string param10, string param11, string param12)
+    public string entregaSalvar(string param1, string param2, string param3, string param4, string param5,string param6)
     {
+        string param7 = DateTime.Now.ToString("yyyy-MM-dd");
+        string param8 = "0";
+        string param9 = "EM ABERTO";
+        string param10 = "0";
+        
+        //atenção corrigir
+        string id_selecionada = "1";
+        string txtDestinatario = "Destinatario";
+        string txtBairro = "Bairro";
+        string txtCidade = "Salvador";
+        string txtTelefone = "(71) 9999-9999";
+        string Lat = "-12.5000";
+        string Lng = "-38.5000";
 
-        string url = "Sorry.aspx";
+        string msg="XXX";
 
-        string strInsert = "INSERT INTO Tbl_Entregas (ID_User,Endereco,Numero,Complemento,Descricao,Telefone," +
-            "Latitude,Longitude,Data_solicita,Entregue,Status_Entrega,Partida_Iniciada) VALUES (" + param1 + ", '" + param2 + "', '" + param3 +
-            "', '" + param4 + "', '" + param5 + "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', '" + param10 +
-            "', '" + param11 + "', '" + param12 + "')";
+        string strInsert = "INSERT INTO Tbl_Entregas (ID_Cliente, ID_Motoboy, Nome_Destinatario, Endereco, Ponto_Ref, " +
+                    "Bairro, Cidade, Data_Encomenda, Telefone, Entregue,Latitude,Longitude,Status_Entrega,Partida_Iniciada,Observacoes ) VALUES (" + param1 +
+                    "," + id_selecionada + ", '" + txtDestinatario + "', '" + param2 + "', '" + param4 +
+                    "', '" + txtBairro + "', '" + txtCidade + "', '" + param7 + "', '" + txtTelefone + "', 0,'" +
+                    Lat  + "', '" + Lng + "','EM ABERTO',0,'" +  param5 + "')";
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);
@@ -96,10 +108,14 @@ public class WebService : System.Web.Services.WebService
 
         if (inserir == true)
         {
-            
+            msg = "SOLICITAÇÃO ENVIADA COM SUCESSO";
+        }
+        else
+        {
+            msg = "TENTE NOVAMENTE";
         }
 
-        return url;
+        return msg;
     }
 }
 
@@ -118,7 +134,7 @@ public class ConexaoBancoSQL
     public ConexaoBancoSQL()
     {
         // *** STRING DE CONEXÃO COM BANCO DE DADOS - Atenção! Alterar dados conforme seu servidor
-        stringconnection1 = @"Server=tcp:serverlogvai.database.windows.net,1433;Initial Catalog=dblogvai;Persist Security Info=False;User ID=admserver;Password=pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Language=Brazilian;";
+        stringconnection1 = @"Server=tcp:serverlog.database.windows.net,1433;Initial Catalog=dblog;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         try
         {
             tentarAbrirConexaoRemota();

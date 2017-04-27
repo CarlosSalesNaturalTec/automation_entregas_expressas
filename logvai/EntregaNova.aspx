@@ -110,9 +110,7 @@
         <!-- CALCULO DE TOTAIS -->
 
         <!-- campos auxiliares -->
-        <div class="w3-text-white">
-            <input id="IDHidden" runat="server" type="text" disabled/>
-        </div>
+        <input id="IDHidden" runat="server" type="hidden" disabled/>
 
     </div>
 

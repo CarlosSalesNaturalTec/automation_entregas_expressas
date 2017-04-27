@@ -131,26 +131,18 @@ function concluirSolicitacao() {
     var v3 = document.getElementById("inputNumero1").value;
     var v4 = document.getElementById("inputComplemento1").value;
     var v5 = document.getElementById("detalhes1").value;        
-    var v6 = document.getElementById("xxx").value;              //telefone
-    var v7 = document.getElementById("xxx").value;              //data slicitação
-    var v9 = document.getElementById("xxx").value;              //latitude
-    var v10 = document.getElementById("xxx").value;             //longitude
-    
-    
-
-
-       
+    var v6 = "XXX" //telefone   
 
     $.ajax({
         type: "POST",
         url: "WebService.asmx/entregaSalvar",
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '"}',
+            '", param6: "' + v6 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            var linkurl = response.d;
-            window.open(linkurl, '_parent');
+            var msg = response.d;
+            alert(msg)
         },
         failure: function (response) {
             document.getElementById("btSignIn").style.cursor = "pointer";
