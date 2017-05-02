@@ -34,14 +34,14 @@ public class WebService : System.Web.Services.WebService
         string url = "Sorry.aspx";
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Usuarios (usuario,senha,cpfcnpj,nome,contato,endereco,numero,complemento,telefone,dataCadastro) " +
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Usuarios (usuario,senha,cpfcnpj,nome,contato,endereco,numero,complemento,telefone,dataCadastro,nivel ) " +
             "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "', '" + param5 +
-            "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', getdate())");
+            "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', getdate(),1)");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
         {
-            string stringselect = "select ID_User,usuario,senha " +
+            string stringselect = "select ID_User,nome" +
                 "from Tbl_Usuarios " +
                 "where usuario='" + param1 + "' and senha='" + param2 + "' ";
             OperacaoBanco operacao1 = new OperacaoBanco();
@@ -81,9 +81,6 @@ public class WebService : System.Web.Services.WebService
     public string entregaSalvar(string param1, string param2, string param3, string param4, string param5,string param6)
     {
         string param7 = DateTime.Now.ToString("yyyy-MM-dd");
-        string param8 = "0";
-        string param9 = "EM ABERTO";
-        string param10 = "0";
         
         //atenção corrigir
         string id_selecionada = "1";
@@ -116,6 +113,27 @@ public class WebService : System.Web.Services.WebService
         }
 
         return msg;
+    }
+
+    [WebMethod]
+    public string EntregaExcluir(string param1)
+    {
+        string url = "Sorry.aspx";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        Boolean deletar = operacao.Delete("delete from Tbl_Entregas where ID_Entrega = " + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "EntregaHistorico.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
     }
 }
 

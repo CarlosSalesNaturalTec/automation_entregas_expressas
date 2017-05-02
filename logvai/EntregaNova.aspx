@@ -35,7 +35,7 @@
 
         <!-- PONTO1 -->
         <div class="w3-container">
-            <p><span id="badge1" class="w3-badge w3-light-blue">A</span> Local de retirada (coleta) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="w3-small">Utilizar meu Endereço</a></p>
+            <p><span id="badge1" class="w3-badge w3-light-blue">A</span> Local de retirada (coleta) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No." style="width: 80px" />
             <p>
@@ -58,7 +58,7 @@
                 <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
             </p>
             <p>
-                <textarea class="w3-input w3-border w3-round" name="detalhes1" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea>
+                <textarea class="w3-input w3-border w3-round" id="detalhes2" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea>
             </p>
         </div>
         <br />
