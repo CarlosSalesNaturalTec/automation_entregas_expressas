@@ -108,6 +108,8 @@ function TentarLoginCot() {
     if (v1 == "") { alert('Informe nome do Usuário!'); document.getElementById('input_User').focus(); return; }
     if (v2 == "") { alert('Informe Senha!'); document.getElementById('input_pwd').focus(); return; }
 
+    document.getElementById('bt_loginCot').style.cursor = "progress";
+
     $.ajax({
         type: "POST",
         url: "WebService.asmx/login",

@@ -28,20 +28,20 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string usersave(string param1, string param2, string param3, string param4, string param5,
-        string param6, string param7, string param8, string param9)
+        string param6, string param7, string param8, string param9,string param10)
     {
 
         string url = "Sorry.aspx";
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Usuarios (usuario,senha,cpfcnpj,nome,contato,endereco,numero,complemento,telefone,dataCadastro) " +
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Usuarios (usuario,senha,cpfcnpj,nome,contato,endereco,numero,complemento,telefone,Cupom,dataCadastro) " +
             "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "', '" + param5 +
-            "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', getdate())");
+            "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', '" + param10 + "', getdate())");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
         {
-            string stringselect = "select ID_User,usuario,senha " +
+            string stringselect = "select ID_User,nome " +
                 "from Tbl_Usuarios " +
                 "where usuario='" + param1 + "' and senha='" + param2 + "' ";
             OperacaoBanco operacao1 = new OperacaoBanco();
@@ -81,25 +81,21 @@ public class WebService : System.Web.Services.WebService
     public string entregaSalvar(string param1, string param2, string param3, string param4, string param5,string param6)
     {
         string param7 = DateTime.Now.ToString("yyyy-MM-dd");
-        string param8 = "0";
-        string param9 = "EM ABERTO";
-        string param10 = "0";
-        
+       
         //atenção corrigir
         string id_selecionada = "1";
         string txtDestinatario = "Destinatario";
-        string txtBairro = "Bairro";
         string txtCidade = "Salvador";
         string txtTelefone = "(71) 9999-9999";
-        string Lat = "-12.5000";
-        string Lng = "-38.5000";
+        string Lat = "-12.961999";
+        string Lng = "-38.437647";
 
         string msg="XXX";
 
         string strInsert = "INSERT INTO Tbl_Entregas (ID_Cliente, ID_Motoboy, Nome_Destinatario, Endereco, Ponto_Ref, " +
                     "Bairro, Cidade, Data_Encomenda, Telefone, Entregue,Latitude,Longitude,Status_Entrega,Partida_Iniciada,Observacoes ) VALUES (" + param1 +
                     "," + id_selecionada + ", '" + txtDestinatario + "', '" + param2 + "', '" + param4 +
-                    "', '" + txtBairro + "', '" + txtCidade + "', '" + param7 + "', '" + txtTelefone + "', 0,'" +
+                    "', '" + param2 + "', '" + txtCidade + "', '" + param7 + "', '" + txtTelefone + "', 0,'" +
                     Lat  + "', '" + Lng + "','EM ABERTO',0,'" +  param5 + "')";
 
         OperacaoBanco operacao = new OperacaoBanco();

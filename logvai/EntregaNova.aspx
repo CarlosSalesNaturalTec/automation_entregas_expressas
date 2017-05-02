@@ -58,7 +58,7 @@
                 <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
             </p>
             <p>
-                <textarea class="w3-input w3-border w3-round" name="detalhes1" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea>
+                <textarea class="w3-input w3-border w3-round" name="detalhes2" id="detalhes2" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea>
             </p>
         </div>
         <br />
@@ -103,7 +103,7 @@
 
             <div id="idDiv1" style="display: none">
                 <br>
-                <button id="btSolicitar" class="w3-button w3-block w3-round w3-light-green w3-hover-green" onclick="concluirSolicitacao();">Confirmar Solicitação</button>
+                <button id="btSolicitar" class="w3-button w3-block w3-round w3-light-green w3-hover-green" onclick="salvaPonto1();">Confirmar Solicitação</button>
                 <br>
             </div>
         </div>
@@ -116,7 +116,7 @@
 
     <!-- MAPA -->
     <div id="map" class="w3-right"></div>
-    <script src="scripts/codeEntregaNova.js"></script>
+    <script src="scripts/codeEntregaNovas.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
     <!-- MAPA -->
 

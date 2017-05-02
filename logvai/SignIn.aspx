@@ -12,13 +12,6 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        body {
-            background-image: url(images/background.jpg);
-        }
-    </style>
-
 </head>
 
 <body>
@@ -29,77 +22,85 @@
 
         <div class="w3-padding w3-display-middle">
             <div class="w3-card-4" style="width: 800px">
-                <header class="w3-container w3-green">
-                    <h3><i class="fa fa-user" aria-hidden="true"></i>Cadastro de Novo Usuário</h3>
+                <header class="w3-container w3-blue">
+                    <h3><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Cadastro de Novo Usuário</h3>
                 </header>
                 <div class="w3-container w3-white">
                     <br>
                     <div class="w3-container w3-border">
-                        <form class="w3-container" onsubmit="JavaScript:NovoUsuario()">
+
+                        <form class="w3-container">
+
+                            <p>
+                                <input class="w3-radio" type="radio" name="tipoPessoa" value="F" checked onclick="if (this.checked) { PessoaF() }">
+                                <label>Pessoa Física</label>
+                                <input class="w3-radio" type="radio" name="tipoPessoa" value="J" onclick="if (this.checked) { PessoaJ() }">
+                                <label>Jurídica</label>
+                            </p>
+
+                            <label id="lblNomeRazao">Nome</label>
+                            <input type="text" name="nomeRazao" id="input_nomeRazao" class="w3-input w3-border w3-round-large" required autofocus>
 
                             <div class="w3-row">
-                                <div class="w3-third">
-                                    <label>e-mail</label>
-                                    <input type="text" name="usrname" id="input_User" required>
+                                <div class="w3-half">
+                                    <label id="lblcpfCnpj">CPF</label>
+                                    <input type="text" name="cpfCnpj" id="input_cpfCnpj" class="w3-input w3-border w3-round-large" style="width: 95%" required>
                                 </div>
-                                <div class="w3-third">
-                                    <label>Senha</label>
-                                    <input type="password" name="psw" id="input_psw">
-                                </div>
-                                <div class="w3-third">
-                                    <label>Confirme a Senha</label>
-                                    <input type="password" name="pswConf" id="input_pswConf">
-                                </div>
-                            </div>
-
-                            <div class="w3-row">
-                                <div class="w3-third">
-                                    <label>CPF/CNPJ</label>
-                                    <input type="text" name="cpfCnpj" id="input_cpfCnpj">
-                                </div>
-                                <div class="w3-third">
-                                    <label>Nome/Razão Social</label>
-                                    <input type="text" name="nomeRazao" id="input_nomeRazao">
-                                </div>
-                                <div class="w3-third">
+                                <div id="divContato" class="w3-half" style="display: none">
                                     <label>Contato</label>
-                                    <input type="text" name="contato" id="input_contato">
+                                    <input type="text" name="contato" id="input_contato" class="w3-input w3-border w3-round-large">
+                                </div>
+                            </div>
+
+                            <label>e-mail</label>
+                            <input type="email" name="usrname" id="input_User" class="w3-input w3-border w3-round-large" required>
+
+                            <div class="w3-row">
+                                <div class="w3-half">
+                                    <label>Senha</label>
+                                    <input type="password" name="psw" id="input_psw" class="w3-input w3-border w3-round-large" style="width: 95%" required>
+                                </div>
+                                <div class="w3-half">
+                                    <label>Confirme a Senha</label>
+                                    <input type="password" name="pswConf" id="input_pswConf" class="w3-input w3-border w3-round-large" required>
                                 </div>
                             </div>
 
                             <div class="w3-row">
-                                <div class="w3-third">
+                                <div class="w3-threequarter">
                                     <label>Endereço</label>
-                                    <input type="text" name="endereco" id="input_endereco">
+                                    <input type="text" name="endereco" id="input_endereco" class="w3-input w3-border w3-round-large" style="width: 95%" required>
                                 </div>
-                                <div class="w3-third">
+                                <div class="w3-quarter">
                                     <label>Número</label>
-                                    <input type="text" name="numero" id="input_numero">
-                                </div>
-                                <div class="w3-third">
-                                    <label>Complemento</label>
-                                    <input type="text" name="complemento" id="input_complemento">
+                                    <input type="text" name="numero" id="input_numero" class="w3-input w3-border w3-round-large">
                                 </div>
                             </div>
 
                             <div class="w3-row">
-                                <div class="w3-third">
+                                <div class="w3-half">
+                                    <label>Complemento</label>
+                                    <input type="text" name="complemento" id="input_complemento" class="w3-input w3-border w3-round-large" style="width: 95%">
+                                </div>
+                                <div class="w3-half">
                                     <label>Telefone</label>
-                                    <input type="text" name="telefone" id="input_telefone">
+                                    <input type="text" name="telefone" id="input_telefone" class="w3-input w3-border w3-round-large" required>
                                 </div>
                             </div>
+
+                            <label>Cupom de Desconto</label>
+                            <input type="text" name="telefone" id="input_cupom" class="w3-input w3-border w3-round-large">
 
                             <div class="w3-section">
                                 <input id="btSignIn" type="button" class="w3-button w3-block w3-green w3-section w3-padding" onclick="NovoUsuario();" value="Continuar" />
                             </div>
 
                             <div id="divHidden" style="display: none" class="w3-center">
-                                <br>
-                                <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
-                                <br>
+                                <i class="fa fa-spinner fa-pulse fa-fw"></i>
                             </div>
 
                         </form>
+
                     </div>
                     <br>
                 </div>

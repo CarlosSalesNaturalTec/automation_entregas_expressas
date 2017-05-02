@@ -122,7 +122,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     });
 }
 
-function concluirSolicitacao() {
+function salvaPonto1() {
     
     document.getElementById("btSolicitar").style.cursor = "progress";
 
@@ -141,8 +141,35 @@ function concluirSolicitacao() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
+            salvaPonto2();
+        },
+        failure: function (response) {
+            document.getElementById("btSignIn").style.cursor = "pointer";
+            alert('Tente Novamente');
+        }
+    });
+}
+
+function salvaPonto2() {
+
+    var v1 = document.getElementById("IDHidden").value;
+    var v2 = document.getElementById("inputPonto2").value;
+    var v3 = document.getElementById("inputNumero2").value;
+    var v4 = document.getElementById("inputComplemento2").value;
+    var v5 = document.getElementById("detalhes2").value;
+    var v6 = "XXX" //telefone   
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/entregaSalvar",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
+            '", param6: "' + v6 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
             var msg = response.d;
-            alert(msg)
+            alert(msg);
+            window.open("EntregaNova.aspx", 'iframe_a');
         },
         failure: function (response) {
             document.getElementById("btSignIn").style.cursor = "pointer";

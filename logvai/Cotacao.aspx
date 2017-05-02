@@ -24,7 +24,7 @@
             <div class="w3-card-4">
 
                 <header class="w3-container w3-blue">
-                    <h3><i class="fa fa-calculator" aria-hidden="true"></i>Faça aqui sua cotação</h3>
+                    <h3><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp;Faça aqui sua cotação</h3>
                 </header>
                 <div class="w3-container w3-white">
                     <br>
@@ -136,7 +136,7 @@
                     <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário">
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
-                    <input type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLoginCot();"  />
+                    <input id="bt_loginCot" type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLoginCot();"  />
                 </div>
             </form>
 

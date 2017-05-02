@@ -16,13 +16,7 @@
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
         <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-button w3-left"><img src="images/logo.png" alt=""></a>
-
-        <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search" aria-hidden="true"></i></a>
-        <input type="text" class="w3-bar-item w3-input w3-border w3-right" placeholder="Localizar Entrega">
         <a onclick="ExibirModal();" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
-        <a href="Contatos.aspx" target="iframe_a" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Contato <i class="fa fa-volume-control-phone" aria-hidden="true"></i></a>
-        <a href="ComoFunc.aspx" target="iframe_a" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Como Funciona <i class="fa fa-question" aria-hidden="true"></i></a>
-        <a href="servicos.aspx" target="iframe_a" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Serviços <i class="fa fa-list-alt" aria-hidden="true"></i></a>
     </div>
     <!-- MENU -->
 

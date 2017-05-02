@@ -12,32 +12,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        #map {
-            height: 100%;
-            width: 50%;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-
 </head>
 
 <body>
 
     <div>
         <header class="w3-container w3-light-gray w3-center">
-            <h6><strong>Histórico de Entregas</strong></h6>
+            <h5><strong>Histórico de Entregas</strong></h5>
         </header>
     </div>
 
-    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    <div class="w3-container w3-padding-16">
+        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    </div>
 
     <!-- Busca e Paginação modelo: datatables.net -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

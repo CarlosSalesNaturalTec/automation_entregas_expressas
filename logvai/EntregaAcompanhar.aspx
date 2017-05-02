@@ -15,7 +15,7 @@
        * element that contains the map. */
         #map {
             height: 100%;
-            width: 50%;
+            width: 100%;
         }
         /* Optional: Makes the sample page fill the window. */
         html, body {
@@ -29,25 +29,18 @@
 
 <body>
 
-    <div class="w3-half">
+    <div >
         <header class="w3-container w3-light-gray w3-center">
             <h6><strong>Acompanhamento de Entregas</strong></h6>
         </header>
-
-        <!-- LOCALIZADOR -->
-        <div class="w3-container">
-            <p><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Identificador da Entrega</p>
-            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" style="width: 400px" />
-        </div>
-        <!-- PONTO1 -->
-
     </div>
 
     <!-- MAPA -->
-    <div id="map" class="w3-right"></div>
+    <div id="map"></div>
     <!-- MAPA -->
 
-    <script src="scripts/codeAcompanhamento.js"></script>
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
