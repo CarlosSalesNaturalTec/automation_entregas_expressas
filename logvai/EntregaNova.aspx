@@ -39,11 +39,10 @@
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No." style="width: 80px" />
             <p>
-                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento.Ex: Sala 301" style="width: 400px" />&nbsp;&nbsp;&nbsp;
+               <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" placeholder="Complemento" style="width: 220px" />
+               <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputdestinatario1" placeholder="Com quem falar?" style="width: 220px" />
             </p>
-            <p>
-                <textarea class="w3-input w3-border w3-round" id="detalhes1" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea>
-            </p>
+            <p><textarea class="w3-input w3-border w3-round" id="detalhes1" rows="2" placeholder="O que deve ser feito?" style="width: 490px"></textarea></p>
         </div>
         <!-- PONTO1 -->
 
@@ -54,11 +53,14 @@
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto2" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
             <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" />
             <p>
-                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento2" placeholder="Complemento.Ex: Sala 401" style="width: 200px" />&nbsp;&nbsp;&nbsp;
+                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento2" placeholder="Complemento.Ex: Sala 401" style="width: 220px" />
+                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputdestinatario2" placeholder="Com quem falar?" style="width: 220px" />
+            </p>
+            <p>
                 <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-small">&nbsp;Banco, Repartição Pública ou Correios</label>
             </p>
             <p>
-                <textarea class="w3-input w3-border w3-round" name="detalhes2" id="detalhes2" rows="2" placeholder="Com quem falar? O que deve ser feito?" style="width: 490px"></textarea>
+                <textarea class="w3-input w3-border w3-round" name="detalhes2" id="detalhes2" rows="2" placeholder="O que deve ser feito?" style="width: 490px"></textarea>
             </p>
         </div>
         <br />
@@ -70,7 +72,8 @@
 
             <!-- TEMPO DE ATENDIMENTO -->
             <div class="w3-row w3-small w3-gray w3-center">
-                <strong><label>Tempo de Atendimento</label></strong>
+                <strong>
+                    <label>Tempo de Atendimento</label></strong>
             </div>
             <div class="w3-row w3-small">
                 <div class="w3-half">
@@ -110,17 +113,17 @@
         <!-- CALCULO DE TOTAIS -->
 
         <!-- campos auxiliares -->
-        <input id="IDHidden" runat="server" type="hidden" disabled/>
+        <input id="IDHidden" runat="server" type="hidden" disabled />
 
     </div>
 
     <!-- MAPA -->
     <div id="map" class="w3-right"></div>
-    <script src="scripts/codeEntregaNovas.js"></script>
+    <script src="scripts/codeEntregaNova.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
     <!-- MAPA -->
 
-     <!-- Script cadastro -->
+    <!-- Script cadastro -->
     <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 </body>

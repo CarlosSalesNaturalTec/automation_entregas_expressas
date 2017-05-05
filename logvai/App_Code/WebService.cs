@@ -78,25 +78,23 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string entregaSalvar(string param1, string param2, string param3, string param4, string param5,string param6)
+    public string entregaSalvar(string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8)
     {
-        string param7 = DateTime.Now.ToString("yyyy-MM-dd");
+        string param9 = DateTime.Now.ToString("yyyy-MM-dd");
        
         //atenção corrigir
-        string id_selecionada = "1";
-        string txtDestinatario = "Destinatario";
+        string id_motoboy = "2";
         string txtCidade = "Salvador";
         string txtTelefone = "(71) 9999-9999";
-        string Lat = "-12.961999";
-        string Lng = "-38.437647";
 
         string msg="XXX";
 
         string strInsert = "INSERT INTO Tbl_Entregas (ID_Cliente, ID_Motoboy, Nome_Destinatario, Endereco, Ponto_Ref, " +
-                    "Bairro, Cidade, Data_Encomenda, Telefone, Entregue,Latitude,Longitude,Status_Entrega,Partida_Iniciada,Observacoes ) VALUES (" + param1 +
-                    "," + id_selecionada + ", '" + txtDestinatario + "', '" + param2 + "', '" + param4 +
-                    "', '" + param2 + "', '" + txtCidade + "', '" + param7 + "', '" + txtTelefone + "', 0,'" +
-                    Lat  + "', '" + Lng + "','EM ABERTO',0,'" +  param5 + "')";
+                    "Bairro, Cidade, Data_Encomenda, Telefone, Entregue, Latitude, Longitude, Status_Entrega, Partida_Iniciada, Observacoes ) " +
+                    "VALUES (" + param1 + "," + id_motoboy + ", '" + param6 + "', '" + param2 + "', '" + param4 + "', '" + param2 +
+                    "', '" + txtCidade + "', '" + param9 + "', '" + txtTelefone + "', 0,'" +
+                    param7 + "', '" + param8 + "','EM ABERTO',0,'" + param5 + "')";
+
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);

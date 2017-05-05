@@ -6,6 +6,9 @@ var map;
 var directionsService;
 var directionsDisplay;
 
+var latPonto1, latPonto2;
+var lngPonto1, lngPonto2;
+
 document.getElementById('inputPonto1').focus();
 
 function initMap() {
@@ -29,7 +32,6 @@ function initMap() {
     //tracar roteiro
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer;
-
     directionsDisplay.setMap(map);
 
 }
@@ -44,6 +46,7 @@ function CalculoGeral() {
     Ponto1 = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
     Ponto2 = document.getElementById('inputPonto2').value + "," + document.getElementById('inputNumero2').value;
 
+   
     //calcula distancia e tempo
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
@@ -115,7 +118,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         travelMode: 'DRIVING'
     }, function (response, status) {
         if (status === 'OK') {
+            //pinta o roteiro no mapa
             directionsDisplay.setDirections(response);
+            //obtem coordenadas lat lng (uso no app)
+            coordenadasPonto1(Ponto1);
         } else {
             //window.alert('Directions request failed due to ' + status);
         }
@@ -124,20 +130,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 function salvaPonto1() {
     
-    document.getElementById("btSolicitar").style.cursor = "progress";
+    document.getElementById("btSolicitar").style.cursor = "progress";   
 
     var v1 = document.getElementById("IDHidden").value;
     var v2 = document.getElementById("inputPonto1").value;
     var v3 = document.getElementById("inputNumero1").value;
     var v4 = document.getElementById("inputComplemento1").value;
     var v5 = document.getElementById("detalhes1").value;        
-    var v6 = "XXX" //telefone   
+    var v6 = document.getElementById("inputdestinatario1").value;
+    var v7 = latPonto1;
+    var v8 = lngPonto1;
 
     $.ajax({
         type: "POST",
         url: "WebService.asmx/entregaSalvar",
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '"}',
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -157,13 +165,15 @@ function salvaPonto2() {
     var v3 = document.getElementById("inputNumero2").value;
     var v4 = document.getElementById("inputComplemento2").value;
     var v5 = document.getElementById("detalhes2").value;
-    var v6 = "XXX" //telefone   
+    var v6 = document.getElementById("inputdestinatario2").value;
+    var v7 = latPonto2;
+    var v8 = lngPonto2;
 
     $.ajax({
         type: "POST",
         url: "WebService.asmx/entregaSalvar",
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '"}',
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -176,4 +186,36 @@ function salvaPonto2() {
             alert('Tente Novamente');
         }
     });
+}
+
+function coordenadasPonto1(endereco) {
+
+    var geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({ address: endereco }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var ltlg = results[0].geometry.location;
+            latPonto1 = ltlg.lat();
+            lngPonto1 = ltlg.lng();
+
+            coordenadasPonto2(Ponto2);
+        };
+    });
+
+
+}
+
+function coordenadasPonto2(endereco) {
+
+    var geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({ address: endereco }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var ltlg = results[0].geometry.location;
+            latPonto2 = ltlg.lat();
+            lngPonto2 = ltlg.lng();
+        };
+    });
+
+
 }
