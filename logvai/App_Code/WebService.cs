@@ -71,7 +71,16 @@ public class WebService : System.Web.Services.WebService
 
         while (dados.Read())
         {
-            url = "PainelCliente.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]);
+            //cria parametros para validação de acesso
+            string vValida1, vValida2;
+
+            vValida1 = DateTime.Now.ToString("hh"); // hora
+            vValida2 = DateTime.Now.ToString("mm"); // minuto
+            
+            int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
+            string vValida4 = vValida3.ToString();
+
+            url = "PainelCliente.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4;
         }
 
         return url;
@@ -128,7 +137,7 @@ public class ConexaoBancoSQL
     public ConexaoBancoSQL()
     {
         // *** STRING DE CONEXÃO COM BANCO DE DADOS - Atenção! Alterar dados conforme seu servidor
-        stringconnection1 = @"Server=tcp:serverlog.database.windows.net,1433;Initial Catalog=dblog;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        stringconnection1 = "Server=tcp:serverlog.database.windows.net,1433;Initial Catalog=dblog;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         try
         {
             tentarAbrirConexaoRemota();

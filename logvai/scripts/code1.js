@@ -44,8 +44,7 @@ function retorno(response, status) {
         var destination = response.destinationAddresses[0];
         if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
             document.getElementById("btCalcular").style.cursor = "pointer";
-            alert("Não foi possível encontrar roteiro entre: "
-                + document.getElementById('inputPonto1').value + " E " + document.getElementById('inputPonto2').value);
+            alert("Não foi possível encontrar roteiro");
         } else {
 
             var distance = response.rows[0].elements[0].distance;
