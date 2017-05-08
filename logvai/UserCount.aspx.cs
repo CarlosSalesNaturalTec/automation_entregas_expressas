@@ -8,7 +8,7 @@ public partial class UserCount : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //PreencheCampos(Session["IDUser"].ToString());
+        //PreencheCampos(Session["UserID"].ToString());
         //Literal1.Text = str.ToString();
     }
 

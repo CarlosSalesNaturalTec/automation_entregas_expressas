@@ -38,7 +38,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
     {
         string datastatus = DateTime.Now.ToString("yyyy-MM-dd");
         string stringselect = @"select ID_Entrega, format(Data_Encomenda,'dd-MM-yyyy') as D1, Endereco , Observacoes, Status_Entrega  " +
-                " from Tbl_Entregas where ID_Cliente = " + Session["IDUser"].ToString();
+                " from Tbl_Entregas where ID_Cliente = " + Session["UserID"].ToString();
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

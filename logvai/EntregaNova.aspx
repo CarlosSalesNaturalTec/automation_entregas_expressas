@@ -106,14 +106,16 @@
 
             <div id="idDiv1" style="display: none">
                 <br>
-                <button id="btSolicitar" class="w3-button w3-block w3-round w3-light-green w3-hover-green" onclick="salvaPonto1();">Confirmar Solicitação</button>
+                <button id="btSolicitar" class="w3-button w3-block w3-round w3-light-green w3-hover-green" onclick="salvarMaster();">Confirmar Solicitação</button>
                 <br>
             </div>
         </div>
         <!-- CALCULO DE TOTAIS -->
 
         <!-- campos auxiliares -->
-        <input id="IDHidden" runat="server" type="hidden" disabled />
+        <input id="IDHidden" runat="server" type="hidden" />
+        <input id="DistanciaHidden" runat="server" type="hidden" />
+        <input id="ValorHidden" runat="server" type="hidden" />
 
     </div>
 

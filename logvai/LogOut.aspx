@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Sorry.aspx.cs" Inherits="Sorry" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LogOut.aspx.cs" Inherits="LogOut" %>
 
 <!DOCTYPE html>
 
@@ -14,8 +14,8 @@
 <body>
     <div class="w3-container w3-center">
         <img src="images/logo.png" alt="" />
-    <h2>Tente Novamente</h2>
-    <a class="w3-button w3-blue" href="Default.aspx" target="_parent">Login</a>
+    <h2>Logout realizado com sucesso!</h2>
+    <a class="w3-button w3-blue" href="Default.aspx">Login</a>
 
     </div>
 </body>

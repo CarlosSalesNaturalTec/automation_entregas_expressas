@@ -29,7 +29,7 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
         if (!IsPostBack)
         {
             // tenta identificar se houve login. caso contrário vai para página de erro
-            string v_id_cli = Session["IDUser"].ToString();
+            string v_id_cli = Session["UserID"].ToString();
 
             obtemcoordenadas("On-Line");
 
@@ -124,7 +124,7 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
         string stringselect = @"select Tbl_Entregas.Latitude, Tbl_Entregas.Longitude, Tbl_Motoboys.Nome, Tbl_Entregas.Nome_Destinatario, Tbl_Entregas.ID_Entrega" +
                 " from Tbl_Entregas " +
                 " INNER JOIN Tbl_Motoboys ON Tbl_Entregas.ID_Motoboy = Tbl_Motoboys.ID_Motoboy " +
-                " where Tbl_Entregas.ID_Cliente = " + Session["IDUser"].ToString() +
+                " where Tbl_Entregas.ID_Cliente = " + Session["UserID"].ToString() +
                 " and format(Tbl_Entregas.Data_Encomenda,'yyyy-MM-dd') ='" + datastatus + "'" +
                 " and Tbl_Entregas.Status_Entrega ='EM ABERTO'" +
                 " and Tbl_Entregas.Partida_Iniciada =0";
@@ -160,7 +160,7 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
         string stringselect = @"select Tbl_Entregas.Latitude, Tbl_Entregas.Longitude, Tbl_Motoboys.Nome, Tbl_Entregas.Nome_Destinatario, Tbl_Entregas.ID_Entrega" +
                 " from Tbl_Entregas " +
                 " INNER JOIN Tbl_Motoboys ON Tbl_Entregas.ID_Motoboy = Tbl_Motoboys.ID_Motoboy " +
-                " where Tbl_Entregas.ID_Cliente = " + Session["IDUser"].ToString() +
+                " where Tbl_Entregas.ID_Cliente = " + Session["UserID"].ToString() +
                 " and format(Tbl_Entregas.Data_Encomenda,'yyyy-MM-dd') ='" + datastatus + "'" +
                 " and Tbl_Entregas.Partida_Iniciada = 1" +
                 " and Tbl_Entregas.Entregue = 0";
@@ -197,7 +197,7 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
         string stringselect = @"select Tbl_Entregas.Latitude, Tbl_Entregas.Longitude, Tbl_Motoboys.Nome, Tbl_Entregas.Nome_Destinatario, Tbl_Entregas.ID_Entrega" +
                 " from Tbl_Entregas " +
                 " INNER JOIN Tbl_Motoboys ON Tbl_Entregas.ID_Motoboy = Tbl_Motoboys.ID_Motoboy " +
-                " where Tbl_Entregas.ID_Cliente = " + Session["IDUser"].ToString() +
+                " where Tbl_Entregas.ID_Cliente = " + Session["UserID"].ToString() +
                 " and Tbl_Entregas.Entregue = 1" +
                 " and format(Tbl_Entregas.Data_Encomenda,'yyyy-MM-dd') ='" + datastatus + "'" +
                 " and Tbl_Entregas.Status_Entrega='ENTREGA REALIZADA'";
@@ -234,7 +234,7 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
         string stringselect = @"select Tbl_Entregas.Latitude, Tbl_Entregas.Longitude, Tbl_Motoboys.Nome, Tbl_Entregas.Nome_Destinatario, Tbl_Entregas.ID_Entrega" +
                 " from Tbl_Entregas " +
                 " INNER JOIN Tbl_Motoboys ON Tbl_Entregas.ID_Motoboy = Tbl_Motoboys.ID_Motoboy " +
-                " where Tbl_Entregas.ID_Cliente = " + Session["IDUser"].ToString() +
+                " where Tbl_Entregas.ID_Cliente = " + Session["UserID"].ToString() +
                 " and format(Tbl_Entregas.Data_Encomenda,'yyyy-MM-dd') ='" + datastatus + "'" +
                 " and Tbl_Entregas.Entregue = 1" +
                 " and Tbl_Entregas.Status_Entrega<>'ENTREGA REALIZADA'";

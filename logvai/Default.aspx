@@ -15,14 +15,15 @@
 
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
-        <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-button w3-left"><img src="images/logo.png" alt=""></a>
+        <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-button w3-left">
+            <img src="images/logo.png" alt=""></a>
         <a onclick="ExibirModal();" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
     </div>
     <!-- MENU -->
 
     <!-- page content -->
     <div class="right_col" role="main">
-        <iframe src="Cotacao.aspx" width="100%" height="840" frameborder="0" name="iframe_a">
+        <iframe src="Cotacao.aspx" width="100%" height="800px" frameborder="0" name="iframe_a">
             <p>Seu browser não suporta iframes.</p>
         </iframe>
     </div>
@@ -45,8 +46,8 @@
                         required>
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
-                    
-                    <input type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();"  />
+
+                    <input type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();" />
                 </div>
             </form>
 
@@ -59,6 +60,13 @@
 
     <!-- Scripts diversas -->
     <script type="text/javascript">
+
+        window.addEventListener('DOMContentLoaded', function (e) {
+            var iFrame = document.getElementById('iframe_a');
+            resizeIFrameToFitContent(iFrame);
+        });
+
+
         function ExibirModal() {
             document.getElementById('id01').style.display = 'block';
             document.getElementById('input_User').focus();
@@ -68,6 +76,12 @@
             document.getElementById('id01').style.display = 'none';
             window.open('SignIn.aspx', 'iframe_a');
         }
+
+        function resizeIFrameToFitContent(iFrame) {
+            //iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
+            iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+        }
+
     </script>
 
     <!-- Script cadastro -->

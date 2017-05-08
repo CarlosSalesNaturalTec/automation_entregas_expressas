@@ -49,7 +49,13 @@ public class WebService : System.Web.Services.WebService
 
             while (dados.Read())
             {
-                url = "PainelCliente.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]);
+                //cria parametros para validação de acesso
+                string vValida1 = DateTime.Now.ToString("hh"); // hora
+                string vValida2 = DateTime.Now.ToString("mm"); // minuto
+                int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
+                string vValida4 = vValida3.ToString();
+
+                url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4;
             }
 
         }
@@ -72,37 +78,62 @@ public class WebService : System.Web.Services.WebService
         while (dados.Read())
         {
             //cria parametros para validação de acesso
-            string vValida1, vValida2;
-
-            vValida1 = DateTime.Now.ToString("hh"); // hora
-            vValida2 = DateTime.Now.ToString("mm"); // minuto
-            
+            string vValida1 = DateTime.Now.ToString("hh"); // hora
+            string vValida2 = DateTime.Now.ToString("mm"); // minuto
             int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
             string vValida4 = vValida3.ToString();
 
-            url = "PainelCliente.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4;
+            url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4;
         }
 
         return url;
     }
 
     [WebMethod]
-    public string entregaSalvar(string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8)
+    public string entregMasterSalvar(string param1, string param2, string param3, string param4, string param5, string param6, string param7)
     {
-        string param9 = DateTime.Now.ToString("yyyy-MM-dd");
-       
-        //atenção corrigir
-        string id_motoboy = "2";
-        string txtCidade = "Salvador";
-        string txtTelefone = "(71) 9999-9999";
+        string msg="";
+        string strInsert = "INSERT INTO Tbl_Entregas_Master (ID_Cliente ,Data_OS , Data_Servico , Distancia_Total , Valor_Total , Tipo_Atendimento ," +
+            "Forma_Pagam ,Status_OS , Status_Pagam ) values (" +
+            param1 + ", getdate(), getdate(), " + param2 + " , " + param3 + " , '" + param4 + "', '" + param5 + "' , '" +
+            param6 + "', '" + param7 +"')";
+ 
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
 
-        string msg="XXX";
+        if (inserir == true)
+        {
+            string stringselect = "select ID_Entrega" +
+                 " from Tbl_Entregas_Master" +
+                 " where ID_Cliente = " + param1 +
+                 " order by ID_Entrega desc";
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            System.Data.SqlClient.SqlDataReader dados = operacao1.Select(stringselect);
 
-        string strInsert = "INSERT INTO Tbl_Entregas (ID_Cliente, ID_Motoboy, Nome_Destinatario, Endereco, Ponto_Ref, " +
-                    "Bairro, Cidade, Data_Encomenda, Telefone, Entregue, Latitude, Longitude, Status_Entrega, Partida_Iniciada, Observacoes ) " +
-                    "VALUES (" + param1 + "," + id_motoboy + ", '" + param6 + "', '" + param2 + "', '" + param4 + "', '" + param2 +
-                    "', '" + txtCidade + "', '" + param9 + "', '" + txtTelefone + "', 0,'" +
-                    param7 + "', '" + param8 + "','EM ABERTO',0,'" + param5 + "')";
+            while (dados.Read())
+            {
+                msg = Convert.ToString(dados[0]);
+                break;
+            }
+        }
+        else
+        {
+            msg = "TENTE NOVAMENTE!!!!";
+        }
+
+        return msg;
+    }
+
+    [WebMethod]
+    public string entregaSalvar(string param1, string param2, string param3, string param4, string param5, string param6, 
+        string param7, string param8, string param9, string param10, string param11)
+    {
+        string msg = "XXX";
+        string strInsert = "INSERT INTO Tbl_Entregas (ID_Entrega,Ordem,Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica," +
+            "Latitude,Longitude,Status_Entrega) values ( " +
+            param1 + "," + param2 + ", '" + param3 + "', '" + param4 + "', '" + param5 + "', '" + param6 + "', '" + param7 + "', '" +
+            param8 + "', '" + param9 + "', '" + param10 + "', '" + param11 + "')";
 
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -120,6 +151,7 @@ public class WebService : System.Web.Services.WebService
 
         return msg;
     }
+
 }
 
 public class ConexaoBancoSQL
@@ -137,7 +169,7 @@ public class ConexaoBancoSQL
     public ConexaoBancoSQL()
     {
         // *** STRING DE CONEXÃO COM BANCO DE DADOS - Atenção! Alterar dados conforme seu servidor
-        stringconnection1 = "Server=tcp:serverlog.database.windows.net,1433;Initial Catalog=dblog;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        stringconnection1 = "Server=tcp:serverlogvai.database.windows.net,1433;Initial Catalog=dblogvai;Persist Security Info=False;User ID=admserver;Password=pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         try
         {
             tentarAbrirConexaoRemota();

@@ -26,7 +26,7 @@
             <a href="EntregaAcompanhar.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Acompanhar</a>
             <a href="EntregaHistorico.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Histórico</a>
             <a href="UserCount.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Minha Conta</a>
-            <a href="#" onclick="Sair();" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Sair</a>
+            <a href="#" onclick="SairExit();" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Sair</a>
             <div class="w3-small w3-text-blue w3-padding">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<asp:Label ID="lblUser" runat="server"></asp:Label>]
             </div>
@@ -36,11 +36,26 @@
 
     <!-- page content -->
     <div style="margin-left: 17%">
-        <iframe src="EntregaNova.aspx" width="100%" height="860" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
+        <iframe src="EntregaNova.aspx" width="100%" height="800" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
     <script src="scripts/codePainelCliente.js" type="text/javascript"></script>
+
+    <!-- Scripts diversas -->
+    <script type="text/javascript">
+
+        window.addEventListener('DOMContentLoaded', function (e) {
+            var iFrame = document.getElementById('iframe_a');
+            resizeIFrameToFitContent(iFrame);
+        });
+
+        function resizeIFrameToFitContent(iFrame) {
+            //iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
+            iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+        }
+
+    </script>
 
 </body>
 </html>
