@@ -88,11 +88,19 @@
                                 </div>
                             </div>
 
-                            <label>Cupom de Desconto</label>
-                            <input type="text" name="telefone" id="input_cupom" class="w3-input w3-border w3-round-large">
+                            <div class="w3-row">
+                                <div class="w3-half">
+                                    <label>Cupom de Desconto</label>
+                                    <input type="text" name="telefone" id="input_cupom" class="w3-input w3-border w3-round-large" style="width: 95%">
+                                </div>
+                                <div class="w3-half">
+                                    <p></p>
+                                    <input onchange="aceiteTermos();" class="w3-check" type="checkbox" name="chkAceite" id="chkAceite"><label class="w3-small">&nbsp;Li e aceito as condições dos <a href="#" onclick="ExibirModal();">Termos de Uso</a></label>
+                                </div>
+                            </div>
 
                             <div class="w3-section">
-                                <input id="btSignIn" type="button" class="w3-button w3-block w3-green w3-section w3-padding" onclick="NovoUsuario();" value="Continuar" />
+                                <input id="btSignIn" type="button" class="w3-button w3-block w3-green w3-section w3-padding" onclick="NovoUsuario();" value="Continuar" disabled />
                             </div>
 
                             <div id="divHidden" style="display: none" class="w3-center">
@@ -108,6 +116,43 @@
         </div>
     </div>
     <!-- Formulário -->
+
+    <!-- Modal Termos de Uso -->
+    <div id="idTermo" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 600px">
+
+            <div class="w3-center">
+                <br>
+                <span onclick="document.getElementById('idTermo').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright"
+                    title="Fechar">&times;</span>
+            </div>
+
+            <form class="w3-container">
+                <div class="w3-section w3-center">
+                    <h4>Termos de Uso</h4>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal Termos de Uso -->
+
+    <script type="text/javascript">
+        function ExibirModal() {
+            document.getElementById('idTermo').style.display = 'block';
+        }
+
+        function aceiteTermos() {
+            var chktermo = document.getElementsByName('chkAceite');
+            var chktermo2 = chktermo[0].checked;
+            if (chktermo2 == true) {
+                document.getElementById('btSignIn').disabled = false;
+            } else {
+                document.getElementById('btSignIn').disabled = true;
+            }
+
+        }
+
+    </script>
 
     <!-- Script Autocomplete Endereço-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places"></script>

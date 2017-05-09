@@ -37,11 +37,6 @@
             <input type="email" name="usrname" id="input_User" class="w3-input w3-border w3-round-large" disabled>
 
             <div class="w3-row">
-                <label>Senha</label>
-                <input type="password" name="psw" id="input_psw" class="w3-input w3-border w3-round-large" style="width: 95%" disabled>
-            </div>
-
-            <div class="w3-row">
                 <div class="w3-threequarter">
                     <label>Endereço</label>
                     <input type="text" name="endereco" id="input_endereco" class="w3-input w3-border w3-round-large" style="width: 95%" disabled>
@@ -66,18 +61,27 @@
             <label>Cupom de Desconto</label>
             <input type="text" name="telefone" id="input_cupom" class="w3-input w3-border w3-round-large" disabled>
 
-            <div class="w3-section">
-                <input id="btSignIn" type="button" class="w3-button w3-block w3-green w3-section w3-padding" onclick="" value="Alterar" />
-                <a id="btTermos" href="Termos.aspx" class="w3-button w3-block w3-green w3-section w3-padding">Termos de Uso</a>
+            <div id="divBotoes" class="w3-section">
+                <div class="w3-half">
+                    <input id="btSignIn" type="button" class="w3-button w3-round w3-section w3-padding w3-block w3-blue w3-hover-green" onclick="habilitacampos();" value="Alterar Dados" style="width: 95%" />
+                </div>
+                <div class="w3-half">
+                    <input id="btEditPwd" type="button" class="w3-button w3-round w3-section w3-padding w3-block w3-blue w3-hover-green" onclick="" value="Alterar Senha" />
+                </div>
+                <a id="btTermos" href="Termos.aspx" class="w3-button w3-round w3-section w3-padding w3-block w3-blue w3-hover-green">Termos de Uso</a>
             </div>
 
-            <div id="divHidden" style="display: none" class="w3-center">
-                <i class="fa fa-spinner fa-pulse fa-fw"></i>
-            </div>
+            <input type="hidden" id="IDHidden" />
 
         </form>
 
     </div>
+
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+
+    <!-- Script diversos -->
+    <script type="text/javascript" src="scripts/codeUserCount.js"></script>
+    <!-- Script diversos -->
 
 </body>
 

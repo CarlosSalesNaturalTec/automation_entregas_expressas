@@ -28,15 +28,15 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string usersave(string param1, string param2, string param3, string param4, string param5,
-        string param6, string param7, string param8, string param9,string param10)
+        string param6, string param7, string param8, string param9,string param10, string param11)
     {
 
         string url = "Sorry.aspx";
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Usuarios (usuario,senha,cpfcnpj,nome,contato,endereco,numero,complemento,telefone,Cupom,dataCadastro) " +
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Usuarios (usuario,senha,cpfcnpj,nome,contato,endereco,numero,complemento,telefone,Cupom,dataCadastro,tipoPessoa) " +
             "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "', '" + param5 +
-            "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', '" + param10 + "', getdate())");
+            "', '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', '" + param10 + "', dateadd(hh,-3,getdate()), '" + param11 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
@@ -60,6 +60,7 @@ public class WebService : System.Web.Services.WebService
 
         }
 
+        ConexaoBancoSQL.fecharConexao();
         return url;
     }
 
@@ -95,7 +96,7 @@ public class WebService : System.Web.Services.WebService
         string msg="";
         string strInsert = "INSERT INTO Tbl_Entregas_Master (ID_Cliente ,Data_OS , Data_Servico , Distancia_Total , Valor_Total , Tipo_Atendimento ," +
             "Forma_Pagam ,Status_OS , Status_Pagam ) values (" +
-            param1 + ", getdate(), getdate(), " + param2 + " , " + param3 + " , '" + param4 + "', '" + param5 + "' , '" +
+            param1 + ", dateadd(hh,-3,getdate()), dateadd(hh,-3,getdate()), " + param2 + " , " + param3 + " , '" + param4 + "', '" + param5 + "' , '" +
             param6 + "', '" + param7 +"')";
  
         OperacaoBanco operacao = new OperacaoBanco();
@@ -121,7 +122,7 @@ public class WebService : System.Web.Services.WebService
         {
             msg = "TENTE NOVAMENTE!!!!";
         }
-
+        ConexaoBancoSQL.fecharConexao();
         return msg;
     }
 
@@ -135,18 +136,17 @@ public class WebService : System.Web.Services.WebService
             param1 + "," + param2 + ", '" + param3 + "', '" + param4 + "', '" + param5 + "', '" + param6 + "', '" + param7 + "', '" +
             param8 + "', '" + param9 + "', '" + param10 + "', '" + param11 + "')";
 
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert(strInsert);
+        OperacaoBanco operacao2 = new OperacaoBanco();
+        bool inserir2 = operacao2.Insert(strInsert);
         ConexaoBancoSQL.fecharConexao();
 
-        if (inserir == true)
+        if (inserir2 == true)
         {
-            msg = "SOLICITAÇÃO ENVIADA COM SUCESSO";
+            msg = "SOLICITAÇÃO ENVIADA COM SUCESSO!";
         }
         else
         {
-            msg = "TENTE NOVAMENTE";
+            msg = "TENTE NOVAMENTE.";
         }
 
         return msg;

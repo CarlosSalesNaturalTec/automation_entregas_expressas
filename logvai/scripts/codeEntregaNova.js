@@ -11,7 +11,7 @@ var lngPonto1, lngPonto2;
 
 var tipoPag;
 var idNovaEntrega;
-var eBanco = 0;
+var eBanco = "0";
 
 document.getElementById('inputPonto1').focus();
 
@@ -106,9 +106,9 @@ function CalculoTempoEValor() {
     var chkbanco = document.getElementsByName('ChkBancoPonto2');
     var chkbanco2 = chkbanco[0].checked;
     if (chkbanco2 == true) {
-        eBanco = 1;
+        eBanco = "1";
         valorTotal += adicionalBanco;
-    }
+    } else { eBanco = "0";}
 
     document.getElementById("txtValor").textContent = "R$ " + valorTotal.toFixed(2);
     document.getElementById("ValorHidden").value = valorTotal.toFixed(2);
@@ -164,7 +164,6 @@ function salvarMaster() {
         }
     });
 }
-
 
 function salvaPonto1() {
     

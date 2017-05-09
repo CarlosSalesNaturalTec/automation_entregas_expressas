@@ -1,4 +1,5 @@
 ﻿document.getElementById('input_nomeRazao').focus();
+var tipoP = "F";
 
 function NovoUsuario() {
 
@@ -13,7 +14,7 @@ function NovoUsuario() {
     var v8 = document.getElementById("input_complemento").value;
     var v9 = document.getElementById("input_telefone").value;
     var v10 = document.getElementById("input_cupom").value;
-
+    
     if (v4 == "") { alert('Informe Nome ou Razão Social!'); document.getElementById('input_nomeRazao').focus(); return; }
     if (v3 == "") { alert('Informe CPF/CNPJ!'); document.getElementById('input_cpfCnpj').focus(); return; }
     if (v1 == "") { alert('Informe e-mail!'); document.getElementById('input_User').focus(); return; }
@@ -32,7 +33,7 @@ function NovoUsuario() {
         type: "POST",
         url: "WebService.asmx/usersave",
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '", param10: "' + v10 + '"}',
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '", param10: "' + v10 + '", param11: "' + tipoP + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -50,11 +51,12 @@ function PessoaF() {
     document.getElementById('lblNomeRazao').textContent = "Nome";
     document.getElementById('lblcpfCnpj').textContent = "CPF";
     document.getElementById('divContato').style.display = "none"
-    
+    tipoP = "F";
 }
+
 function PessoaJ() {
     document.getElementById('lblNomeRazao').textContent = "Razão Social";
     document.getElementById('lblcpfCnpj').textContent = "CNPJ";
     document.getElementById('divContato').style.display = "block";
-    
+    tipoP = "J";
 }
