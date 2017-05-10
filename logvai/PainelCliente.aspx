@@ -36,26 +36,11 @@
 
     <!-- page content -->
     <div style="margin-left: 17%">
-        <iframe src="EntregaNova.aspx" width="100%" height="800" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
+        <iframe src="EntregaNova.aspx" width="100%" height="880" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
     <script src="scripts/codePainelCliente.js" type="text/javascript"></script>
-
-    <!-- Scripts diversas -->
-    <script type="text/javascript">
-
-        window.addEventListener('DOMContentLoaded', function (e) {
-            var iFrame = document.getElementById('iframe_a');
-            resizeIFrameToFitContent(iFrame);
-        });
-
-        function resizeIFrameToFitContent(iFrame) {
-            //iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
-            iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-        }
-
-    </script>
 
 </body>
 </html>

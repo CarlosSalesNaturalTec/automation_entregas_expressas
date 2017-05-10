@@ -260,3 +260,53 @@ function coordenadasPonto2(endereco) {
 
 
 }
+
+function exibirResumo() {
+
+    var complem1 = document.getElementById('inputComplemento1').value;
+    document.getElementById('Resumo_Ponto1').textContent = Ponto1;
+    document.getElementById('Resumo_Complem1').textContent = complem1;
+
+    var complem2 = document.getElementById('inputComplemento2').value;
+    document.getElementById('Resumo_Ponto2').textContent = Ponto2;
+    document.getElementById('Resumo_Complem2').textContent = complem2;
+
+    var rdist = document.getElementById("txtDist").textContent;
+    document.getElementById('Resumo_Distancia').textContent = rdist;
+
+    var rtotal = document.getElementById("txtValor").textContent;
+    document.getElementById('Resumo_Total').textContent = rtotal;
+
+    document.getElementById('divEnderecos').style.display = 'none';
+    document.getElementById('divResumo').style.display = 'block';
+}
+
+function voltarEnderecos() {
+
+    document.getElementById('divEnderecos').classList.remove('w3-animate-left');
+    document.getElementById('divEnderecos').classList.add('w3-animate-right');
+
+    document.getElementById('divResumo').style.display = 'none';
+    document.getElementById('divEnderecos').style.display = 'block';
+    
+}
+
+function iniciarPag() {
+
+    var code = '1F69A3CF7878ED9994B3DF9DDC706796';
+    var isOpenLightbox = PagSeguroLightbox({
+        code: 'code'
+    }, {
+        success: function (transactionCode) {
+            alert("success - " + transactionCode);
+        },
+        abort: function () {
+            alert("Pagamento não identificado");
+        }
+    });
+    // Redirecionando o cliente caso o navegador não tenha suporte ao Lightbox
+    if (!isOpenLightbox) {
+        location.href = "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" + code;
+    }
+
+}
