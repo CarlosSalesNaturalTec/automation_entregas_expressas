@@ -70,7 +70,7 @@ public class WebService : System.Web.Services.WebService
 
         string url = "Default.aspx";
 
-        string stringselect = "select ID_User,nome " +
+        string stringselect = "select ID_User,nome,faturar  " +
             "from Tbl_Usuarios " +
             "where usuario='" + param1 + "' and senha='" + param2 + "' ";
         OperacaoBanco operacao1 = new OperacaoBanco();
@@ -83,8 +83,9 @@ public class WebService : System.Web.Services.WebService
             string vValida2 = DateTime.Now.ToString("mm"); // minuto
             int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
             string vValida4 = vValida3.ToString();
+            string permitefaturar = Convert.ToString(dados[2]);
 
-            url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4;
+            url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4 + "&v4=" + permitefaturar;
         }
 
         return url;

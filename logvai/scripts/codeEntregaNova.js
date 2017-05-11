@@ -38,6 +38,18 @@ function initMap() {
     directionsDisplay = new google.maps.DirectionsRenderer;
     directionsDisplay.setMap(map);
 
+    //verifica se permite faturar
+    permissaoFaturar();
+
+}
+
+function permissaoFaturar() {
+    var faturar = document.getElementById('FaturarHidden').value;
+    if (faturar == 'True') {
+        document.getElementById('formaPag').options[1].disabled = false;
+    } else {
+        document.getElementById('formaPag').options[1].disabled = true;
+    }
 }
 
 function CalculoGeral() {

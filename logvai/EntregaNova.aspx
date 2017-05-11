@@ -118,6 +118,7 @@
 
         <!-- campos auxiliares -->
         <input id="IDHidden" runat="server" type="hidden" />
+        <input id="FaturarHidden" runat="server" type="hidden" />
         <input id="DistanciaHidden" runat="server" type="hidden" />
         <input id="ValorHidden" runat="server" type="hidden" />
 
@@ -155,7 +156,7 @@
             <p>
                 <select id="formaPag" name="formaPag" class="w3-select w3-border w3-half">
                     <option value="Cartão">Cartão</option>
-                    <option value="Faturado">Faturado</option>
+                    <option value="Faturado" disabled>Faturado</option>
                 </select>
             </p>
         </section>
@@ -173,13 +174,15 @@
     <!-- RESUMO -->
 
     <!-- MAPA -->
-    <div id="map" class="w3-right w3-animate-right"></div>
+    <div id="map" class="w3-right w3-animate-left"></div>
     <script src="scripts/codeEntregaNova.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
     <!-- MAPA -->
 
     <!-- Script cadastro -->
     <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+
+
 
     <!-- Script PAGSEGURO -->
     <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>

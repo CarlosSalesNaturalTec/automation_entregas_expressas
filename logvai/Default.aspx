@@ -15,9 +15,11 @@
 
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
-        <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-button w3-left">
+        <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-left">
             <img src="images/logo.png" alt=""></a>
         <a onclick="ExibirModal();" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+        
+        <a href="RedirectPag.aspx">content</a>
     </div>
     <!-- MENU -->
 
@@ -47,7 +49,7 @@
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
 
-                    <input type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();" />
+                    <input type="button" class="w3-btn w3-block w3-round w3-light-green w3-hover-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();" />
                 </div>
             </form>
 

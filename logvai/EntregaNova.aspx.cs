@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Uol.PagSeguro;
+using Uol.PagSeguro.Constants;
+using Uol.PagSeguro.Domain;
+using Uol.PagSeguro.Exception;
+using Uol.PagSeguro.Resources;
 
 public partial class NovaEntrega : System.Web.UI.Page
 {
@@ -17,7 +18,16 @@ public partial class NovaEntrega : System.Web.UI.Page
         } else
         {
             IDHidden.Value = Session["UserID"].ToString();
+            FaturarHidden.Value = Session["UserFaturar"].ToString();
         }
         
     }
+
+    protected void obtemCheckOut(object sender, EventArgs e)
+    {
+
+        
+    }
+
+    
 }
