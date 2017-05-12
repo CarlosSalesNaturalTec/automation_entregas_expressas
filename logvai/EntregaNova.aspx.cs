@@ -10,7 +10,6 @@ public partial class NovaEntrega : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         string param = Session["UserID"].ToString();
         if (param == "0")
         {
@@ -20,14 +19,5 @@ public partial class NovaEntrega : System.Web.UI.Page
             IDHidden.Value = Session["UserID"].ToString();
             FaturarHidden.Value = Session["UserFaturar"].ToString();
         }
-        
-    }
-
-    protected void obtemCheckOut(object sender, EventArgs e)
-    {
-
-        
-    }
-
-    
+    }    
 }

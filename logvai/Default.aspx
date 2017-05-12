@@ -11,15 +11,14 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
         <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-left">
             <img src="images/logo.png" alt=""></a>
-        <a onclick="ExibirModal();" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
-        
-        <a href="RedirectPag.aspx">content</a>
+        <a onclick="ExibirModal();" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>     
     </div>
     <!-- MENU -->
 
@@ -83,7 +82,6 @@
             //iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
             iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
         }
-
     </script>
 
     <!-- Script cadastro -->

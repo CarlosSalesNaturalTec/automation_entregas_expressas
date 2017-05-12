@@ -61,7 +61,6 @@ function CalculoGeral() {
 
     Ponto1 = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
     Ponto2 = document.getElementById('inputPonto2').value + "," + document.getElementById('inputNumero2').value;
-
    
     //calcula distancia e tempo
     var service = new google.maps.DistanceMatrixService();
@@ -305,20 +304,8 @@ function voltarEnderecos() {
 
 function iniciarPag() {
 
-    var code = '1F69A3CF7878ED9994B3DF9DDC706796';
-    var isOpenLightbox = PagSeguroLightbox({
-        code: 'code'
-    }, {
-        success: function (transactionCode) {
-            alert("success - " + transactionCode);
-        },
-        abort: function () {
-            alert("Pagamento não identificado");
-        }
-    });
-    // Redirecionando o cliente caso o navegador não tenha suporte ao Lightbox
-    if (!isOpenLightbox) {
-        location.href = "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=" + code;
-    }
+    var chkvalor = document.getElementById("ValorHidden").value;
+    var chkurl = "RedirectPag.aspx?v1=" + chkvalor;
+    window.open(chkurl, 'iframe_a');
 
 }
