@@ -166,7 +166,7 @@
                 <input type="button" value="Voltar" class="w3-btn w3-round w3-block w3-light-blue w3-hover-blue" onclick="voltarEnderecos();" />
             </div>
             <div class="w3-half w3-padding">
-                <input type="button" value="Avançar" class="w3-btn w3-round w3-block w3-light-green w3-hover-green" onclick="iniciarPag();" />
+                <input id="btCheckOut" type="button" value="Avançar" class="w3-btn w3-round w3-block w3-light-green w3-hover-green" onclick="iniciarPagam();" />
             </div>
         </section>
 
@@ -181,14 +181,6 @@
 
     <!-- Script cadastro -->
     <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
-
-
-
-    <!-- Script PAGSEGURO -->
-    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
-    <!-- Script cadastro -->
-
-
 
 </body>
 

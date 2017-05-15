@@ -302,10 +302,13 @@ function voltarEnderecos() {
     
 }
 
-function iniciarPag() {
+function iniciarPagam() {
+
+    document.getElementById("btCheckOut").style.cursor = "progress";
 
     var chkvalor = document.getElementById("ValorHidden").value;
-    var chkurl = "RedirectPag.aspx?v1=" + chkvalor;
+    var chkurl = "RedirectPagam.aspx?v1=" + chkvalor;
+
     window.open(chkurl, 'iframe_a');
 
 }

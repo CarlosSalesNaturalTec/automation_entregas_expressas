@@ -21,9 +21,6 @@ public partial class Redirect : System.Web.UI.Page
             Session["UserID"] = Request.QueryString["v1"];
             Session["UserName"] = Request.QueryString["v2"];
             Session["UserFaturar"] = Request.QueryString["v4"];
-            Session["UserEmail"] = Request.QueryString["v5"];
-            Session["UserTel"] = Request.QueryString["v6"];
-
             Response.Redirect("PainelCliente.aspx");
         }
         else

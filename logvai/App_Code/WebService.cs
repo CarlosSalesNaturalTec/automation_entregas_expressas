@@ -70,7 +70,7 @@ public class WebService : System.Web.Services.WebService
 
         string url = "Default.aspx";
 
-        string stringselect = "select ID_User,nome,faturar,usuario,telefone   " +
+        string stringselect = "select ID_User,nome,faturar,usuario  " +
             "from Tbl_Usuarios " +
             "where usuario='" + param1 + "' and senha='" + param2 + "' ";
         OperacaoBanco operacao1 = new OperacaoBanco();
@@ -86,11 +86,10 @@ public class WebService : System.Web.Services.WebService
 
             //dados do usuario
             string permitefaturar = Convert.ToString(dados[2]);
-            string campo1 = Convert.ToString(dados[3]);
-            string campo2 = Convert.ToString(dados[4]);
+            string useremail = Convert.ToString(dados[3]);
 
             url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + 
-                "&v3=" + vValida4 + "&v4=" + permitefaturar + "&v5=" + campo1 + "&v6=" + campo2; 
+                "&v3=" + vValida4 + "&v4=" + permitefaturar + "&v5=" + useremail; 
         }
 
         return url;
@@ -158,6 +157,19 @@ public class WebService : System.Web.Services.WebService
         return msg;
     }
 
+
+    [WebMethod]
+    public string notificacoespag(string notificationCode, string notificationType)
+    {
+        string msg = "XXX";
+        string strInsert = "INSERT INTO Tbl_Entregas (Status_OS,Status_Pagam) values ('" + notificationCode + "','" + notificationType + "')";
+
+        OperacaoBanco operacao2 = new OperacaoBanco();
+        bool inserir2 = operacao2.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+
+        return msg;
+    }
 }
 
 public class ConexaoBancoSQL
