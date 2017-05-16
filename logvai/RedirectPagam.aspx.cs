@@ -13,7 +13,9 @@ public partial class Pagseguro : System.Web.UI.Page
         //dados da solicitação
         string chkvalorstr = Request.QueryString["v1"];
         decimal chkvalor = Convert.ToDecimal(chkvalorstr);
-        
+
+        Session["OSId"] = Request.QueryString["v2"];
+
         bool isSandbox = true;
         EnvironmentConfiguration.ChangeEnvironment(isSandbox);
 
@@ -27,30 +29,32 @@ public partial class Pagseguro : System.Web.UI.Page
         payment.Items.Add(new Item("0001", "Servico de Motoboy", 1, chkvalor));
 
         // Sets a reference code for this payment request, it is useful to identify this payment in future notifications.
-        payment.Reference = "IDCli" + Session["UserID"].ToString();
+        payment.Reference = "Cliente:" + Session["UserID"].ToString() + "-OS:" + Session["OSId"].ToString();
 
         payment.AddParameter("shippingAddressRequired", "false");
 
 
         // Sets the url used by PagSeguro for redirect user after ends checkout process
-        payment.RedirectUri = new Uri("http://logvai01.azurewebsites.net/PainelCliente.aspx");
+        payment.RedirectUri = new Uri("http://logvai01.azurewebsites.net/RedirectRetorno.aspx");
 
         // Add and remove groups and payment methods
         List<string> accept = new List<string>();
-        accept.Add(ListPaymentMethodNames.DebitoItau);      
+        accept.Add(ListPaymentMethodNames.DebitoItau);
         payment.AcceptPaymentMethodConfig(ListPaymentMethodGroups.CreditCard, accept);
 
         try
         {
+            //faz requisição de check-out e aguarda retorno com link para pagamento
             AccountCredentials credentials = new AccountCredentials("carlossalesti@gmail.com", "C1BF7C4BE89A481A8C215B3275F41973");
             Uri paymentRedirectUri = payment.Register(credentials);
             string urlpagam = paymentRedirectUri.ToString();
+
+            //encaminha usuário para pagina de pagamento (ambiente pagseguro)
             Response.Write("<script>self.parent.location.href='" + urlpagam +"';</script>");
-            
         }
         catch (PagSeguroServiceException exception)
         {
-            //Response.Write("<script>alert('Tente Novamente! Motivo: " + exception.Message + "');</script>");
+            Response.Write("<script>alert('Tente Novamente! Motivo: " + exception.Message + "');</script>");
         }
 
     }

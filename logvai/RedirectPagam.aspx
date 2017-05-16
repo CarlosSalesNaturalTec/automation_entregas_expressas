@@ -15,8 +15,11 @@
 <body>
 
     <div class="w3-container w3-padding w3-center">
-        <h1>Enviando requisição de pagamento eletrônico. Aguarde...</h1>
-        <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+        <section>
+            <h5>Solicitação recebida com Sucesso. Encaminhando para Pagamento...</h5>
+            <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+        </section>
+        <footer><a href="EntregaHistorico.aspx">Clique aqui para acompanhar o status de suas solicitações</a></footer>
     </div>
 
 </body>

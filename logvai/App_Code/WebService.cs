@@ -22,7 +22,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string teste(string param1)
     {
-        string msg = "Aleluia. deu certo";
+        string msg = "Jesus is the lord";
         return msg;
     }
 
@@ -157,19 +157,6 @@ public class WebService : System.Web.Services.WebService
         return msg;
     }
 
-
-    [WebMethod]
-    public string notificacoespag(string notificationCode, string notificationType)
-    {
-        string msg = "XXX";
-        string strInsert = "INSERT INTO Tbl_Entregas (Status_OS,Status_Pagam) values ('" + notificationCode + "','" + notificationType + "')";
-
-        OperacaoBanco operacao2 = new OperacaoBanco();
-        bool inserir2 = operacao2.Insert(strInsert);
-        ConexaoBancoSQL.fecharConexao();
-
-        return msg;
-    }
 }
 
 public class ConexaoBancoSQL

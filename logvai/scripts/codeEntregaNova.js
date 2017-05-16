@@ -148,15 +148,21 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 function salvarMaster() {
 
-    document.getElementById("btSolicitar").style.cursor = "progress";
+    $("body").css("cursor", "progress");
+    document.getElementById("btCheckOut").disabled = true;
+    document.getElementById("btVoltar").disabled = true;
+    document.getElementById("divhidden").style.display = "block";
 
     var v1 = document.getElementById("IDHidden").value;
     var v2 = document.getElementById("DistanciaHidden").value;
     var v3 = document.getElementById("ValorHidden").value;
-    var v4 = tipoPag;
-    var v5 = "FATURADO";
-    var v6 = "EM ABERTO";
-    var v7 = "EM ABERTO";
+    var v4 = tipoPag;   //tipo de serviço: normal ou urgente
+
+    var e = document.getElementById("formaPag")
+    var v5 = e.options[e.selectedIndex].value
+
+    var v6 = "EM ABERTO";   //status OS
+    var v7 = "EM ABERTO";   // status Pagamento
 
     $.ajax({
         type: "POST",
@@ -229,9 +235,7 @@ function salvaPonto2() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            var msg = response.d;
-            alert(msg);
-            window.open("EntregaNova.aspx", 'iframe_a');
+            iniciarPagam();
         },
         failure: function (response) {
             document.getElementById("btSignIn").style.cursor = "pointer";
@@ -304,10 +308,8 @@ function voltarEnderecos() {
 
 function iniciarPagam() {
 
-    document.getElementById("btCheckOut").style.cursor = "progress";
-
     var chkvalor = document.getElementById("ValorHidden").value;
-    var chkurl = "RedirectPagam.aspx?v1=" + chkvalor;
+    var chkurl = "RedirectPagam.aspx?v1=" + chkvalor + "&v2=" + idNovaEntrega;
 
     window.open(chkurl, 'iframe_a');
 

@@ -24,9 +24,12 @@ public partial class EntregaHistorico : System.Web.UI.Page
             "<tr>" +
             "<th>ID</th>" +
             "<th>DATA</th>" +
-            "<th>ENDEREÇO</th>" +
-            "<th>DESCRIÇÃO</th>" +
-            "<th>STATUS</th>" +
+            "<th>DIST (KM)</th>" +
+            "<th>VALOR (R$)</th>" +
+            "<th>TIPO</th>" +
+            "<th>STATUS OS</th>" +
+            "<th>STATUS PAGAM.</th>" +
+            "<th>COD.TRANSACAO</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -37,8 +40,9 @@ public partial class EntregaHistorico : System.Web.UI.Page
     private void dadosCorpo()
     {
         string datastatus = DateTime.Now.ToString("yyyy-MM-dd");
-        string stringselect = @"select ID_Entrega, format(Data_Encomenda,'dd-MM-yyyy') as D1, Endereco , Observacoes, Status_Entrega  " +
-                " from Tbl_Entregas where ID_Cliente = " + Session["UserID"].ToString();
+        string stringselect = "select ID_Entrega, format(Data_OS,'dd-MM-yyyy HH:mm:ss') as D1, Distancia_Total , " +
+                "Valor_Total , Tipo_Atendimento, Status_OS , Status_Pagam,PSCodTransacao  " +
+                "from Tbl_Entregas_Master where ID_Cliente = " + Session["UserID"].ToString();
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -50,6 +54,9 @@ public partial class EntregaHistorico : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[2]);
             string Coluna4 = Convert.ToString(dados[3]);
             string Coluna5 = Convert.ToString(dados[4]);
+            string Coluna6 = Convert.ToString(dados[5]);
+            string Coluna7 = Convert.ToString(dados[6]);
+            string Coluna8 = Convert.ToString(dados[7]);
 
             string stringcomaspas = "<tr>" +
                 "<td>" + Coluna1 + "</td>" +
@@ -57,6 +64,9 @@ public partial class EntregaHistorico : System.Web.UI.Page
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
                 "<td>" + Coluna5 + "</td>" +
+                "<td>" + Coluna6 + "</td>" +
+                "<td>" + Coluna7 + "</td>" +
+                "<td>" + Coluna8 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

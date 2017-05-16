@@ -22,6 +22,10 @@
         </header>
     </div>
 
+    <section>
+        <input type="button" id="btAtualizar" class="w3-button w3-green" value="Atualizar" onclick="" />
+    </section>
+
     <div class="w3-container w3-padding-16">
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     </div>
