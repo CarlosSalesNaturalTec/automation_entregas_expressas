@@ -29,7 +29,7 @@ public partial class Pagseguro : System.Web.UI.Page
         payment.Items.Add(new Item("0001", "Servico de Motoboy", 1, chkvalor));
 
         // Sets a reference code for this payment request, it is useful to identify this payment in future notifications.
-        payment.Reference = "Cliente:" + Session["UserID"].ToString() + "-OS:" + Session["OSId"].ToString();
+        payment.Reference = "Cli_" + Session["UserID"].ToString();
 
         payment.AddParameter("shippingAddressRequired", "false");
 

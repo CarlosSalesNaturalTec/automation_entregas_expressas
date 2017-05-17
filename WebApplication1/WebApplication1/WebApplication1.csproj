@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Configuration\PagSeguroConfig.xml" />
     <Content Include="packages.config" />
     <Content Include="WebServicePS.asmx" />
     <None Include="Properties\PublishProfiles\webserviceps - FTP.pubxml" />
@@ -87,7 +88,12 @@
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\pagseguro-sdk-dotnet\source\Uol.PagSeguro\Uol.PagSeguro.csproj">
+      <Project>{babc5658-6afd-4f8e-81f1-434553663d99}</Project>
+      <Name>Uol.PagSeguro</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

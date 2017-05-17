@@ -96,13 +96,14 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string entregMasterSalvar(string param1, string param2, string param3, string param4, string param5, string param6, string param7)
+    public string entregMasterSalvar(string param1, string param2, string param3, string param4, string param5, 
+        string param6, string param7, string param8, string param9)
     {
-        string msg="";
+        string msg="0";
         string strInsert = "INSERT INTO Tbl_Entregas_Master (ID_Cliente ,Data_OS , Data_Servico , Distancia_Total , Valor_Total , Tipo_Atendimento ," +
-            "Forma_Pagam ,Status_OS , Status_Pagam ) values (" +
+            "Forma_Pagam ,Status_OS , Status_Pagam,LocalOrigem ,LocalDestino ) values (" +
             param1 + ", dateadd(hh,-3,getdate()), dateadd(hh,-3,getdate()), " + param2 + " , " + param3 + " , '" + param4 + "', '" + param5 + "' , '" +
-            param6 + "', '" + param7 +"')";
+            param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "')";
  
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);
@@ -125,7 +126,7 @@ public class WebService : System.Web.Services.WebService
         }
         else
         {
-            msg = "TENTE NOVAMENTE!!!!";
+            msg = "0";
         }
         ConexaoBancoSQL.fecharConexao();
         return msg;
@@ -137,9 +138,9 @@ public class WebService : System.Web.Services.WebService
     {
         string msg = "XXX";
         string strInsert = "INSERT INTO Tbl_Entregas (ID_Entrega,Ordem,Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica," +
-            "Latitude,Longitude,Status_Entrega) values ( " +
+            "Latitude,Longitude,Status_Entrega, Data_Entrega) values ( " +
             param1 + "," + param2 + ", '" + param3 + "', '" + param4 + "', '" + param5 + "', '" + param6 + "', '" + param7 + "', '" +
-            param8 + "', '" + param9 + "', '" + param10 + "', '" + param11 + "')";
+            param8 + "', '" + param9 + "', '" + param10 + "', '" + param11 + "', dateadd(hh,-3,getdate()) )";
 
         OperacaoBanco operacao2 = new OperacaoBanco();
         bool inserir2 = operacao2.Insert(strInsert);
@@ -157,6 +158,30 @@ public class WebService : System.Web.Services.WebService
         return msg;
     }
 
+
+    [WebMethod]
+    public string entregaExcluir(string param1)
+    {
+        string url = "Sorry.aspx";
+        OperacaoBanco operacao = new OperacaoBanco();
+        Boolean deletar = operacao.Delete("delete from Tbl_Entregas_Master where ID_Entrega  =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            OperacaoBanco operacao2 = new OperacaoBanco();
+            Boolean deletar2 = operacao2.Delete("delete from Tbl_Entregas where ID_Entrega =" + param1);
+            ConexaoBancoSQL.fecharConexao();
+
+            url = "EntregaAcompanhar.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
 }
 
 public class ConexaoBancoSQL

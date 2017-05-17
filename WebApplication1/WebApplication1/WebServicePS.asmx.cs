@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
+using Uol.PagSeguro.Domain;
+using Uol.PagSeguro.Exception;
+using Uol.PagSeguro.Resources;
+using Uol.PagSeguro.Service;
+
 
 namespace WebApplication1
 {
@@ -21,16 +23,80 @@ namespace WebApplication1
         [WebMethod]
         public string notificacoespag(string notificationCode, string notificationType)
         {
-            string msg = "JESUS IS THE LORD";
-            string strInsert = "INSERT INTO Tbl_PSNotificacoes (notificationCode , notificationType ) " +
-                "values ('" + notificationCode + "','" + notificationType + "')";
 
-            OperacaoBanco operacao2 = new OperacaoBanco();
-            bool inserir2 = operacao2.Insert(strInsert);
-            ConexaoBancoSQL.fecharConexao();
+            //webservice recebe coigo de notificação (notificationCode) via post
+
+            string msg = "JESUS IS THE LORD";
+            bool isSandbox = true;
+            EnvironmentConfiguration.ChangeEnvironment(isSandbox);
+
+            try
+            {
+                //faz uma requisição a API Pagseguro sobre o status desta notificação
+                AccountCredentials credentials = PagSeguroConfiguration.Credentials(isSandbox);
+                Transaction transaction = NotificationService.CheckTransaction(credentials,notificationCode);
+
+                string codeTransation = transaction.Code.ToString();
+                string dataTrasation = transaction.Date.ToString();
+                string statusTransation = transaction.TransactionStatus.ToString();
+                string referTransation = transaction.Reference.ToString();
+                string statusTXT = "";
+
+                switch (statusTransation)
+                {
+                    case "1":
+                        statusTXT = "Aguardando pagamento";
+                        break;
+                    case "2":
+                        statusTXT = "Em análise";
+                        break;
+                    case "3":
+                        statusTXT = "Pago";
+                        break;
+                    case "4":
+                        statusTXT = "Disponível";
+                        break;
+                    case "5":
+                        statusTXT = "Em Disputa";
+                        break;
+                    case "6":
+                        statusTXT = "Devolvida";
+                        break;
+                    case "7":
+                        statusTXT = "Cancelada";
+                        break;
+                    case "8":
+                        statusTXT = "Debitado";
+                        break;
+                    case "9":
+                        statusTXT = "Retenção Temporária";         
+                        break;
+                    default:
+                        statusTXT = "Outros";
+                        break;
+                }
+
+                //atualiza status da entrega
+                OperacaoBanco operacao = new OperacaoBanco();
+                bool alterar = operacao.Update("update Tbl_Entregas_Master set " +
+                    "Status_Pagam = '" + statusTXT + "' " +
+                    "where PSCodTransacao = '" + codeTransation + "'");
+                ConexaoBancoSQL.fecharConexao();
+                if (alterar != true)
+                {
+                    msg = "NAO FOI POSSIVEL ATUALIZAR ";
+                }
+
+
+            }
+            catch (PagSeguroServiceException exception)
+            {
+                msg = "erro:"+exception.Message;
+            }
 
             return msg;
         }
+
     }
 
 

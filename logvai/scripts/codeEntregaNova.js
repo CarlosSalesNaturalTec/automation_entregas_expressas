@@ -161,14 +161,22 @@ function salvarMaster() {
     var e = document.getElementById("formaPag")
     var v5 = e.options[e.selectedIndex].value
 
-    var v6 = "EM ABERTO";   //status OS
-    var v7 = "EM ABERTO";   // status Pagamento
+    var v6 = "Em Aberto";   //status OS
+
+    var v7 = ""; // status Pagamento
+    if (v5 == 'Cartão') {
+        v7 = "Em Aberto";
+    } else {
+        v7 = "Faturado";
+    }
+
+      
 
     $.ajax({
         type: "POST",
         url: "WebService.asmx/entregMasterSalvar",
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '", param7: "' + v7 + '"}',
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + Ponto1 + '", param9: "' + Ponto2 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -194,7 +202,7 @@ function salvaPonto1() {
     var v8 = "0";
     var v9 = latPonto1;
     var v10 = lngPonto1;
-    var v11 = "EM ABERTO";
+    var v11 = "Em Aberto";
 
     $.ajax({
         type: "POST",
@@ -225,7 +233,7 @@ function salvaPonto2() {
     var v8 = eBanco;
     var v9 = latPonto2;
     var v10 = lngPonto2;
-    var v11 = "EM ABERTO";
+    var v11 = "Em Aberto";
 
     $.ajax({
         type: "POST",
@@ -235,7 +243,15 @@ function salvaPonto2() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            iniciarPagam();
+
+            var e = document.getElementById("formaPag")
+            var e1 = e.options[e.selectedIndex].value
+            if (e1 == "Cartão") {
+                iniciarPagam();
+            } else {
+                window.open('EntregaAcompanhar.aspx', 'iframe_a');
+            }
+
         },
         failure: function (response) {
             document.getElementById("btSignIn").style.cursor = "pointer";

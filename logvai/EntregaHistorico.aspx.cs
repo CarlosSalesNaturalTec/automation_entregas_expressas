@@ -27,7 +27,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
             "<th>DIST (KM)</th>" +
             "<th>VALOR (R$)</th>" +
             "<th>TIPO</th>" +
-            "<th>STATUS OS</th>" +
+            "<th>FORMA PAGAM.</th>" +
             "<th>STATUS PAGAM.</th>" +
             "<th>COD.TRANSACAO</th>" +
             "</tr>" +
@@ -41,7 +41,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
     {
         string datastatus = DateTime.Now.ToString("yyyy-MM-dd");
         string stringselect = "select ID_Entrega, format(Data_OS,'dd-MM-yyyy HH:mm:ss') as D1, Distancia_Total , " +
-                "Valor_Total , Tipo_Atendimento, Status_OS , Status_Pagam,PSCodTransacao  " +
+                "Valor_Total , Tipo_Atendimento, Forma_Pagam , Status_Pagam,PSCodTransacao  " +
                 "from Tbl_Entregas_Master where ID_Cliente = " + Session["UserID"].ToString();
 
         OperacaoBanco operacao = new OperacaoBanco();

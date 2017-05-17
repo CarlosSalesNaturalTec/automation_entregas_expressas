@@ -38,7 +38,7 @@
 
     <!-- page content -->
     <div style="margin-left: 17%">
-        <iframe src="EntregaHistorico.aspx" width="100%" height="880" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
+        <iframe src="EntregaAcompanhar.aspx" width="100%" height="880" frameborder="0" name="iframe_a">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
