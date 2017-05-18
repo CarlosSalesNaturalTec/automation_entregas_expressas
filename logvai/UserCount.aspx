@@ -63,15 +63,36 @@
 
             <div id="divBotoes" class="w3-section">
                 <div class="w3-half">
-                    <input id="btSignIn" type="button" class="w3-button w3-round w3-section w3-padding w3-block w3-blue w3-hover-green" onclick="habilitacampos();" value="Alterar Dados" style="width: 95%" />
+                    <input id="btSignIn" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-green w3-hover-green" onclick="habilitacampos();" value="Alterar Dados" style="width: 95%" />
                 </div>
                 <div class="w3-half">
-                    <input id="btEditPwd" type="button" class="w3-button w3-round w3-section w3-padding w3-block w3-blue w3-hover-green" onclick="" value="Alterar Senha" />
+                    <a id="btTermos" href="Termos.aspx" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-green w3-hover-green">Termos de Uso</a>
                 </div>
-                <a id="btTermos" href="Termos.aspx" class="w3-button w3-round w3-section w3-padding w3-block w3-blue w3-hover-green">Termos de Uso</a>
+            </div>
+
+            <div id="divbotoes1" style="display: none">
+
+                <div class="w3-row">
+                    <div class="w3-half">
+                        <label>Senha</label>
+                        <input type="password" name="psw" id="input_psw" class="w3-input w3-border w3-round-large" style="width: 95%" required>
+                    </div>
+                    <div class="w3-half">
+                        <label>Confirme a Senha</label>
+                        <input type="password" name="pswConf" id="input_pswConf" class="w3-input w3-border w3-round-large" required>
+                    </div>
+                </div>
+
+                <div class="w3-half">
+                    <input id="btsalvar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-green w3-hover-green" onclick="salvar();" value="Salvar" />
+                </div>
+                <div class="w3-half">
+                    <input id="btcancelar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="cancelar();" value="Cancelar" style="width: 95%" />                    
+                </div>
             </div>
 
             <input type="hidden" id="IDHidden" />
+            <input type="hidden" id="TipoPHidden" />
 
         </form>
 
@@ -81,6 +102,7 @@
 
     <!-- Script diversos -->
     <script type="text/javascript" src="scripts/codeUserCount.js"></script>
+    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
     <!-- Script diversos -->
 
 </body>

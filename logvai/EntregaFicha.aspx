@@ -15,41 +15,48 @@
 
     <div class="w3-container w3-light-gray w3-center">
         <header>
-            <h3><strong>Ficha Detalhe da Entrega</strong></h3>
+            <h5><strong>Ficha Detalhe da Solicitação</strong></h5>
         </header>
     </div>
+    
+    <div class="w3-container w3-section w3-padding w3-light-grey w3-border w3-small ">
 
-    <div class="w3-container w3-padding-16">
-
-        <!-- PONTO1 -->
-        <div class="w3-container">
-            <p>Endereço</p>
-            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" style="width: 400px" disabled />
-            <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" style="width: 80px" disabled />
-            <p>
-                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento1" style="width: 400px" disabled />&nbsp;&nbsp;&nbsp;
-            </p>
-            <p>
-                <textarea class="w3-input w3-border w3-round" id="detalhes1" rows="2" style="width: 490px" disabled></textarea>
-            </p>
+        <div class="w3-quarter w3-padding">
+            <p>Solicitação:</p>
+            <p>Local Origem:</p>
+            <p>Local Destino:</p>
+            <p>Distancia Total (Km):</p>
+            <p>Tipo Atendimento:</p>
+            <p>Valor Total:</p>
+            <p>Cod.Transação:</p>
+            <p>Forma de Pagam.:</p>
+            <p>Status do Pagam.:</p>
+            <p>Status da OS:</p>
+            
         </div>
-        <!-- PONTO1 -->
+        <div class="w3-half w3-padding">
+            <p>[<span id="OSid"></span>]&nbsp;&nbsp;<span id="OSdata"></span></p>
+            <p><span id="OSorigem"></span></p>
+            <p><span id="OSdestino"></span></p>
+            <p><span id="OSdist"></span> Km</p>
+            <p><span id="OStipo"></span></p>
+            <p>R$ <span id="OSvalor"></span></p>
+            <p><span id="OSCod"></span></p>
+            <p><span id="OSFormaPag"></span></p>
+            <p><span id="OSstatusPag"></span></p>
+            <p><span id="OSstatusOS"></span></p>
+            
+        </div>
 
-
-        <br>
-        <button id="btExcluir" class="w3-button w3-round w3-red" onclick="ExcluirRegistro();">Excluir</button>
-        <br>
     </div>
 
+    <!-- campo auxiliar -->
     <input id="IDHidden" name="IDHidden" type="hidden" />
 
-    <!-- literal para script -->
+    <!-- Scripts diversas -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-
-     <!-- Scripts com registros -->
     <script src="scripts/codeEntregaFicha.js"></script>
     <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
-
 
 </body>
 

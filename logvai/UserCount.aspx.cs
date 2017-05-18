@@ -27,6 +27,7 @@ public partial class UserCount : System.Web.UI.Page
             ScriptDados = "<script type=\"text/javascript\">" +
                 "document.getElementById('IDHidden').value = \"" + ID + "\";" +
                 "document.getElementById('input_nomeRazao').value = \"" + Convert.ToString(rcrdset[0]) + "\";" +
+                "document.getElementById('TipoPHidden').value = \"" + Convert.ToString(rcrdset[1]) + "\";" +
                 "document.getElementById('input_User').value = \"" + Convert.ToString(rcrdset[2]) + "\";" +
                 "document.getElementById('input_cpfCnpj').value = \"" + Convert.ToString(rcrdset[3]) + "\";" +
                 "document.getElementById('input_contato').value = \"" + Convert.ToString(rcrdset[4]) + "\";" +

@@ -170,8 +170,6 @@ function salvarMaster() {
         v7 = "Faturado";
     }
 
-      
-
     $.ajax({
         type: "POST",
         url: "WebService.asmx/entregMasterSalvar",

@@ -29,6 +29,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
             "<th>TIPO</th>" +
             "<th>FORMA PAGAM.</th>" +
             "<th>STATUS PAGAM.</th>" +
+            "<th>STATUS OS</th>" +
             "<th>COD.TRANSACAO</th>" +
             "</tr>" +
             "</thead>" +
@@ -41,7 +42,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
     {
         string datastatus = DateTime.Now.ToString("yyyy-MM-dd");
         string stringselect = "select ID_Entrega, format(Data_OS,'dd-MM-yyyy HH:mm:ss') as D1, Distancia_Total , " +
-                "Valor_Total , Tipo_Atendimento, Forma_Pagam , Status_Pagam,PSCodTransacao  " +
+                "Valor_Total , Tipo_Atendimento, Forma_Pagam , Status_Pagam, Status_OS , PSCodTransacao  " +
                 "from Tbl_Entregas_Master where ID_Cliente = " + Session["UserID"].ToString();
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -57,6 +58,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
             string Coluna6 = Convert.ToString(dados[5]);
             string Coluna7 = Convert.ToString(dados[6]);
             string Coluna8 = Convert.ToString(dados[7]);
+            string Coluna9 = Convert.ToString(dados[8]);
 
             string stringcomaspas = "<tr>" +
                 "<td>" + Coluna1 + "</td>" +
@@ -67,6 +69,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
                 "<td>" + Coluna6 + "</td>" +
                 "<td>" + Coluna7 + "</td>" +
                 "<td>" + Coluna8 + "</td>" +
+                "<td>" + Coluna9 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

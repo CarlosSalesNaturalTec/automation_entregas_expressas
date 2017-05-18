@@ -64,6 +64,31 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+    [WebMethod]
+    public string useredit(string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9, string param10, string param11)
+    {
+
+        string url = "Sorry.aspx";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Usuarios set usuario = '" + param1 + "'," +
+            "senha = '" + param2 + "', " +
+            "cpfcnpj = '" + param3 + "', " +
+            "nome = '" + param4 + "', " +
+            "contato = '" + param5 + "', " +
+            "endereco = '" + param6 + "', " +
+            "numero = '" + param7 + "', " +
+            "complemento = '" + param8 + "', " +
+            "telefone = '" + param9 + "', " +
+            "Cupom = '" + param10 + "'");
+        ConexaoBancoSQL.fecharConexao();
+              
+        return url;
+    }
+
+
     [WebMethod]
     public string login(string param1, string param2)
     {

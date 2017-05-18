@@ -26,7 +26,7 @@
     <!-- QUADRO 1 -->
     <div class="w3-animate-left" id="div1">
         <header class="w3-container w3-light-gray w3-center">
-            <h5><strong>Acompanhar Entregas</strong></h5>
+            <h5><strong>Acompanhamento de Solicitações</strong></h5>
         </header>
 
         <br />
@@ -41,6 +41,15 @@
     <!-- QUADRO 1 -->
 
     <script src="scripts/codeEntregaAcompanhar.js"></script>
+
+    <script type="text/javascript">
+        function iniciapag(idMaster, valor) {
+            $("body").css("cursor", "progress");
+            var chkurl = "RedirectPagam.aspx?v1=" + valor + "&v2=" + idMaster;
+            window.open(chkurl, 'iframe_a');
+        }
+    </script>
+    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 </body>
 
