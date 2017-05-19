@@ -32,13 +32,13 @@
 
     <!-- Modal Login -->
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 400px">
+        <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width: 400px">
 
-            <div class="w3-center">
-                <br>
-                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright"
-                    title="Fechar">&times;</span>
-            </div>
+            <header class="w3-container w3-blue w3-center">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <h4>Área do Cliente</h4>
+            </header>
 
             <form class="w3-container">
                 <div class="w3-section">
@@ -48,7 +48,7 @@
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
 
-                    <input type="button" class="w3-btn w3-block w3-round w3-light-green w3-hover-green w3-section w3-padding" value="Entrar" onclick="TentarLogin();" />
+                    <a id="btentrar" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue w3-section w3-padding" onclick="TentarLogin()">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </div>
             </form>
 

@@ -25,7 +25,7 @@
 
     <!-- QUADRO 1 -->
     <div class="w3-animate-left" id="div1">
-        <header class="w3-container w3-light-gray w3-center">
+        <header class="w3-container w3-blue w3-text-white w3-center">
             <h5><strong>Acompanhamento de Solicitações</strong></h5>
         </header>
 

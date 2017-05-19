@@ -41,7 +41,7 @@ public class WebService : System.Web.Services.WebService
 
         if (inserir == true)
         {
-            string stringselect = "select ID_User,nome " +
+            string stringselect = "select ID_User,nome,usuario " +
                 "from Tbl_Usuarios " +
                 "where usuario='" + param1 + "' and senha='" + param2 + "' ";
             OperacaoBanco operacao1 = new OperacaoBanco();
@@ -55,7 +55,8 @@ public class WebService : System.Web.Services.WebService
                 int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                 string vValida4 = vValida3.ToString();
 
-                url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + "&v3=" + vValida4;
+                url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + 
+                    "&v3=" + vValida4 + "&v4=0&v5=" + Convert.ToString(dados[2]);
             }
 
         }
@@ -73,7 +74,7 @@ public class WebService : System.Web.Services.WebService
         string url = "Sorry.aspx";
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Update("update Tbl_Usuarios set usuario = '" + param1 + "'," +
+        bool alterar = operacao.Update("update Tbl_Usuarios set usuario = '" + param1 + "'," +
             "senha = '" + param2 + "', " +
             "cpfcnpj = '" + param3 + "', " +
             "nome = '" + param4 + "', " +
@@ -82,9 +83,14 @@ public class WebService : System.Web.Services.WebService
             "numero = '" + param7 + "', " +
             "complemento = '" + param8 + "', " +
             "telefone = '" + param9 + "', " +
-            "Cupom = '" + param10 + "'");
+            "Cupom = '" + param10 + "' " +
+            "where ID_User = " + param11 );
         ConexaoBancoSQL.fecharConexao();
-              
+
+        if (alterar == true)
+        {
+            url = "UserCount.aspx";
+        }      
         return url;
     }
 

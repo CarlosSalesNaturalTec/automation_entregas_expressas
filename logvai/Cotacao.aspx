@@ -85,7 +85,7 @@
                     <br>
                     <div class="w3-container w3-border w3-light-gray">
                         <br>
-                        <button id="btCalcular" class="w3-button w3-block w3-round w3-blue w3-hover-green" onclick="CalculoGeral();">Calcular</button>
+                        <button id="btCalcular" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue" onclick="CalculoGeral();">Calcular</button>
                         <br>
                         <div class="w3-container">
                             <div class="w3-half w3-center w3-text-gray">Distância:</div>
@@ -136,7 +136,7 @@
                     <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário">
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
-                    <input id="bt_loginCot" type="button" class="w3-button w3-block w3-round w3-green w3-section w3-padding" value="Entrar" onclick="TentarLoginCot();"  />
+                    <input id="bt_loginCot" type="button" class="w3-btn w3-block w3-round w3-light-blue w3-hover-blue w3-section w3-padding" value="Entrar" onclick="TentarLoginCot();"  />
                 </div>
             </form>
 

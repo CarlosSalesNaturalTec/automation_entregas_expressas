@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="w3-section">
-                                <input id="btSignIn" type="button" class="w3-button w3-block w3-green w3-section w3-padding" onclick="NovoUsuario();" value="Continuar" disabled />
+                                <input id="btSignIn" type="button" class="w3-button w3-block w3-blue w3-hover-light-blue w3-section w3-padding" onclick="NovoUsuario();" value="Salvar" disabled />
                             </div>
 
                             <div id="divHidden" style="display: none" class="w3-center">

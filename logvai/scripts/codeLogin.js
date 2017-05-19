@@ -1,5 +1,7 @@
 ﻿function TentarLogin() {
 
+    document.getElementById('btentrar').style.cursor = "progress";
+
     var v1 = document.getElementById("input_User").value;
     var v2 = document.getElementById("input_pwd").value;
 

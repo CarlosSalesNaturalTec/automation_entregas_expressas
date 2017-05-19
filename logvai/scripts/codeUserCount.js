@@ -1,4 +1,16 @@
-﻿function habilitacampos() {
+﻿var input1 = document.getElementById('input_endereco');
+var defaultBounds = new google.maps.LatLngBounds(
+new google.maps.LatLng(-13.0099, -38.5323),
+new google.maps.LatLng(-12.7894, -38.2115));
+var options1 = {
+    bounds: defaultBounds
+};
+
+google.maps.event.addDomListener(window, 'load', function () {
+    var places1 = new google.maps.places.Autocomplete(input1, options1);
+});
+
+function habilitacampos() {
     document.getElementById('input_nomeRazao').disabled = false;
     document.getElementById('input_cpfCnpj').disabled = false;
     document.getElementById('input_contato').disabled = false;
@@ -23,6 +35,9 @@ function cancelar() {
 function salvar() {
 
     $("body").css("cursor", "progress");
+    document.getElementById('btsalvar').style.cursor = "progress";
+
+    var v0 = document.getElementById('IDHidden').value;
 
     var v1 = document.getElementById("input_User").value;
     var v2 = document.getElementById("input_psw").value;
@@ -35,8 +50,6 @@ function salvar() {
     var v8 = document.getElementById("input_complemento").value;
     var v9 = document.getElementById("input_telefone").value;
     var v10 = document.getElementById("input_cupom").value;
-
-    var tipoP = document.getElementById("TipoPHidden").value;
 
     if (v4 == "") { alert('Informe Nome ou Razão Social!'); document.getElementById('input_nomeRazao').focus(); return; }
     if (v3 == "") { alert('Informe CPF/CNPJ!'); document.getElementById('input_cpfCnpj').focus(); return; }
@@ -53,14 +66,18 @@ function salvar() {
         type: "POST",
         url: "WebService.asmx/useredit",
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '", param10: "' + v10 + '", param11: "' + tipoP + '"}',
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '", param10: "' + v10 + '", param11: "' + v0 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            window.open('EntregaNova.aspx', 'iframe_a');
+            var linkurl = response.d;
+            window.open(linkurl, 'iframe_a');
         },
         failure: function (response) {
             alert('Tente Novamente');
         }
     });
 }
+
+
+

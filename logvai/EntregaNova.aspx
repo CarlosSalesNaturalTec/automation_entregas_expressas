@@ -31,7 +31,7 @@
 
     <!-- ENDEREÇOS -->
     <div class="w3-half w3-animate-left" id="divEnderecos">
-        <header class="w3-container w3-light-gray w3-center">
+        <header class="w3-container w3-blue w3-text-white w3-center">
             <h6><strong>Nova Entrega</strong></h6>
         </header>
 
@@ -92,7 +92,7 @@
             <!-- TEMPO DE ATENDIMENTO -->
 
             <br>
-            <button id="btCalcular" class="w3-btn w3-block w3-round w3-light-blue w3-hover-blue" onclick="CalculoGeral();">Calcular</button>
+            <button id="btCalcular" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue" onclick="CalculoGeral();">Calcular</button>
             <br>
             <div class="w3-container">
                 <div class="w3-half w3-center w3-text-gray">Distância:</div>
@@ -128,7 +128,7 @@
     <!-- RESUMO -->
     <div id="divResumo" class="w3-half w3-animate-left" style="display: none">
 
-        <header class="w3-container w3-light-gray w3-center">
+        <header class="w3-container w3-blue w3-text-white w3-center">
             <h6><strong>Resumo da Solicitação</strong></h6>
         </header>
 

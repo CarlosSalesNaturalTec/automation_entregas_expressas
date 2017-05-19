@@ -17,18 +17,19 @@
     <!-- Atenção! esta pagina deve ser sempre uma copia de PainelCliente.aspx. com exceção da pagina inicial=EntregaHistorico.aspx -->
 
     <div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width: 17%">
-        <div class="w3-container w3-centered">
+        <header class="w3-container w3-center">
             <img src="images/logo.png" alt="Logomarca LOGVAI">
-        </div>
+            
+        </header>
         <h1 class="w3-bottombar"></h1>
 
         <!-- MENU -->
         <section>
-            <a href="EntregaNova.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-motorcycle" aria-hidden="true"></i>&nbsp;&nbsp;Nova Entrega</a>
-            <a href="EntregaAcompanhar.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Acompanhar</a>
-            <a href="EntregaHistorico.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Histórico</a>
-            <a href="UserCount.aspx" target="iframe_a" class="w3-bar-item w3-button"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Minha Conta</a>
-            <a href="#" onclick="SairExit();" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Sair</a>
+            <a href="EntregaNova.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-motorcycle" aria-hidden="true"></i>&nbsp;&nbsp;Nova Entrega</a>
+            <a href="EntregaAcompanhar.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Acompanhar</a>
+            <a href="EntregaHistorico.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Histórico</a>
+            <a href="UserCount.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Minha Conta</a>
+            <a href="#" onclick="SairExit();" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Sair</a>
             <div class="w3-small w3-text-blue w3-padding">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<asp:Label ID="lblUser" runat="server"></asp:Label>]
             </div>

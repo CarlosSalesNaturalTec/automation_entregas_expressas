@@ -13,7 +13,7 @@
 <body>
 
     <div>
-        <header class="w3-container w3-light-gray w3-center">
+        <header class="w3-container w3-blue w3-text-white w3-center">
             <h6><strong>Minha Conta</strong></h6>
         </header>
 
@@ -63,10 +63,10 @@
 
             <div id="divBotoes" class="w3-section">
                 <div class="w3-half">
-                    <input id="btSignIn" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-green w3-hover-green" onclick="habilitacampos();" value="Alterar Dados" style="width: 95%" />
+                    <a id="btTermos" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="document.getElementById('id01').style.display='block'" style="width: 95%">Termos de Uso</a>
                 </div>
                 <div class="w3-half">
-                    <a id="btTermos" href="Termos.aspx" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-green w3-hover-green">Termos de Uso</a>
+                    <input id="btSignIn" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="habilitacampos();" value="Alterar Dados" />
                 </div>
             </div>
 
@@ -84,11 +84,12 @@
                 </div>
 
                 <div class="w3-half">
-                    <input id="btsalvar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-green w3-hover-green" onclick="salvar();" value="Salvar" />
+                    <input id="btcancelar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-blue w3-hover-light-blue" onclick="cancelar();" value="Cancelar" style="width: 95%" />
                 </div>
                 <div class="w3-half">
-                    <input id="btcancelar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="cancelar();" value="Cancelar" style="width: 95%" />                    
+                    <input id="btsalvar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-blue w3-hover-light-blue" onclick="salvar()" value="Salvar" />
                 </div>
+                
             </div>
 
             <input type="hidden" id="IDHidden" />
@@ -98,9 +99,23 @@
 
     </div>
 
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-light-blue w3-center">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <h2>Termos de Uso</h2>
+            </header>
+            <div class="w3-container w3-section w3-padding w3-small">
+                <p>Por este instrumento são estabelecidas as condições gerais e os termos de uso do site de internet (www.logvai.com) (o “Site”) de propriedade da LOGLOGISTICA TRANSPORTES LTDA., com sede na cidade de Salvador, Estado a Bahia, na Av. Tancredo Neves, no. 2671 – Ed. Bahia Center, CEP 4000-000, inscrita no CNPJ/MF sob o no. 99.999.999/9999-99 (o “Logvai”) (em conjunto, o “Sistema Logvai”), para as pessoas físicas ou jurídicas (em conjunto, o “Usuário” e, no plural, os “Usuários”) que desejam utilizar o Sistema Logvai para contratar serviços de transporte de cargas e documentos por meio de motocicletas, estando o uso do Sistema Logvai para tal finalidade condicionado à concordância e à adesão integral a estes Termos de Uso e Condições Gerais para a utilização do Sistema LogVai (os “Termos”).</p>
+            </div>
+        </div>
+    </div>
+
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Script diversos -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places"></script>
     <script type="text/javascript" src="scripts/codeUserCount.js"></script>
     <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
     <!-- Script diversos -->
