@@ -17,7 +17,6 @@
     <div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width: 17%">
         <header class="w3-container w3-center">
             <img src="images/logo.png" alt="Logomarca LOGVAI">
-            
         </header>
         <h1 class="w3-bottombar"></h1>
 

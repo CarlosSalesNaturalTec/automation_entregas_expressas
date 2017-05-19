@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Text;
 
 public partial class EntregaAcompanhar : System.Web.UI.Page

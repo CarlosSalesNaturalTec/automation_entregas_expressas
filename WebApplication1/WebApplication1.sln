@@ -29,6 +29,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai(1)", "..\logvai\", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "..\..\pagseguro-sdk-dotnet\source\Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai_Adm", "..\logvai_Adm\", "{13AD305F-1D90-4ED7-88F8-6B329324399A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52885"
+		Debug.AspNetCompiler.PhysicalPath = "..\logvai_Adm\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52885\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52885"
+		Release.AspNetCompiler.PhysicalPath = "..\logvai_Adm\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52885\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52885"
+		SlnRelativePath = "..\logvai_Adm\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +83,14 @@ Global
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|x86.ActiveCfg = Release|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|x86.Build.0 = Release|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|x86.Build.0 = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|x86.ActiveCfg = Debug|Any CPU
+		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
