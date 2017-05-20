@@ -44,7 +44,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string liberaFaturamento(string param1, string param2)
+    public string alteraFaturamento(string param1, string param2)
     {
 
         string url = "Sorry.aspx";
@@ -57,6 +57,45 @@ public class WebService : System.Web.Services.WebService
         if (alterar == true)
         {
             url = "Clientes_Ficha.aspx?v1=" + param1;
+        }
+        return url;
+    }
+
+
+    [WebMethod]
+    public string gerarFatura(string param1, string param2, string param3)
+    {
+
+        string url = "Sorry.aspx";
+        string idfat = "";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("insert into Tbl_Faturas (ID_Cliente,Quant,Valor_Total,Data_Fatura,Status_Pagam) values " +
+            "(" + param1 +", " + param2 + " , " + param3 + " , dateadd(hh,-3,getdate()) , 'Em Aberto' ) ");
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            //obtem o numero da fatura criada
+            string stringselect = "select ID_Fatura from Tbl_Faturas " +
+                 " where ID_Cliente = " + param1 +
+                 " order by ID_Fatura desc";
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            System.Data.SqlClient.SqlDataReader dados = operacao1.Select(stringselect);
+            while (dados.Read())
+            {
+                idfat = Convert.ToString(dados[0]);
+                break;
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            //define as entregas como pertencentes a fatura recem criada
+            OperacaoBanco operacao2 = new OperacaoBanco();
+            bool alterar = operacao2.Update("update Tbl_Entregas_Master set " +
+                "ID_Fatura  = " + idfat +
+                " where ID_Cliente = " + param1 + " and ID_Fatura = 0");
+            ConexaoBancoSQL.fecharConexao();
+            url = "Faturas_Gerar.aspx";
         }
         return url;
     }
@@ -169,4 +208,5 @@ public class OperacaoBanco
     }
 
 }
+
 

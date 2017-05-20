@@ -16,12 +16,17 @@
 
     <!-- Atenção! esta pagina deve ser sempre uma copia de PainelCliente.aspx. com exceção da pagina inicial=EntregaHistorico.aspx -->
 
-    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width: 17%">
-        <header class="w3-container w3-center">
-            <img src="images/logo.png" alt="Logomarca LOGVAI">
-            
-        </header>
-        <h1 class="w3-bottombar"></h1>
+   <div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width: 17%">
+
+        <div>
+            <header class="w3-container w3-blue w3-text-white w3-center">
+                <h5><strong>Painel de Controle</strong></h5>
+            </header>
+        </div>
+
+        <div class="w3-section w3-padding w3-center">
+            <a href="PainelInicial.aspx" target="iframe_a"><img src="images/logo.png" alt="Logomarca LOGVAI"></a>
+        </div>
 
         <!-- MENU -->
         <section>

@@ -15,7 +15,7 @@
 
     <div>
         <header class="w3-container w3-blue w3-text-white w3-center">
-            <h5><strong>Painel de Controle</strong></h5>
+            <h5><strong>LogVai - Motoboy On Line</strong></h5>
         </header>
     </div>
 

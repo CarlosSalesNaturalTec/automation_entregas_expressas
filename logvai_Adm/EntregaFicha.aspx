@@ -48,17 +48,11 @@
 
     </div>
 
-    <div class="w3-section w3-padding">
-        <a class="w3-btn w3-blue w3-hover-light-blue w3-block" href="EntregaAcompanhar.aspx">Voltar</a>
-    </div>
-
     <!-- campo auxiliar -->
     <input id="IDHidden" name="IDHidden" type="hidden" />
 
     <!-- Scripts diversas -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-    <script src="scripts/codeEntregaFicha.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
 
 </body>
 

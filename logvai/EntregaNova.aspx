@@ -110,7 +110,7 @@
 
             <div id="idDiv1" style="display: none">
                 <br>
-                <button id="btSolicitar" class="w3-btn w3-block w3-round w3-light-green w3-hover-green" onclick="exibirResumo();">Avançar</button>
+                <button id="btSolicitar" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue" onclick="exibirResumo();">Avançar</button>
                 <br>
             </div>
         </div>
@@ -163,10 +163,10 @@
 
         <section id="sectionBotoes" class="w3-section w3-padding">
             <div class="w3-half w3-padding">
-                <input id="btVoltar" type="button" value="Voltar" class="w3-btn w3-round w3-block w3-light-blue w3-hover-blue" onclick="voltarEnderecos();" />
+                <input id="btVoltar" type="button" value="Voltar" class="w3-btn w3-round w3-block w3-blue w3-hover-light-blue" onclick="voltarEnderecos();" />
             </div>
             <div class="w3-half w3-padding">
-                <input id="btCheckOut" type="button" value="Concluir" class="w3-btn w3-round w3-block w3-light-green w3-hover-green" onclick="salvarMaster();" />
+                <input id="btCheckOut" type="button" value="Concluir" class="w3-btn w3-round w3-block w3-blue w3-hover-light-blue" onclick="salvarMaster();" />
             </div>
             <div id="divhidden" class="w3-container w3-padding w3-center" style="display:none">
                 <i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
