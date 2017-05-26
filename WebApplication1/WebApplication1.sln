@@ -51,6 +51,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai_Adm", "..\logvai_Adm
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvaiWebService", "..\logvaiWebService\", "{C33167D4-1562-4E7F-AE1F-CCAD73495207}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62731"
+		Debug.AspNetCompiler.PhysicalPath = "..\logvaiWebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62731\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62731"
+		Release.AspNetCompiler.PhysicalPath = "..\logvaiWebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62731\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62731"
+		SlnRelativePath = "..\logvaiWebService\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +113,14 @@ Global
 		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|x86.ActiveCfg = Debug|Any CPU
 		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Release|x86.Build.0 = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Debug|x86.Build.0 = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|x86.ActiveCfg = Debug|Any CPU
+		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,14 +16,18 @@
 
 <body>
 
-    <div>
-        <header class="w3-container w3-blue w3-text-white w3-center">
-            <h5><strong>Histórico de Solicitações</strong></h5>
-        </header>
-    </div>
+    <div class="w3-animate-left" id="div1">
 
-    <div class="w3-container w3-padding-16 w3-small">
-        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+        <div>
+            <header class="w3-container w3-blue w3-text-white w3-center">
+                <h5><strong>Histórico de Solicitações</strong></h5>
+            </header>
+        </div>
+
+        <div class="w3-container w3-padding-16 w3-small">
+            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+        </div>
+
     </div>
 
     <!-- Busca e Paginação modelo: datatables.net -->

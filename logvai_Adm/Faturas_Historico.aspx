@@ -20,7 +20,7 @@
 <body>
     <div>
         <header class="w3-container w3-blue w3-text-white w3-center">
-            <h5><strong>Hstórico de Faturas</strong></h5>
+            <h5><strong>Histórico de Faturas</strong></h5>
         </header>
     </div>
     <br />

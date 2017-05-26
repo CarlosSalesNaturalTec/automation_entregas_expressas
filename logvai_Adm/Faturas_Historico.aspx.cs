@@ -20,7 +20,7 @@ public partial class Faturas_Historico : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NÚMERO</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nº FATURA</th>" +
             "<th>CLIENTE</th>" +
             "<th>EMISSÃO</th>" +
             "<th>QUANT.</th>" +

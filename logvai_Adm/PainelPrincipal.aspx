@@ -34,8 +34,8 @@
             <div class="w3-dropdown-hover">
                 <a class="w3-btn w3-block w3-left-align w3-hover-light-blue" onclick="myFunction('submenu1')"><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp;Faturamento </a>
                 <div id="submenu1" class="w3-container w3-hide">
-                    <a href="Faturas_Gerar.aspx" target="iframe_a" onclick="myFunction('submenu1')" class="w3-bar-item w3-button w3-hover-light-blue">Gerar Faturas</a>
-                    <a href="Faturas_Historico.aspx" target="iframe_a" onclick="myFunction('submenu1')" class="w3-bar-item w3-button w3-hover-light-blue">Histórico </a>
+                    <a href="Faturas_Gerar.aspx" target="iframe_a"  class="w3-bar-item w3-button w3-hover-light-blue">Gerar Faturas</a>
+                    <a href="Faturas_Historico.aspx" target="iframe_a" class="w3-bar-item w3-button w3-hover-light-blue">Histórico </a>
                 </div>
             </div>
 

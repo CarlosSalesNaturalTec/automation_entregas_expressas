@@ -12,7 +12,7 @@
 
 <body>
 
-    <div>
+     <div class="w3-animate-left" id="div1">
         <header class="w3-container w3-blue w3-text-white w3-center">
             <h6><strong>Minha Conta</strong></h6>
         </header>
