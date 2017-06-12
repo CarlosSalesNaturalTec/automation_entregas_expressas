@@ -62,12 +62,6 @@
     <!-- Scripts diversas -->
     <script type="text/javascript">
 
-        window.addEventListener('DOMContentLoaded', function (e) {
-            var iFrame = document.getElementById('iframe_a');
-            resizeIFrameToFitContent(iFrame);
-        });
-
-
         function ExibirModal() {
             document.getElementById('id01').style.display = 'block';
             document.getElementById('input_User').focus();
@@ -77,15 +71,10 @@
             document.getElementById('id01').style.display = 'none';
             window.open('SignIn.aspx', 'iframe_a');
         }
-
-        function resizeIFrameToFitContent(iFrame) {
-            //iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
-            iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-        }
     </script>
 
     <!-- Script cadastro -->
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/codeLogin.js"></script>
     <!-- Script cadastro -->
 

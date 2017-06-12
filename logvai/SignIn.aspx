@@ -38,12 +38,12 @@
                                 <label>Jurídica</label>
                             </p>
 
-                            <label id="lblNomeRazao">Nome</label>
+                            <label id="lblNomeRazao">Nome *</label>
                             <input type="text" name="nomeRazao" id="input_nomeRazao" class="w3-input w3-border w3-round-large" required autofocus>
 
                             <div class="w3-row">
                                 <div class="w3-half">
-                                    <label id="lblcpfCnpj">CPF</label>
+                                    <label id="lblcpfCnpj">CPF *</label>
                                     <input type="text" name="cpfCnpj" id="input_cpfCnpj" class="w3-input w3-border w3-round-large" style="width: 95%" required>
                                 </div>
                                 <div id="divContato" class="w3-half" style="display: none">
@@ -52,27 +52,27 @@
                                 </div>
                             </div>
 
-                            <label>e-mail</label>
+                            <label>e-mail *</label>
                             <input type="email" name="usrname" id="input_User" class="w3-input w3-border w3-round-large" required>
 
                             <div class="w3-row">
                                 <div class="w3-half">
-                                    <label>Senha</label>
+                                    <label>Senha *</label>
                                     <input type="password" name="psw" id="input_psw" class="w3-input w3-border w3-round-large" style="width: 95%" required>
                                 </div>
                                 <div class="w3-half">
-                                    <label>Confirme a Senha</label>
+                                    <label>Confirme a Senha *</label>
                                     <input type="password" name="pswConf" id="input_pswConf" class="w3-input w3-border w3-round-large" required>
                                 </div>
                             </div>
 
                             <div class="w3-row">
                                 <div class="w3-threequarter">
-                                    <label>Endereço</label>
+                                    <label>Endereço *</label>
                                     <input type="text" name="endereco" id="input_endereco" class="w3-input w3-border w3-round-large" style="width: 95%" required>
                                 </div>
                                 <div class="w3-quarter">
-                                    <label>Número</label>
+                                    <label>Número *</label>
                                     <input type="text" name="numero" id="input_numero" class="w3-input w3-border w3-round-large">
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                     <input type="text" name="complemento" id="input_complemento" class="w3-input w3-border w3-round-large" style="width: 95%">
                                 </div>
                                 <div class="w3-half">
-                                    <label>Telefone</label>
+                                    <label>Telefone *</label>
                                     <input type="text" name="telefone" id="input_telefone" class="w3-input w3-border w3-round-large" required>
                                 </div>
                             </div>
@@ -130,12 +130,14 @@
             <form class="w3-container">
                 <div class="w3-section w3-center">
                     <h4>Termos de Uso</h4>
+
+                    <iframe src="other/termos.txt" frameborder="0" scrolling="yes" height="400" width="500"></iframe>
+
                 </div>
             </form>
         </div>
     </div>
-    <!-- Modal Termos de Uso -->
-
+    
     <script type="text/javascript">
         function ExibirModal() {
             document.getElementById('idTermo').style.display = 'block';
@@ -153,6 +155,7 @@
         }
 
     </script>
+    <!-- Modal Termos de Uso -->
 
     <!-- Script Autocomplete Endereço-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places"></script>
@@ -160,7 +163,7 @@
     <!-- Script Autocomplete Endereço-->
 
     <!-- Script cadastro -->
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/codeSignInNewUser.js"></script>
     <!-- Script cadastro -->
 

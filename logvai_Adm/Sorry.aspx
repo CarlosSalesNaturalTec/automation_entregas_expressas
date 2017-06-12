@@ -21,7 +21,7 @@
 
     <div class="w3-container w3-center w3-text-grey">
         
-        <h1>Desculpa, não podemos realizar esta tarefa agora!</h1>
+        <h1>Desculpa, tente novamente ou faça novo Login!</h1>
         <p><i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i></p>
 
         <p><a class="w3-button w3-blue" href="Default.aspx" target="_parent">Login</a></p>

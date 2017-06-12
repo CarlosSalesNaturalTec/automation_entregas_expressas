@@ -164,10 +164,10 @@ function salvarMaster() {
     var v6 = "Em Aberto";   //status OS
 
     var v7 = ""; // status Pagamento
-    if (v5 == 'Cartão') {
-        v7 = "Em Aberto";
-    } else {
+    if (v5 == 'Faturado') {
         v7 = "Faturado";
+    } else {
+        v7 = "Em Aberto";
     }
 
     $.ajax({

@@ -117,7 +117,7 @@
     <!-- Script diversos -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places"></script>
     <script type="text/javascript" src="scripts/codeUserCount.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
     <!-- Script diversos -->
 
 </body>

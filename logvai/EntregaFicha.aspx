@@ -58,7 +58,7 @@
     <!-- Scripts diversas -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     <script src="scripts/codeEntregaFicha.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 </body>
 

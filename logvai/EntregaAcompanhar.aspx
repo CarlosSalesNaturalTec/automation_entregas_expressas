@@ -46,7 +46,7 @@
             window.open(chkurl, 'iframe_a');
         }
     </script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 </body>
 

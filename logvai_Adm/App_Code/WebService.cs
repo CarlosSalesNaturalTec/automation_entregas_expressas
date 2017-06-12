@@ -43,6 +43,29 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+    [WebMethod]
+    public string UserExcluir(string param1)
+    {
+
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Usuarios where ID_User =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Clientes_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
     [WebMethod]
     public string alteraFaturamento(string param1, string param2)
     {

@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="w3-container w3-center">
-        <img src="images/logo.png" alt="" />
-    <h2>Tente Novamente</h2>
-    <a class="w3-button w3-blue" href="Default.aspx" target="_parent">Login</a>
+    <div class="w3-container w3-center w3-text-gray">
+        <p><i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i></p>
+        <h2>Tente Novamente ou faça novo Login</h2>
+        <p>
+            <a class="w3-button w3-green w3-round-large" href="Default.aspx" target="_parent">Login</a>&nbsp;&nbsp;
+        </p>
 
     </div>
 </body>

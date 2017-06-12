@@ -149,14 +149,16 @@
             <span>Distância:</span>&nbsp;<strong><span id="Resumo_Distancia"></span></strong>
         </section>
 
+        <!-- FORMA DE PAGAMENTO -->
         <section class="w3-container w3-padding-16 w3-border w3-light-gray">
             <i class="fa fa-calculator fa-2x w3-light-blue" aria-hidden="true"></i>&nbsp;<span>Total:</span>&nbsp;<strong><span id="Resumo_Total"></span></strong>
             <br />
             <p>Selecione Forma de Pagamento</p>
             <p>
                 <select id="formaPag" name="formaPag" class="w3-select w3-border w3-half">
-                    <option value="Cartão">Cartão</option>
+                    <option value="Cartão" disabled>Cartão</option>
                     <option value="Faturado" disabled>Faturado</option>
+                    <option value="Depósito">Depósito/Transf.</option>
                 </select>
             </p>
         </section>
@@ -183,7 +185,7 @@
     <!-- MAPA -->
 
     <!-- Script cadastro -->
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 </body>
 
