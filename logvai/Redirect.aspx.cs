@@ -41,22 +41,23 @@ public partial class Redirect : System.Web.UI.Page
         string SMTP = "smtp.terra.com.br";
 
         string emailDestinatario = "suporte@loglogistica.com.br";
-        //string emailComCopia = "ivansuarez@loglogistica.com.br";
-        //string emailComCopia1 = "sergiosuarez@loglogistica.com.br";
+        string emailComCopia = "ivansuarez@loglogistica.com.br";
+        string emailComCopia1 = "sergiosuarez@loglogistica.com.br";
         string emailComCopia2 = "regiscorreia@loglogistica.com.br";
 
         //string emailComCopiaOculta  = "email@comcopiaoculta.com.br";
 
-        string assuntoMensagem = "LOGVAI - Cadastro de Novo Cliente";
+        string assuntoMensagem = "Cadastro de Novo Cliente";
 
         DateTime hora = DateTime.Now.AddHours(-3);
 
-        string l0 = "<b><p>LOGVAI - Novo cliente cadastrado no sistema</p></b>";
-        string l1 = "<p>Nome: " + Session["UserName"]  + "</p>";
-        string l2 = "<p>Data: " + hora.ToString("dd/MM/yyyy HH:mm:ss") +  "</p>";
-        string l3 = "<br/>";
+        string l0 = "<img alt=\"LOGVAI\" src=\"https://logvai.azurewebsites.net/images/logo.png\"/>";
+        string l1 = "<b><p>LOGVAI - Novo cliente cadastrado no sistema</p></b>";
+        string l2 = "<p>Nome: " + Session["UserName"]  + "</p>";
+        string l3 = "<p>Data: " + hora.ToString("dd/MM/yyyy HH:mm:ss") +  "</p>";
+        string l4 = "<br/>";
 
-        string conteudoMensagem = l0 + l1 + l2 + l3;
+        string conteudoMensagem = l0 + l1 + l2 + l3 + l4;
 
         //Cria objeto com dados do e-mail.
         MailMessage objEmail = new MailMessage();
@@ -68,8 +69,8 @@ public partial class Redirect : System.Web.UI.Page
         objEmail.To.Add(emailDestinatario);
 
         //Enviar cópia para.
-        //objEmail.CC.Add(emailComCopia);
-        //objEmail.CC.Add(emailComCopia1);
+        objEmail.CC.Add(emailComCopia);
+        objEmail.CC.Add(emailComCopia1);
         objEmail.CC.Add(emailComCopia2);
 
         //Enviar cópia oculta para.

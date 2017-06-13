@@ -104,7 +104,7 @@
                             </div>
 
                             <div id="divHidden" style="display: none" class="w3-center">
-                                <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                                <p>Aguarde <i class="fa fa-cog fa-spin fa-2x fa-fw"></i></p>
                             </div>
 
                         </form>

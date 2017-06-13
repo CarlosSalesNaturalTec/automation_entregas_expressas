@@ -14,9 +14,9 @@
 
 <body>
 
-    <!-- Atenção! esta pagina deve ser sempre uma copia de PainelCliente.aspx. com exceção da pagina inicial=EntregaHistorico.aspx -->
+    <!-- Atenção! esta pagina deve ser sempre uma copia de PainelCliente.aspx. com exceção da pagina inicial=EntregaAcompanhar.aspx -->
 
-   <div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width: 17%">
+<div class="w3-sidebar w3-bar-block w3-light-grey w3-card-2" style="width: 17%">
 
         <div>
             <header class="w3-container w3-blue w3-text-white w3-center">
@@ -40,6 +40,7 @@
             </div>
         </section>
         <!-- MENU -->
+
     </div>
 
     <!-- page content -->

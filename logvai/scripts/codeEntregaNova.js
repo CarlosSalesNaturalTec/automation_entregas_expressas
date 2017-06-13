@@ -247,7 +247,8 @@ function salvaPonto2() {
             if (e1 == "Cartão") {
                 iniciarPagam();
             } else {
-                window.open('EntregaAcompanhar.aspx', 'iframe_a');
+                var urlLink = "EntregaNova_Email.aspx?v1=" + e1;
+                window.open(urlLink, 'iframe_a');
             }
 
         },

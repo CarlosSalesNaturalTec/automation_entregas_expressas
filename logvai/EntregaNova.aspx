@@ -171,7 +171,7 @@
                 <input id="btCheckOut" type="button" value="Concluir" class="w3-btn w3-round w3-block w3-blue w3-hover-light-blue" onclick="salvarMaster();" />
             </div>
             <div id="divhidden" class="w3-container w3-padding w3-center" style="display:none">
-                <i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
+                <p>Aguarde <i class="fa fa-cog fa-spin fa-2x fa-fw"></i></p>
             </div>
         </section>
 

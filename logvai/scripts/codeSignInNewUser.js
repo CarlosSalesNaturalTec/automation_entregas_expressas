@@ -27,6 +27,7 @@ function NovoUsuario() {
     if (v9 == "") { alert('Informe telefone!'); document.getElementById('input_telefone').focus(); return; }
    
     document.getElementById("btSignIn").style.cursor = "progress";
+    document.getElementById("btSignIn").disabled = true;
     document.getElementById('divHidden').style.display = 'block';
 
     $.ajax({
