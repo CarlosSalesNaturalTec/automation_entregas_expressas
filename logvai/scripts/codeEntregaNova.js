@@ -110,7 +110,7 @@ function CalculoTempoEValor() {
 
     var tipo = document.getElementsByName('OpTempo');
     var tipotempo = tipo[0].checked;
-    if (tipotempo == true) { kmValor = 1.2; tipoPag = "Normal"; } else { kmValor = 2.2; tipoPag = "Urgente";}
+    if (tipotempo == true) { kmValor = 1.5; tipoPag = "Normal"; } else { kmValor = 2.2; tipoPag = "Urgente";}
 
     valorTotal = (pontoQuant * pontoValor) + (DistanciaKM * kmValor);
 

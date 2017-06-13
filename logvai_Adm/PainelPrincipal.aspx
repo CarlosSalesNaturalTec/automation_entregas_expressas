@@ -31,6 +31,8 @@
         <section>
             <a href="Clientes_Listagem.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Clientes</a>
 
+            <a href="Motoboys_Listagem.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-hover-light-blue"><i class="fa fa-motorcycle" aria-hidden="true"></i>&nbsp;&nbsp;Motoboys</a>
+
             <div class="w3-dropdown-hover">
                 <a class="w3-btn w3-block w3-left-align w3-hover-light-blue" onclick="myFunction('submenu1')"><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp;Faturamento </a>
                 <div id="submenu1" class="w3-container w3-hide">
