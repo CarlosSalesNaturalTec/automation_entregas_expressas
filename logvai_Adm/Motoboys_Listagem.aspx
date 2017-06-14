@@ -27,10 +27,10 @@
 
     <br />
     <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-users fa-2x w3-text-green"></i>&nbsp;&nbsp;Total de Motoboys Cadastrados:
+        <small><i class="fa fa-users fa-2x w3-text-blue"></i>&nbsp;&nbsp;Total de Motoboys Cadastrados:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Motoboy</button>  <!--*******Customização*******-->
+        <button class="w3-btn w3-round w3-blue w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Motoboy</button>  <!--*******Customização*******-->
     </div>
     <br />
 

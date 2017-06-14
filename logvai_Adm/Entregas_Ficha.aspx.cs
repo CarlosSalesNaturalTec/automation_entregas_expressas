@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class EntregaHistorico : System.Web.UI.Page
+public partial class Entregas_Ficha : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
 

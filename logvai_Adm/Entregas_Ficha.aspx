@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EntregaFicha.aspx.cs" Inherits="EntregaHistorico" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Entregas_Ficha.aspx.cs" Inherits="Entregas_Ficha" %>
 
 <!DOCTYPE html>
 
@@ -46,6 +46,16 @@
 
         </div>
 
+        <div id="divBotoes" class="w3-section">
+            <div class="w3-half">
+                <input id="btvoltar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="window.open('Entregas_Listagem.aspx', 'iframe');" value="Voltar" style="width: 95%" />
+            </div>
+            <div class="w3-half">
+                <input id="btConfDep" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" 
+                    onclick="confirmaDep()" value="Confirma Depósito Bancário" style="width: 95%" />
+            </div>
+        </div>
+
     </div>
 
     <!-- campo auxiliar -->
@@ -53,6 +63,8 @@
 
     <!-- Scripts diversas -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    <script type="text/javascript" src="scripts/codeEntregas_Ficha.js"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 </body>
 

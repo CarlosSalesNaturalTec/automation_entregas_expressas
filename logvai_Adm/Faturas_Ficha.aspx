@@ -25,9 +25,11 @@
     </div>
 
     <div class="w3-section w3-padding">
-        <p><strong>Cliente: </strong><asp:Literal ID="lblNome" runat="server"></asp:Literal></p>
-        <p><strong>Valor: </strong><asp:Literal ID="lblTotal" runat="server"></asp:Literal></p>
-        <input type="button" class="w3-btn w3-round w3-blue w3-hover-light-blue w3-padding" value="Voltar" onclick="window.open('Faturas_Gerar.aspx','iframe_a')" />
+        <p><strong>Cliente: </strong>
+            <asp:Literal ID="lblNome" runat="server"></asp:Literal></p>
+        <p><strong>Valor: </strong>
+            <asp:Literal ID="lblTotal" runat="server"></asp:Literal></p>
+        <input type="button" class="w3-btn w3-round w3-blue w3-hover-light-blue w3-padding" value="Voltar" onclick="window.open('Faturas_Gerar.aspx', 'iframe')" />
         <input type="button" class="w3-btn w3-round w3-blue w3-hover-light-blue w3-padding" value="Gerar Fatura" onclick="gerarFatura()" />
     </div>
 
@@ -42,7 +44,7 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="scripts/codeFaturas.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 </body>
 </html>

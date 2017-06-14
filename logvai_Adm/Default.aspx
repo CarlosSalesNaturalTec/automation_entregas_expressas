@@ -91,7 +91,7 @@
 
      <!-- Scripts -->
     <script type="text/javascript" src="scripts/codeLogin.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
   </body>
 

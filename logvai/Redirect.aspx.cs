@@ -19,7 +19,9 @@ public partial class Redirect : System.Web.UI.Page
             Session["UserName"] = Request.QueryString["v2"];
             Session["UserFaturar"] = Request.QueryString["v4"];
 
-            EnviarEmail();
+            string tipoLogin = Request.QueryString["v5"];
+
+            if (tipoLogin == "NewUser") { EnviarEmail();}
 
             Response.Redirect("PainelCliente.aspx");
         }
@@ -69,9 +71,9 @@ public partial class Redirect : System.Web.UI.Page
         objEmail.To.Add(emailDestinatario);
 
         //Enviar cópia para.
-        objEmail.CC.Add(emailComCopia);
-        objEmail.CC.Add(emailComCopia1);
-        objEmail.CC.Add(emailComCopia2);
+        //objEmail.CC.Add(emailComCopia);
+        //objEmail.CC.Add(emailComCopia1);
+        //objEmail.CC.Add(emailComCopia2);
 
         //Enviar cópia oculta para.
         //objEmail.Bcc.Add(emailComCopiaOculta);

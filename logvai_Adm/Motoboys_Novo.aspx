@@ -31,21 +31,21 @@
 <body>
 
     <!--*******MENU LATERAL - Customização*******-->
-    <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 150px">
+    <div class="w3-sidebar w3-bar-block w3-blue w3-card-2 w3-animate-left" style="width: 150px">
         <br /><br /><br />
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
-        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-futbol-o" aria-hidden="true"></i>&nbsp;Documentação</button>
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>
         <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Outros</button>        
 
         <hr />
         <div class="w3-center">
-            <button type="button" class="w3-btn w3-round w3-border w3-light-green w3-hover-red" onclick="cancelar()"><i class="fa fa-undo"></i>&nbsp;CANCELAR</button>
+            <button type="button" class="w3-btn w3-round w3-border w3-light-blue w3-hover-red" onclick="cancelar()"><i class="fa fa-undo"></i>&nbsp;CANCELAR</button>
             <p></p>
-            <button type="button" class="w3-btn w3-round w3-border w3-light-green w3-hover-blue" onclick="SalvarRegistro()" id="btSalvar"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;SALVAR&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button type="button" class="w3-btn w3-round w3-border w3-light-blue w3-hover-blue" onclick="SalvarRegistro()" id="btSalvar"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;SALVAR&nbsp;&nbsp;&nbsp;&nbsp;</button>
             <p></p>
             <div id="divhidden" class="w3-container w3-padding w3-center" style="display: none">
-                <i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
+                Aguarde...<i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
     <div style="margin-left: 150px">
 
         <div>
-            <header class="w3-container w3-green w3-center w3-padding-small">
+            <header class="w3-container w3-blue w3-center w3-padding-small">
                 <h4><strong>Novo Motoboy</strong></h4>  <!--*******Customização*******-->
             </header>
         </div>
@@ -81,7 +81,7 @@
                 <div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                        <button class="w3-btn w3-light-green w3-hover-green" onclick="classeBt2()">AVANÇAR</button>
+                        <button class="w3-btn w3-light-blue w3-hover-blue" onclick="classeBt2()">AVANÇAR</button>
                     </div>
                 </div>
 
@@ -125,10 +125,10 @@
             <div>
                 <div class="col-md-2"></div>
                 <div class="col-md-1">
-                    <button class="w3-btn w3-light-green w3-hover-green" onclick="btvoltar1()">VOLTAR</button>
+                    <button class="w3-btn w3-light-blue w3-hover-blue" onclick="btvoltar1()">VOLTAR</button>
                 </div>
                 <div class="col-md-1">
-                    <button class="w3-btn w3-light-green w3-hover-green" onclick="classeBt3()">AVANÇAR</button>
+                    <button class="w3-btn w3-light-blue w3-hover-blue" onclick="classeBt3()">AVANÇAR</button>
                 </div>
             </div>
         </div>
@@ -154,10 +154,10 @@
             <div>
                 <div class="col-md-2"></div>
                 <div class="col-md-1">
-                    <button class="w3-btn w3-light-green w3-hover-green" onclick="btvoltar2()">VOLTAR</button>
+                    <button class="w3-btn w3-light-blue w3-hover-blue" onclick="btvoltar2()">VOLTAR</button>
                 </div>
                 <div class="col-md-1">
-                    <button class="w3-btn w3-light-green w3-hover-green" onclick="SalvarRegistro()">CONCLUIR</button>
+                    <button class="w3-btn w3-light-blue w3-hover-blue" onclick="SalvarRegistro()">CONCLUIR</button>
                 </div>
             </div>
         </div>

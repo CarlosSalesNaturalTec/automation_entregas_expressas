@@ -71,7 +71,7 @@
 
             <div id="divBotoes" class="w3-section">
                 <div class="w3-half">
-                    <input id="btvoltar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="window.open('Clientes_Listagem.aspx', 'iframe_a');" value="Voltar" style="width: 95%" />
+                    <input id="btvoltar" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="window.open('Clientes_Listagem.aspx', 'iframe');" value="Voltar" style="width: 95%" />
                 </div>
                 <div class="w3-half">
                     <input id="btSignIn" type="button" class="w3-btn w3-round w3-section w3-padding w3-block w3-light-blue w3-hover-blue" onclick="liberaFaturamento()" value="Liberar/Bloquear Faturamento" />
@@ -87,7 +87,7 @@
     <!-- scripts diversos -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     <script type="text/javascript" src="scripts/codeClientes_Ficha.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 </body>
 </html>

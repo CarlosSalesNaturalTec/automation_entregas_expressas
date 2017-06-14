@@ -57,7 +57,7 @@ public class WebService : System.Web.Services.WebService
                 string vValida4 = vValida3.ToString();
 
                 url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + 
-                    "&v3=" + vValida4 + "&v4=0";
+                    "&v3=" + vValida4 + "&v4=0" + "&v5=NewUser";
             }
 
         }
@@ -121,7 +121,7 @@ public class WebService : System.Web.Services.WebService
             string useremail = Convert.ToString(dados[3]);
 
             url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + 
-                "&v3=" + vValida4 + "&v4=" + permitefaturar + "&v5=" + useremail; 
+                "&v3=" + vValida4 + "&v4=" + permitefaturar + "&v5=login"; 
         }
 
         return url;

@@ -43,7 +43,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
     [WebMethod]
     public string UserExcluir(string param1)
     {
@@ -145,22 +144,13 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string MotoboySalvar(string param1, string param2, string param3, string param4, string param5,
-    string param6, string param7, string param8, string param9, string param10,
-    string param11, string param12, string param13, string param14, string param15,
-    string param16, string param17, string param18)
+    public string MotoboySalvar(string param1, string param2, string param3, string param4)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Motoboys (Nome, Apelido , posicao, Naturalidade , Nascimento, " +
-            "nacionalidade, idioma, clube, ContratoInicio, ContratoFinal, " +
-            "RegistroCBF, DireitoEcon, Procuracao, altura, peso, " +
-            "chute, Caracteristicas , FotoURI )" +
-            "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "', '" + param5 +
-            "' , '" + param6 + "', '" + param7 + "', '" + param8 + "', '" + param9 + "', '" + param10 +
-            "' , '" + param11 + "', " + param12 + ", '" + param13 + "', " + param14 + ", " + param15 +
-            " , '" + param16 + "', '" + param17 + "', '" + param18 + "')");
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Motoboys (Nome, RG , endereco, FotoDataURI ) " +
+            "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
@@ -176,34 +166,17 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string MotoboyAlterar(string param1, string param2, string param3, string param4, string param5,
-       string param6, string param7, string param8, string param9, string param10,
-       string param11, string param12, string param13, string param14, string param15,
-       string param16, string param17, string param18, string param19)
+    public string MotoboyAlterar(string param1, string param2, string param3, string param4, string param5)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("update tbl_Atletas set " +
-            "Nome= '" + param1 + "', " +
-            "Apelido = '" + param2 + "', " +
-            "posicao = '" + param3 + "', " +
-            "Naturalidade = '" + param4 + "', " +
-            "Nascimento = '" + param5 + "', " +
-            "nacionalidade = '" + param6 + "', " +
-            "idioma = '" + param7 + "', " +
-            "clube = '" + param8 + "', " +
-            "ContratoInicio = '" + param9 + "', " +
-            "ContratoFinal = '" + param10 + "', " +
-            "RegistroCBF = '" + param11 + "', " +
-            "DireitoEcon = " + param12 + ", " +
-            "Procuracao = '" + param13 + "', " +
-            "altura = " + param14 + ", " +
-            "peso = " + param15 + ", " +
-            "chute= '" + param16 + "', " +
-            "Caracteristicas = '" + param17 + "', " +
-            "FotoURI = '" + param18 +
-            "' where ID_Atleta = " + param19);
+        bool inserir = operacao.Insert("update Tbl_Motoboys set " +
+            "Nome= '" + param2 + "', " +
+            "RG = '" + param3 + "', " +
+            "Endereco = '" + param4 + "', " +
+            "FotoDataURI = '" + param5 + "' " +
+            "where ID_Motoboy =" + param1);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -218,6 +191,25 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    public string confirmaDeposito(string param1)
+    {
+
+        string url = "Sorry.aspx";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool alterar = operacao.Update("update Tbl_Entregas_Master set Status_Pagam = 'Pago' " +
+            "where ID_Entrega = " + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (alterar == true)
+        {
+            url = "Entregas_Listagem.aspx";
+        }
+        return url;
+    }
+
 
 }
 

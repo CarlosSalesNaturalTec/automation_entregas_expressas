@@ -28,7 +28,7 @@
         dataType: "json",
         success: function (response) {
             var url = response.d;
-            window.open(url, 'iframe_a');
+            window.open(url, 'iframe');
         },
         failure: function (response) {
             document.getElementById("btSignIn").style.cursor = "pointer";

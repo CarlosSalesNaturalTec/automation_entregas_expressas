@@ -1,20 +1,24 @@
-﻿function gerarFatura() {
+﻿var formaPag = document.getElementById('OSFormaPag').textContent;
+if (formaPag != 'Depósito') {
+    document.getElementById('btConfDep').style.display = "none";
+}
 
-    var r = confirm("CONFIRMA GERAÇÃO DE FATURA?");
-    if (r == false) {
+function confirmaDep() {
+
+    var r = confirm("Depósito Confirmado ?");
+    if (r != true) {
         return;
     }
 
-    var v1 = document.getElementById('hiddenID').value;
-    var v2 = document.getElementById('hiddenQuant').value;
-    var v3 = document.getElementById('hiddenValor').value;
-
     $("body").css("cursor", "progress");
+    document.getElementById('btConfDep').disabled = true;
+
+    var v1 = document.getElementById('IDHidden').value;
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/gerarFatura",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '"}',
+        url: "WebService.asmx/confirmaDeposito",
+        data: '{param1: "' + v1 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -26,7 +30,5 @@
             alert('Tente Novamente. Erro no envio para web-service');
         }
     });
-
-
 
 }

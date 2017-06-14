@@ -5,6 +5,7 @@ public partial class Motoboys_Listagem : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
+    int TotaldeRegistros=0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,6 +14,7 @@ public partial class Motoboys_Listagem : System.Web.UI.Page
         montaRodape();
 
         Literal1.Text = str.ToString();
+        lblTotalRegistros.Text = TotaldeRegistros.ToString();
     }
 
     private void montaCabecalho()
@@ -67,6 +69,7 @@ public partial class Motoboys_Listagem : System.Web.UI.Page
                 "</tr>";
 
             str.Append(stringcomaspas);
+            TotaldeRegistros += 1;
         }
         ConexaoBancoSQL.fecharConexao();
 
