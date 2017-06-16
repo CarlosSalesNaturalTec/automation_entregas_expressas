@@ -35,7 +35,7 @@
 <body>
 
    <!--*******MENU LATERAL - Customização*******-->
-    <div class="w3-sidebar w3-bar-block w3-blue w3-card-2" style="width: 150px">
+    <div class="w3-sidebar w3-bar-block w3-blue w3-card-2 w3-animate-left" style="width: 150px">
         <br /><br /><br />
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
@@ -56,19 +56,12 @@
 
     <div style="margin-left: 150px">
 
-        <div>
-            <header class="w3-container w3-blue w3-center w3-padding-small">
-                <h4><strong>Ficha de Motoboy</strong></h4>  <!--*******Customização*******-->
-            </header>
-        </div>
-
-
         <!-- GRUPO 1 -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
             <h3><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3> <!--*******Customização*******-->
             <hr />
 
-            <div class="w3-twothird">
+            <div class="w3-threequarter">
                 <form class="form-horizontal">
 
                     <fieldset>
@@ -93,7 +86,7 @@
             </div>
 
             <!-- Camera -->
-            <div class="w3-third">
+            <div class="w3-quarter">
                 <div id="results"></div>
                 <div id="my_camera"></div>
 
@@ -161,7 +154,7 @@
                     <button class="w3-btn w3-light-blue w3-hover-blue" onclick="btvoltar2()">VOLTAR</button>
                 </div>
                 <div class="col-md-1">
-                    <button id="btconcluir" class="w3-btn w3-light-blue w3-hover-blue" onclick="AlterarRegistro()">CONCLUIR</button>
+                    <button class="w3-btn w3-light-blue w3-hover-blue" onclick="AlterarRegistro()">CONCLUIR</button>
                 </div>
             </div>
         </div>

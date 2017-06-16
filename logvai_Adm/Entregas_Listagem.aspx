@@ -19,16 +19,11 @@
 
 </head>
 <body>
-    <div>
-        <header class="w3-container w3-blue w3-text-white w3-center w3-padding-small">
-            <h4><strong>Solicitações em Aberto</strong></h4>
-        </header>
-    </div>
-
     <br />
+    
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i>&nbsp;&nbsp;Total de Entregas em Aberto:
-            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
+        <small><i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>Entregas em ABERTO:
+            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></strong></small> <!--*******Customização*******-->
     </div>
     <br />
 

@@ -14,9 +14,13 @@
 <body>
 
     <div>
-        <header class="w3-container w3-blue w3-text-white w3-center">
+
+        <!-- Total de Registros -->
+        <br />
+        <div class="w3-container w3-border w3-round w3-padding w3-center">
             <h5><strong>Ficha Individual de Cliente</strong></h5>
-        </header>
+        </div>
+        <br />
 
         <form class="w3-container">
 

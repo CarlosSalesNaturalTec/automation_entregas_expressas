@@ -18,12 +18,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div>
-        <header class="w3-container w3-blue w3-text-white w3-center">
-            <h5><strong>Histórico de Faturas</strong></h5>
-        </header>
-    </div>
+   
+    <!-- Total de Registros -->
     <br />
+    <div class="w3-container w3-border w3-round w3-padding w3-light-gray" style="margin-left: 2%; margin-right: 2%">
+        <i class="fa fa-dollar fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>Histórico  de Faturas</strong>
+    </div>
+    <br /> 
+   
+
     <div class="w3-small">
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     </div>

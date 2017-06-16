@@ -52,19 +52,12 @@
 
     <div style="margin-left: 150px">
 
-        <div>
-            <header class="w3-container w3-blue w3-center w3-padding-small">
-                <h4><strong>Novo Motoboy</strong></h4>  <!--*******Customização*******-->
-            </header>
-        </div>
-
-
         <!-- GRUPO 1 -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
             <h3><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3> <!--*******Customização*******-->
             <hr />
 
-            <div class="w3-twothird">
+            <div class="w3-threequarter">
                 <form class="form-horizontal">
 
                     <fieldset>
@@ -89,7 +82,7 @@
             </div>
 
             <!-- Camera -->
-            <div class="w3-third">
+            <div class="w3-quarter">
                 <div id="results"></div>
                 <div id="my_camera"></div>
 

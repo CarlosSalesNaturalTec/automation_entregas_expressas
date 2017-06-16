@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Faturas_Gerar.aspx.cs" Inherits="Faturas_Gerar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Entregas_Historico.aspx.cs" Inherits="Entregas_Historico" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
-    <title></title>
+    <title>Solicitações em Aberto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,16 +19,17 @@
 
 </head>
 <body>
-
-    <!-- Total a Faturar -->
     <br />
-    <div class="w3-container w3-border w3-round w3-padding w3-light-gray" style="margin-left: 2%; margin-right: 2%">
-        <i class="fa fa-dollar fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>Total a Faturar: R$ <asp:Literal ID="lblTotal" runat="server"></asp:Literal></strong>
+    <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray" style="margin-left: 2%; margin-right: 2%">
+        <small><i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>HISTÓRICO de Entregas
+            </strong></small> <!--*******Customização*******-->
     </div>
     <br />
 
-    <div class="w3-small">
+    <div class="w3-small w3-animate-left">
+        <!-- Planilha  -->
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+        <!-- Planilha  -->
     </div>
 
 </body>

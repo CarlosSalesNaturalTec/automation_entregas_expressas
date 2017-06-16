@@ -19,12 +19,14 @@
 
 </head>
 <body>
-    <div>
-        <header class="w3-container w3-blue w3-text-white w3-center w3-padding-small">
-            <h4><strong>Cadastro de Clientes</strong></h4>
-        </header>
+    
+    <!-- Total de Registros -->
+    <br />
+    <div class="w3-container w3-border w3-round w3-padding w3-light-gray" style="margin-left: 2%; margin-right: 2%">
+         <!--*******Customização*******-->
+        <i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>CLIENTES Cadastrados:
+            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></strong>
     </div>
-
     <br />
 
     <div class="w3-small">
@@ -39,17 +41,17 @@
 
             <form class="w3-container">
                 <div class="w3-section w3-center">
-                    <header class="w3-container w3-red w3-center">
+                    <header class="w3-container w3-blue w3-center">
                         <h4><strong>Atenção</strong></h4>
                     </header>
                     <br />
-                    <i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i>
+                    <i class="fa fa-3x fa-exclamation-triangle w3-text-red" aria-hidden="true"></i>
                     <br />
                     <h3><strong>Confirma Exclusão?</strong> </h3>
                     <br />
                     <p>
-                        <button type="button" class="w3-btn w3-round w3-border w3-light-blue w3-hover-blue" onclick="Excluir_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
-                        <button type="button" class="w3-btn w3-round w3-border w3-light-blue w3-hover-red" onclick="ExcluirRegistro()">Sim</button>
+                        <button type="button" class="w3-btn w3-round w3-border w3-blue w3-hover-light-blue" onclick="Excluir_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="w3-btn w3-round w3-border w3-blue w3-hover-red" onclick="ExcluirRegistro()">Sim</button>
                     </p>
                     <br />
                 </div>
@@ -57,7 +59,7 @@
             <input type="hidden" id="HiddenID" />
         </div>
     </div>
-    <!-- Modal LogOff -->
+    <!--  Modal Excluir  -->
 
     <!-- Scripts -->
     <script type="text/javascript" src="scripts/codeClientes_Listagem.js"></script>

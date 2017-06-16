@@ -3,7 +3,7 @@ using System.Text;
 
 public partial class Clientes_Listagem : System.Web.UI.Page
 {
-
+    int TotaldeRegistros = 0;
     StringBuilder str = new StringBuilder();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -14,6 +14,7 @@ public partial class Clientes_Listagem : System.Web.UI.Page
         montaRodape();
 
         Literal1.Text = str.ToString();
+        lblTotalRegistros.Text = TotaldeRegistros.ToString();
     }
 
     private void montaCabecalho()
@@ -70,6 +71,7 @@ public partial class Clientes_Listagem : System.Web.UI.Page
                 "</tr>";
 
             str.Append(stringcomaspas);
+            TotaldeRegistros += 1;
         }
         ConexaoBancoSQL.fecharConexao();
 

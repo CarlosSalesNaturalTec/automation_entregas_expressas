@@ -26,19 +26,23 @@
                     <a href="Faturas_Gerar.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Gerar Faturas</a>
                     <a href="Faturas_Historico.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Histórico</a>
                 </div>
-            </div>
-
-            <a href="Motoboys_Listagem.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-motorcycle"></i>&nbsp;Motoboys</a>
+            </div>            
 
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-blue"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Solicitações</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="Entregas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Em Aberto</a>
-                    <a href="Entregas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Histórico</a>
+                    <a href="Entregas_Historico.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Histórico</a>
                 </div>
             </div>
-            
-            <a href="Clientes_Listagem.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-building-o"></i>&nbsp;Clientes</a>
+
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-blue"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Cadastros</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Clientes_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Clientes</a>
+                    <a href="Motoboys_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Motoboys</a>
+                </div>
+            </div>
 
             <a href="PainelInicial.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
 
@@ -57,7 +61,7 @@
         <div class="w3-bar w3-light-blue">
             <div class="w3-right">
                 <h6 class="w3-small" style="margin-left: 14px">Usuário:
-                    <asp:Label ID="lblUser" CssClass="w3-text-black" runat="server"></asp:Label>&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
+                    <asp:Label ID="lblUser" CssClass="w3-text-black" runat="server"></asp:Label>&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                 </h6>
             </div>
         </div>

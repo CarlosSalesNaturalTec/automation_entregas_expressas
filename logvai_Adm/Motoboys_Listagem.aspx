@@ -19,18 +19,14 @@
 
 </head>
 <body>
-    <div>
-        <header class="w3-container w3-blue w3-text-white w3-center w3-padding-small">
-            <h4><strong>Cadastro de Motoboys</strong></h4>    <!-- *** CUSTOMIZAÇÂO ***  -->
-        </header>
-    </div>
-
+   
+    <!-- Total de Registros -->
     <br />
-    <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-users fa-2x w3-text-blue"></i>&nbsp;&nbsp;Total de Motoboys Cadastrados:
-            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
+    <div class="w3-container w3-border w3-round w3-padding w3-light-gray" style="margin-left: 2%; margin-right: 2%">
+        <small><i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i><strong>&nbsp;&nbsp;MOTOBOYS Cadastrados:
+            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></strong></small> <!--*******Customização*******-->
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-blue w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Motoboy</button>  <!--*******Customização*******-->
+        <button class="w3-btn w3-round w3-border w3-blue w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Motoboy</button>  <!--*******Customização*******-->
     </div>
     <br />
 
