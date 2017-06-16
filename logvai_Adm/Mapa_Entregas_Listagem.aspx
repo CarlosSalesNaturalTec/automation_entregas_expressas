@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Entregas_Listagem.aspx.cs" Inherits="Entregas_Listagem" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Mapa_Entregas_Listagem.aspx.cs" Inherits="Mapa_Entregas_Listagem" %>
 
 <!DOCTYPE html>
 
@@ -17,12 +17,20 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
 </head>
 <body>
     <br />
     
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>Solicitações em ABERTO:
+        <small><i class="fa fa-calendar-check-o fa-2x w3-text-blue"></i>&nbsp;&nbsp;<strong>Entregas à REALIZAR:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></strong></small> <!--*******Customização*******-->
     </div>
     <br />

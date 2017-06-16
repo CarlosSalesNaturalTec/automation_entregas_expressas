@@ -103,9 +103,9 @@ public partial class Pagseguro : System.Web.UI.Page
         objEmail.To.Add(emailDestinatario);
 
         //Enviar cópia para.
-        objEmail.CC.Add(emailComCopia);
-        objEmail.CC.Add(emailComCopia1);
-        objEmail.CC.Add(emailComCopia2);
+        //objEmail.CC.Add(emailComCopia);
+        //objEmail.CC.Add(emailComCopia1);
+        //objEmail.CC.Add(emailComCopia2);
 
         //Enviar cópia oculta para.
         //objEmail.Bcc.Add(emailComCopiaOculta);

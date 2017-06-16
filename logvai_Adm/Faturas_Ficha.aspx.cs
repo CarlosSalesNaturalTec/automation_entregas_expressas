@@ -48,7 +48,7 @@ public partial class Faturas_Ficha : System.Web.UI.Page
         string stringselect = "select ID_Entrega, LocalOrigem,LocalDestino, " +
                 "Tipo_Atendimento, Valor_Total, Forma_Pagam , Status_Pagam, Status_OS " +
                 "from Tbl_Entregas_Master " +
-                "where ID_Cliente = " + param +
+                "where Forma_Pagam = 'Faturado' and ID_Cliente = " + param +
                 " and ID_Fatura = 0";
 
         OperacaoBanco operacao = new OperacaoBanco();

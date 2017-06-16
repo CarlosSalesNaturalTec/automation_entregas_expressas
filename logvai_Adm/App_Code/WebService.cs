@@ -114,7 +114,7 @@ public class WebService : System.Web.Services.WebService
             OperacaoBanco operacao2 = new OperacaoBanco();
             bool alterar = operacao2.Update("update Tbl_Entregas_Master set " +
                 "ID_Fatura  = " + idfat +
-                " where ID_Cliente = " + param1 + " and ID_Fatura = 0");
+                " where ID_Cliente = " + param1 + " and ID_Fatura = 0 and Forma_Pagam = 'Faturado'");
             ConexaoBancoSQL.fecharConexao();
             url = "Faturas_Gerar.aspx";
         }

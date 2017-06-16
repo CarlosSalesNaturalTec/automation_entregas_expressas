@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <a href="PainelInicial.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
 
         </div>
 
@@ -52,7 +52,7 @@
 
     <!-- page content -->
     <div>
-        <iframe src="PainelInicial.aspx" width="100%" height="880" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="Home.aspx" width="100%" height="800" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
