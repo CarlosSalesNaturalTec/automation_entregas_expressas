@@ -38,7 +38,7 @@ public partial class Clientes_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select ID_User , nome, usuario,cpfcnpj, contato, telefone, faturar, dataCadastro " +
+        string stringselect = "select ID_User , nome, usuario,cpfcnpj, contato, telefone, faturar, format(dataCadastro,'dd/MM/yyyy HH:mm:ss') as d1 " +
                 "from Tbl_Usuarios order by nome";
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

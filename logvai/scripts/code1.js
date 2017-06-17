@@ -77,7 +77,7 @@ function CalculoTempoEValor() {
 
     var tipo = document.getElementsByName('OpTempo');
     var tipotempo = tipo[0].checked;
-    if (tipotempo == true) { kmValor = 1.5; } else { kmValor = 2.2; }
+    if (tipotempo == true) { kmValor = 1.5; } else { kmValor = 2.0; }
 
     var chkretorno = document.getElementsByName('chkRetorno');
     var chkretorno2 = chkretorno[0].checked;

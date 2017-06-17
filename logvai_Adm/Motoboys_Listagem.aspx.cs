@@ -25,7 +25,7 @@ public partial class Motoboys_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>TELEFONE</th>" +
-            "<th>VEICULO</th>" +
+            "<th>ÚLTIM.ATUALIZ.</th>" +
             "<th>MODELO</th>" +
             "<th>PLACA</th>" +
             "<th>ID</th>" +
@@ -40,7 +40,7 @@ public partial class Motoboys_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!-- *** CUSTOMIZAÇÂO ***  -->
-        string stringselect = "select ID_Motoboy, nome, telefone,veiculo, modelo, placa " +
+        string stringselect = "select ID_Motoboy, nome, telefone, format(GeoDataLoc,'dd/MM/yy HH:mm:ss') as D1, modelo, placa " +
                 "from Tbl_Motoboys order by nome";
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

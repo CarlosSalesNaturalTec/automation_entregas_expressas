@@ -35,7 +35,7 @@ public class WebService : System.Web.Services.WebService
             OperacaoBanco operacao = new OperacaoBanco();
             System.Data.SqlClient.SqlDataReader dados = operacao.Select("SELECT count(ID_Entrega) as Total_Quant "
                     + "FROM Tbl_Entregas_Master "
-                    + "where (Status_OS = 'Em Aberto') ");   //ATENÇÃO - OTIMIZAR FILTRO . somente OS liberadas (Cartão Pago / Faturado)
+                    + "where Status_Pagam<>'Em Aberto' and Status_OS = 'Em Aberto' ");  
 
             while (dados.Read())
             {
@@ -96,6 +96,7 @@ public class WebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ListaEntregas(int param1)
     {
+        // TODAS AS ENTREGAS EM ABERTO 
         string Resultado = "";
         int totalRegistros = 0;
         List<Object> resultado = new List<object>();
@@ -105,7 +106,8 @@ public class WebService : System.Web.Services.WebService
             SqlDataReader dados1 = operacao1.Select("select ID_Entrega,Tbl_Usuarios.Nome, LocalOrigem,LocalDestino,Distancia_Total "
                     + "FROM Tbl_Entregas_Master "
                     + "INNER JOIN Tbl_Usuarios ON Tbl_Entregas_Master.ID_Cliente = Tbl_Usuarios.ID_User "
-                    + "where (Status_OS = 'Em Aberto')");  //ATENÇÃO - OTIMIZAR FILTRO . somente OS liberadas (Cartão Pago / Faturado)
+                    + "where Status_Pagam<>'Em Aberto' and Status_OS = 'Em Aberto' ");  
+
             while (dados1.Read())
             {
                 resultado.Add(new
@@ -131,6 +133,46 @@ public class WebService : System.Web.Services.WebService
                     Distancia = "X"
                 });
             }
+
+            //O JavaScriptSerializer vai fazer o web service retornar JSON
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(resultado);
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA";
+        }
+
+        return Resultado;
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ListaEntregas2(int param1)
+    {
+        
+        // PONTOS DA ENTREGA MASTER
+        string Resultado = "";
+        List<Object> resultado = new List<object>();
+        try
+        {
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            SqlDataReader dados1 = operacao1.Select("select ID_Entrega_Filho,Ordem,Endereco" +
+                    " FROM Tbl_Entregas " +
+                    " where ID_Entrega = " + param1 +
+                    " order by Ordem ");
+
+            while (dados1.Read())
+            {
+                resultado.Add(new
+                {
+                    ID_Entrega_Filho = dados1[0].ToString(),
+                    Ordem = dados1[1].ToString(),
+                    Endereco = dados1[2].ToString(),
+                });
+            }
+            ConexaoBancoSQL.fecharConexao();
 
             //O JavaScriptSerializer vai fazer o web service retornar JSON
             JavaScriptSerializer js = new JavaScriptSerializer();
@@ -185,6 +227,46 @@ public class WebService : System.Web.Services.WebService
         catch (Exception)
         {
             Resultado = "FALHA";
+        }
+
+        return Resultado;
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string DetalhesEntrega(int param1)
+    {
+        string Resultado = "";
+        List<Object> resultado = new List<object>();
+        try
+        {
+            OperacaoBanco operacao = new OperacaoBanco();
+            SqlDataReader dados = operacao.Select("SELECT Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica,Telefone "
+                    + "FROM Tbl_Entregas "
+                    + "where ID_Entrega_filho = " + param1);
+            while (dados.Read())
+            {
+                resultado.Add(new
+                {
+                    Endereco = dados[0].ToString(),
+                    numero = dados[1].ToString(),
+                    complemento = dados[2].ToString(),
+                    Contactar = dados[3].ToString(),
+                    Detalhes = dados[4].ToString(),
+                    Banco_Repart_Publica = dados[5].ToString(),
+                    Telefone = dados[6].ToString(),
+                });
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            //O JavaScriptSerializer vai fazer o web service retornar JSON
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(resultado);
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA CONEXÃO BANCO DE DADOS";
         }
 
         return Resultado;
