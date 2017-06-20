@@ -293,6 +293,20 @@ function coordenadasPonto2(endereco) {
 
 function exibirResumo() {
 
+    //valida horário de solicitação 
+    var currentdate = new Date();
+    var horaAtual = currentdate.getHours();
+    if (horaAtual < 8 || horaAtual > 17) {
+        alert("Funcionamos em horário comercial. Faça seu solicitação entre 8hs e 17hs!");
+        return;
+    }
+    if (eBanco == "1") {
+        if (horaAtual > 15) {
+            alert("Solicitações para serviço em Bancos somente até às 15hs!")
+            return;
+        }
+    }
+
     var complem1 = document.getElementById('inputComplemento1').value;
     document.getElementById('Resumo_Ponto1').textContent = Ponto1;
     document.getElementById('Resumo_Complem1').textContent = complem1;

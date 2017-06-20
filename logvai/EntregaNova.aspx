@@ -11,14 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
         #map {
             height: 100%;
             width: 50%;
         }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
+         html, body {
             height: 100%;
             margin: 0;
             padding: 0;

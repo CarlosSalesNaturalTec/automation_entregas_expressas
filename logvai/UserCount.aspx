@@ -100,14 +100,14 @@
     </div>
 
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
+        <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 600px">
             <header class="w3-container w3-light-blue w3-center">
                 <span onclick="document.getElementById('id01').style.display='none'"
                     class="w3-button w3-display-topright">&times;</span>
                 <h2>Termos de Uso</h2>
             </header>
             <div class="w3-container w3-section w3-padding w3-small">
-                <p>Por este instrumento são estabelecidas as condições gerais e os termos de uso do site de internet (www.logvai.com) (o “Site”) de propriedade da LOGLOGISTICA TRANSPORTES LTDA., com sede na cidade de Salvador, Estado a Bahia, na Av. Tancredo Neves, no. 2671 – Ed. Bahia Center, CEP 4000-000, inscrita no CNPJ/MF sob o no. 99.999.999/9999-99 (o “Logvai”) (em conjunto, o “Sistema Logvai”), para as pessoas físicas ou jurídicas (em conjunto, o “Usuário” e, no plural, os “Usuários”) que desejam utilizar o Sistema Logvai para contratar serviços de transporte de cargas e documentos por meio de motocicletas, estando o uso do Sistema Logvai para tal finalidade condicionado à concordância e à adesão integral a estes Termos de Uso e Condições Gerais para a utilização do Sistema LogVai (os “Termos”).</p>
+                <iframe src="other/termos.txt" frameborder="0" scrolling="yes" height="400" width="550"></iframe>
             </div>
         </div>
     </div>

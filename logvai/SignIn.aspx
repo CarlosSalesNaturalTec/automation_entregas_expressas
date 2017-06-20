@@ -18,7 +18,7 @@
 
     <!-- Formulário -->
     <div class="w3-display-container">
-        <img src="images/background.jpg" alt="background" class="w3-opacity" style="width: 100%">
+        <img src="images/imgmotoboy.png" alt="background" style="width: 100%">
 
         <div class="w3-padding w3-display-middle">
             <div class="w3-card-4" style="width: 800px">
@@ -131,7 +131,7 @@
                 <div class="w3-section w3-center">
                     <h4>Termos de Uso</h4>
 
-                    <iframe src="other/termos.txt" frameborder="0" scrolling="yes" height="400" width="500"></iframe>
+                    <iframe src="other/termos.txt" frameborder="0" scrolling="yes" height="400" width="550"></iframe>
 
                 </div>
             </form>

@@ -16,15 +16,18 @@
 
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
-        <a href="cotacao.aspx" target="iframe_a" class="w3-bar-item w3-btn w3-left">
-            <img src="images/logo.png" alt=""></a>
-        <a onclick="ExibirModal();" class="w3-bar-item w3-button w3-mobile w3-right w3-hover-text-blue">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>     
+
+        <img src="images/logvaiLogo.png" alt="Logomarca LogVai" style="margin-top:10px; margin-left:175px; margin-bottom:10px">
+        
+        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top:40px;margin-right:40px"
+            onclick="ExibirModal();">Entrar 
+            <i class="fa fa-sign-in" aria-hidden="true"></i></a>
     </div>
     <!-- MENU -->
 
     <!-- page content -->
     <div class="right_col" role="main">
-        <iframe src="Cotacao.aspx" width="100%" height="800px" frameborder="0" name="iframe_a">
+        <iframe src="Cotacao.aspx" width="100%" height="880px" frameborder="0" name="iframe_a">
             <p>Seu browser não suporta iframes.</p>
         </iframe>
     </div>
@@ -32,7 +35,7 @@
 
     <!-- Modal Login -->
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width: 400px">
+        <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 400px">
 
             <header class="w3-container w3-blue w3-center">
                 <span onclick="document.getElementById('id01').style.display='none'"

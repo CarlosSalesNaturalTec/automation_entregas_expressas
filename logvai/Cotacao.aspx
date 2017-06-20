@@ -17,7 +17,7 @@
 
     <!-- SOLICITAÇÃO -->
     <div class="w3-display-container">
-        <img src="images/background.jpg" alt="background" class="w3-opacity" style="width: 100%">
+        <img src="images/imgmotoboy.png" alt="background" style="width: 100%">
 
         <div class="w3-padding w3-display-middle">
 
