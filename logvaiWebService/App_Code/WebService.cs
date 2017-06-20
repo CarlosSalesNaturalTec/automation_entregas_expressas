@@ -158,7 +158,7 @@ public class WebService : System.Web.Services.WebService
         try
         {
             OperacaoBanco operacao1 = new OperacaoBanco();
-            SqlDataReader dados1 = operacao1.Select("select ID_Entrega_Filho,Ordem,Endereco" +
+            SqlDataReader dados1 = operacao1.Select("select ID_Entrega_Filho,Endereco,numero,complemento" +
                     " FROM Tbl_Entregas " +
                     " where ID_Entrega = " + param1 +
                     " order by Ordem ");
@@ -168,8 +168,9 @@ public class WebService : System.Web.Services.WebService
                 resultado.Add(new
                 {
                     ID_Entrega_Filho = dados1[0].ToString(),
-                    Ordem = dados1[1].ToString(),
-                    Endereco = dados1[2].ToString(),
+                    Endereco = dados1[1].ToString(),
+                    Numero = dados1[2].ToString(),
+                    Complemento = dados1[3].ToString(),
                 });
             }
             ConexaoBancoSQL.fecharConexao();
