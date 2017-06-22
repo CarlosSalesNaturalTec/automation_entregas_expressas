@@ -161,16 +161,17 @@ public class WebService : System.Web.Services.WebService
             SqlDataReader dados1 = operacao1.Select("select ID_Entrega_Filho,Endereco,numero,complemento" +
                     " FROM Tbl_Entregas " +
                     " where ID_Entrega = " + param1 +
+                    " and Chegada_Ok = 0" +
                     " order by Ordem ");
 
             while (dados1.Read())
             {
                 resultado.Add(new
                 {
-                    ID_Entrega_Filho = dados1[0].ToString(),
+                    ID_Entrega = dados1[0].ToString(),
                     Endereco = dados1[1].ToString(),
                     Numero = dados1[2].ToString(),
-                    Complemento = dados1[3].ToString(),
+                    Complemento = dados1[3].ToString()
                 });
             }
             ConexaoBancoSQL.fecharConexao();
@@ -238,15 +239,22 @@ public class WebService : System.Web.Services.WebService
     public string DetalhesEntrega(int param1)
     {
         string Resultado = "";
+        string eBanco = "", HoraPartida = "";
+
         List<Object> resultado = new List<object>();
         try
         {
             OperacaoBanco operacao = new OperacaoBanco();
-            SqlDataReader dados = operacao.Select("SELECT Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica,Telefone "
-                    + "FROM Tbl_Entregas "
-                    + "where ID_Entrega_filho = " + param1);
+            SqlDataReader dados = operacao.Select("SELECT Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica," +
+                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude " +
+                    "FROM Tbl_Entregas " +
+                    "where ID_Entrega_filho = " + param1);
+
             while (dados.Read())
             {
+                if (dados[5].ToString() == "True") { eBanco = "BANCO OU REPARTIÇÃO PÚBLICA"; }
+                if (dados[7].ToString() == "True") { HoraPartida = dados[8].ToString(); }
+
                 resultado.Add(new
                 {
                     Endereco = dados[0].ToString(),
@@ -254,8 +262,11 @@ public class WebService : System.Web.Services.WebService
                     complemento = dados[2].ToString(),
                     Contactar = dados[3].ToString(),
                     Detalhes = dados[4].ToString(),
-                    Banco_Repart_Publica = dados[5].ToString(),
+                    Banco = eBanco,
                     Telefone = dados[6].ToString(),
+                    HoraPartida = HoraPartida,
+                    Latitude = dados[9].ToString(),
+                    Longitude = dados[10].ToString()
                 });
             }
             ConexaoBancoSQL.fecharConexao();
@@ -263,6 +274,78 @@ public class WebService : System.Web.Services.WebService
             //O JavaScriptSerializer vai fazer o web service retornar JSON
             JavaScriptSerializer js = new JavaScriptSerializer();
             return js.Serialize(resultado);
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA CONEXÃO BANCO DE DADOS";
+        }
+
+        return Resultado;
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string StartTravel(int IdEntrega, string latitude, string longitude, string dataLeitura)
+    {
+        string Resultado = "";
+
+        try
+        {
+            // atualiza status da entrega : VIAGEM INICIADA
+            OperacaoBanco operacao = new OperacaoBanco();
+            Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
+                "Partida_Data = '" + dataLeitura + "', " +
+                "Partida_Latitude = '" + latitude + "', " +
+                "Partida_Longitude = '" + longitude + "', " +
+                "Partida_Ok = 1, " +
+                "Status_Entrega = 'EM ANDAMENTO' " +
+                "where ID_Entrega_Filho = " + IdEntrega);
+
+            ConexaoBancoSQL.fecharConexao();
+
+            if (atualizar == true) { Resultado = "OK"; } else { Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS"; }
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA CONEXÃO BANCO DE DADOS";
+        }
+
+        return Resultado;
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string EndTravel(int IdEntrega, string latitude, string longitude, string dataLeitura, string Status)
+    {
+        string Resultado = "";
+        string mStatus = "";
+
+        switch (Status)
+        {
+            case "01": { mStatus = "ENTREGA REALIZADA"; break; }
+            case "02": { mStatus = "MUDOU-SE"; break; }
+            case "03": { mStatus = "AUSENTE"; break; }
+            case "04": { mStatus = "NÃO QUIZ RECEBER"; break; }
+            case "05": { mStatus = "ÁREA DE RISCO"; break; }
+            case "06": { mStatus = "END. INSUFICIENTE"; break; }
+        }
+
+        try
+        {
+            // atualiza status da entrega : VIAGEM CONCLUIDA
+            OperacaoBanco operacao = new OperacaoBanco();
+            Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
+                "Chegada_Data = '" + dataLeitura + "', " +
+                "Chegada_Latitude = '" + latitude + "', " +
+                "Chegada_Longitude = '" + longitude + "', " +
+                "Status_Entrega = '" + mStatus + "', " +
+                "Chegada_Ok = 1  " +
+                "where ID_Entrega_Filho = " + IdEntrega);
+            ConexaoBancoSQL.fecharConexao();
+
+            if (atualizar == true) { Resultado = "OK"; } else { Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS"; }
 
         }
         catch (Exception)
