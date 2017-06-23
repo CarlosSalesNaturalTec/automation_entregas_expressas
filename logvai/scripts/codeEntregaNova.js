@@ -298,7 +298,7 @@ function exibirResumo() {
     var horaAtual = currentdate.getHours();
     if (horaAtual < 8 || horaAtual > 17) {
         alert("Funcionamos em horário comercial. Faça seu solicitação entre 8hs e 17hs!");
-        //return;
+        return;
     }
     if (eBanco == "1") {
         if (horaAtual > 15) {
