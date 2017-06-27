@@ -149,6 +149,47 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string EntregasEmAndamento(int IdMotoboy)
+    {
+
+        List<Object> resultado = new List<object>();
+        int TotalRegistros = 0;
+        string retorno = "";
+
+        OperacaoBanco operacaoEmAndamento = new OperacaoBanco();
+        SqlDataReader dadosEmAndamento = operacaoEmAndamento.Select("SELECT ID_Entrega "
+                + "FROM Tbl_Entregas_Master "
+                + "where Status_OS = 'Em Andamento' "
+                + "and ID_Motoboy =" + IdMotoboy);
+
+        while (dadosEmAndamento.Read())
+        {
+            TotalRegistros++;
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        if (TotalRegistros == 0)
+        {
+            retorno = "9999";
+        }else
+        {
+            retorno = TotalRegistros.ToString();
+        }
+
+        resultado.Add(new
+        {
+            EmAndamento = retorno
+        });
+
+        //O JavaScriptSerializer vai fazer o web service retornar JSON
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        return js.Serialize(resultado);
+
+    }
+
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ListaEntregas2(int param1)
     {
         
@@ -246,7 +287,7 @@ public class WebService : System.Web.Services.WebService
         {
             OperacaoBanco operacao = new OperacaoBanco();
             SqlDataReader dados = operacao.Select("SELECT Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica," +
-                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude " +
+                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude, ID_Motoboy   " +
                     "FROM Tbl_Entregas " +
                     "where ID_Entrega_filho = " + param1);
 
@@ -266,7 +307,8 @@ public class WebService : System.Web.Services.WebService
                     Telefone = dados[6].ToString(),
                     HoraPartida = HoraPartida,
                     Latitude = dados[9].ToString(),
-                    Longitude = dados[10].ToString()
+                    Longitude = dados[10].ToString(),
+                    IDMotoboy = dados[11].ToString()
                 });
             }
             ConexaoBancoSQL.fecharConexao();
@@ -286,39 +328,40 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string StartTravel(int IdEntrega, string IdPai, string dataLeitura)
+    public string StartTravel(int IDMotoboy, int IDEntrega, string IDPai, string dataLeitura)
     {
-        string Resultado = "";
+        string Resultado = "";  
 
-        try
-        {
-            // atualiza status da entrega : VIAGEM INICIADA
-            OperacaoBanco operacao = new OperacaoBanco();
-            Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
-                "Partida_Data = '" + dataLeitura + "', " +
-                "Partida_Ok = 1, " +
-                "Status_Entrega = 'Em Andamento' " +
-                "where ID_Entrega_Filho = " + IdEntrega);
+        // atualiza status da entrega : VIAGEM INICIADA
+        OperacaoBanco operacao = new OperacaoBanco();
+        Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
+            "Partida_Data = '" + dataLeitura + "', " +
+            "Partida_Ok = 1, " +
+            "Status_Entrega = 'Em Andamento', " +
+            "ID_Motoboy = " + IDMotoboy + " " +
+            "where ID_Entrega_Filho = " + IDEntrega);
 
+        ConexaoBancoSQL.fecharConexao();
+
+        if (atualizar == true) {
+
+            // atualiza status da entrega MASTER
+            OperacaoBanco operacaoMaster = new OperacaoBanco();
+
+            string atlzMaster = "update Tbl_Entregas_Master set " +
+                "Status_OS = 'Em Andamento', " +
+                "ID_Motoboy = " + IDMotoboy + " " +
+                "where ID_Entrega = " + IDPai;
+
+
+            Boolean atualizarMaster = operacaoMaster.Update(atlzMaster);
             ConexaoBancoSQL.fecharConexao();
 
-            if (atualizar == true) {
-
-                // atualiza status da entrega MASTER
-                OperacaoBanco operacaoMaster = new OperacaoBanco();
-                Boolean atualizarMaster = operacaoMaster.Update("update Tbl_Entregas_Master set " +
-                    "Status_OS = 'Em Andamento' " +
-                    "where ID_Entrega = " + IdPai);
-                ConexaoBancoSQL.fecharConexao();
-
-                if (atualizarMaster == true) { Resultado = "OK"; } else { Resultado = "Erro ao atualizar Tabela Master"; }
-
-            } else { Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS"; }
+            if (atualizarMaster == true) { Resultado = "OK"; } else { Resultado = "Erro ao atualizar Tabela Master"; }
 
         }
-        catch (Exception)
-        {
-            Resultado = "FALHA CONEXÃO BANCO DE DADOS";
+        else {
+            Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS";
         }
 
         return Resultado;
@@ -326,7 +369,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string EndTravel(int IdEntrega, string IdPai, string dataLeitura, string Status)
+    public string EndTravel(int IDMotoboy, int IDEntrega, string IDPai, string dataLeitura, string Status)
     {
         string Resultado = "";
         string mStatus = "";
@@ -341,50 +384,46 @@ public class WebService : System.Web.Services.WebService
             case "06": { mStatus = "END. INSUFICIENTE"; break; }
         }
 
-        try
+        // atualiza status da entrega : VIAGEM CONCLUIDA
+        OperacaoBanco operacao = new OperacaoBanco();
+        Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
+            "Chegada_Data = '" + dataLeitura + "', " +
+            "Status_Entrega = '" + mStatus + "', " +
+            "Chegada_Ok = 1  " +
+            "where ID_Entrega_Filho = " + IDEntrega);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (atualizar == true)
         {
-            // atualiza status da entrega : VIAGEM CONCLUIDA
-            OperacaoBanco operacao = new OperacaoBanco();
-            Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
-                "Chegada_Data = '" + dataLeitura + "', " +
-                "Status_Entrega = '" + mStatus + "', " +
-                "Chegada_Ok = 1  " +
-                "where ID_Entrega_Filho = " + IdEntrega);
+
+            //verifica se ainda existem entregas a realizar, caso não, marca Master como Concluida
+            int TotalReg = 0;
+            OperacaoBanco operacaoEnd1 = new OperacaoBanco();
+            SqlDataReader dadosEnd1 = operacaoEnd1.Select("select ID_Entrega" +
+                    "FROM Tbl_Entregas " +
+                    "where ID_Entrega=" + IDPai +
+                    " and Chegada_Ok = 0"
+                    );
+
+            while (dadosEnd1.Read()) { TotalReg++; }
             ConexaoBancoSQL.fecharConexao();
 
-            if (atualizar == true) {
-
-                //verifica se ainda existem entregas a realizar, caso não, marca Master como Concluida
-                int TotalReg = 0;
-                OperacaoBanco operacaoEnd1 = new OperacaoBanco();
-                SqlDataReader dadosEnd1 = operacaoEnd1.Select("select ID_Entrega" +
-                        "FROM Tbl_Entregas " +
-                        "where ID_Entrega=" + IdPai +
-                        " and Chegada_Ok = 0"
-                        );
-
-                while (dadosEnd1.Read()) { TotalReg++;}
+            if (TotalReg > 0)
+            {
+                OperacaoBanco operacaoMaster = new OperacaoBanco();
+                Boolean atualizarmaster = operacaoMaster.Update("update Tbl_Entregas_Master set " +
+                    "Status_OS  = 'Concluída', " +
+                    "where ID_Entrega = " + IDPai);
                 ConexaoBancoSQL.fecharConexao();
+            }
 
-                if (TotalReg > 0)
-                {
-                    OperacaoBanco operacaoMaster = new OperacaoBanco();
-                    Boolean atualizarmaster = operacaoMaster.Update("update Tbl_Entregas_Master set " +
-                        "Status_OS  = 'Concluída', " +
-                        "where ID_Entrega = " + IdPai);
-                    ConexaoBancoSQL.fecharConexao();
-                }
+            Resultado = "OK";
 
-                Resultado = "OK";
-
-
-            } else
-            { Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS"; }
 
         }
-        catch (Exception)
+        else
         {
-            Resultado = "FALHA CONEXÃO BANCO DE DADOS";
+            Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS";
         }
 
         return Resultado;

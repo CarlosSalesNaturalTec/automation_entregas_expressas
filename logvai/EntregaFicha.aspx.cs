@@ -4,11 +4,22 @@ using System.Text;
 public partial class EntregaHistorico : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
+    String IDAux;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        PreencheCampos(Request.QueryString["v1"]);
+        
+        IDAux = Request.QueryString["v1"];
+
+        //preenche campos
+        PreencheCampos(IDAux);
         Literal1.Text = str.ToString();
+
+        //grid entregas filhas
+        montaCabecalho();
+        dadosCorpo(IDAux);
+        montaRodape();
+        Literal2.Text = str.ToString();
     }
 
     private void PreencheCampos(string ID)
@@ -45,5 +56,49 @@ public partial class EntregaHistorico : System.Web.UI.Page
         str.Append(ScriptDados);
     }
 
+    private void montaCabecalho()
+    {
+        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
+            "<thead>" +
+            "<tr>" +
+            "<th>ENDEREÇO</th>" +
+            "<th>STATUS</th>" +
+            "</tr>" +
+            "</thead>" +
+            "<tbody>";
+        str.Clear();
+        str.Append(stringcomaspas);
+    }
 
+    private void dadosCorpo(string ID)
+    {
+        string datastatus = DateTime.Now.ToString("yyyy-MM-dd");
+        string stringselect = "select Endereco, Status_Entrega " +
+                "from Tbl_Entregas " +
+                "where ID_Entrega = " + ID ;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
+
+        while (dados.Read())
+        {
+            string Coluna1 = Convert.ToString(dados[0]);
+            string Coluna2 = Convert.ToString(dados[1]);
+          
+            string stringcomaspas = "<tr>" +
+                "<td>" + Coluna1 + "</td>" +
+                "<td>" + Coluna2 + "</td>" +
+                "</tr>";
+
+            str.Append(stringcomaspas);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+    }
+
+    private void montaRodape()
+    {
+        string footer = "</tbody></table>";
+        str.Append(footer);
+    }
 }

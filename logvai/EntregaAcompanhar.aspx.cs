@@ -47,8 +47,8 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
         string stringselect = "select ID_Entrega, LocalOrigem,LocalDestino, " +
                 "Tipo_Atendimento, Valor_Total, Forma_Pagam , Status_Pagam, Status_OS " +
                 "from Tbl_Entregas_Master " +
-                "where ID_Cliente = " + param +
-                " and Status_OS = 'Em Aberto'";
+                "where ID_Cliente = " + param + " " +
+                "and historico=0";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -69,9 +69,16 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
             string codeDelete = "", classDelete = "";
 
             if (Coluna7 == "Em Aberto") {
-                codePagam = "iniciapag(" + Coluna0 + " , " + Coluna4.Replace(",",".") + ");";
-                codeDelete = "excluirEntrega(" + Coluna0 + ");";
-                classPag = "w3-btn w3-round w3-hover-green w3-padding";
+                if (Coluna5 == "Cartão") {
+                    codePagam = "iniciapag(" + Coluna0 + " , " + Coluna4.Replace(",",".") + ");";
+                    classPag = "w3-btn w3-round w3-hover-green w3-padding";
+                } else
+                {
+                    codePagam = "";
+                    classPag = "w3-btn w3-round w3-padding";
+                }
+
+                codeDelete = "excluirEntrega(" + Coluna0 + ");";      
                 classDelete = "w3-btn w3-round w3-hover-red w3-padding";
             } else if (Coluna7 == "Faturado")
             {
@@ -93,7 +100,7 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
             string bt3 = "<a class='w3-btn w3-round w3-hover-blue' href='EntregaFicha.aspx?v1=" + Coluna0 + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
 
             string stringcomaspas = "<tr>" +
-                "<td>" + bt1 + bt2 + bt3 + Coluna1 + "</td>" +
+                "<td>" + bt3 + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + "R$" + Coluna4 + "</td>" +

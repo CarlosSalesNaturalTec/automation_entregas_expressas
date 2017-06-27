@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-home"></i>&nbsp;Início</a>
 
         </div>
 
