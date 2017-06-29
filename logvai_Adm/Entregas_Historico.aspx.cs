@@ -10,7 +10,7 @@ public partial class Entregas_Historico : System.Web.UI.Page
     {
 
         montaCabecalho();
-        //dadosCorpo();
+        dadosCorpo();
         montaRodape();
         Literal1.Text = str.ToString();
     }
@@ -45,7 +45,7 @@ public partial class Entregas_Historico : System.Web.UI.Page
                 "Tipo_Atendimento, Valor_Total, Forma_Pagam , Status_Pagam, Status_OS " +
                 "from Tbl_Entregas_Master " +
                 "INNER JOIN Tbl_Usuarios ON Tbl_Entregas_Master.ID_Cliente = Tbl_Usuarios.ID_User " +
-                "where Status_OS = 'Em Aberto'";
+                "where Status_OS = 'Concluída'";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

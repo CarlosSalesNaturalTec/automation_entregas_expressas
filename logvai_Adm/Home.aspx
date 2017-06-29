@@ -11,11 +11,8 @@
 </head>
 <body>
 
-    <div class="w3-half w3-padding">
-        <iframe height="800px" width="100%" frameborder="0" scrolling="no" src="Mapa_StatusAtual.aspx"></iframe>
-    </div>
-    <div class="w3-half w3-padding">
-        <iframe height="800px" width="100%" frameborder="0" scrolling="no" src="Mapa_Entregas_Listagem.aspx"></iframe>
+    <div class="w3-display-middle">
+        <img src="images/logopart1.jpg" />
     </div>
 
 </body>

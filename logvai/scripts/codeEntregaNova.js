@@ -46,9 +46,9 @@ function initMap() {
 function permissaoFaturar() {
     var faturar = document.getElementById('FaturarHidden').value;
     if (faturar == 'True') {
-        document.getElementById('formaPag').options[1].disabled = false;
+        document.getElementById('formaPag').options[2].disabled = false;
     } else {
-        document.getElementById('formaPag').options[1].disabled = true;
+        document.getElementById('formaPag').options[2].disabled = true;
     }
 }
 
@@ -167,7 +167,12 @@ function salvarMaster() {
     if (v5 == 'Faturado') {
         v7 = "Faturado";
     } else {
-        v7 = "Em Aberto";
+        if (v5 == 'Dinheiro') {
+            v7 = "Dinheiro";
+        } else {
+            v7 = "Em Aberto";
+        }
+        
     }
 
     $.ajax({

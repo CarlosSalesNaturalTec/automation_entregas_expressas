@@ -75,7 +75,8 @@ public partial class EntregaHistorico : System.Web.UI.Page
         string datastatus = DateTime.Now.ToString("yyyy-MM-dd");
         string stringselect = "select Endereco, Status_Entrega " +
                 "from Tbl_Entregas " +
-                "where ID_Entrega = " + ID ;
+                "where ID_Entrega = " + ID +
+                " order by Ordem";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

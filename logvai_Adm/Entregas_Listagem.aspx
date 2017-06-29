@@ -27,7 +27,7 @@
     </div>
     <br />
 
-    <div class="w3-small w3-animate-left">
+    <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray w3-small w3-animate-left" style="margin-left: 2%; margin-right: 2%">
         <!-- Planilha  -->
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
         <!-- Planilha  -->

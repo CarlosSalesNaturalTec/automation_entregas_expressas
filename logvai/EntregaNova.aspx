@@ -155,6 +155,7 @@
                 <select id="formaPag" name="formaPag" class="w3-select w3-border w3-half">
                     <option value="Cartão" disabled>Cartão</option>
                     <option value="Faturado" disabled>Faturado</option>
+                    <option value="Dinheiro">Dinheiro</option>
                     <option value="Depósito">Depósito/Transf.</option>
                 </select>
             </p>

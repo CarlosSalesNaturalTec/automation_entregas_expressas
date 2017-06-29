@@ -31,7 +31,7 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-blue"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Solicitações</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Entregas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Em Aberto</a>
+                    <a href="Entregas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Novas/Em Andamento</a>
                     <a href="Entregas_Historico.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Histórico</a>
                 </div>
             </div>
