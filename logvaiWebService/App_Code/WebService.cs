@@ -343,9 +343,10 @@ public class WebService : System.Web.Services.WebService
         {
             OperacaoBanco operacao = new OperacaoBanco();
             SqlDataReader dados = operacao.Select("SELECT Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica," +
-                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude, ID_Motoboy   " +
+                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude, ID_Motoboy,Ordem,ID_Entrega " +
                     "FROM Tbl_Entregas " +
                     "where ID_Entrega_filho = " + param1);
+            
 
             while (dados.Read())
             {

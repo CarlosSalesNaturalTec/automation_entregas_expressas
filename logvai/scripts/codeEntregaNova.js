@@ -46,9 +46,9 @@ function initMap() {
 function permissaoFaturar() {
     var faturar = document.getElementById('FaturarHidden').value;
     if (faturar == 'True') {
-        document.getElementById('formaPag').options[2].disabled = false;
+        document.getElementById('formaPag').options[1].disabled = false;
     } else {
-        document.getElementById('formaPag').options[2].disabled = true;
+        document.getElementById('formaPag').options[1].disabled = true;
     }
 }
 

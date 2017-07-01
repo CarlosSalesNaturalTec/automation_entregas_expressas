@@ -80,19 +80,39 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
 
                 codeDelete = "excluirEntrega(" + Coluna0 + ");";      
                 classDelete = "w3-btn w3-round w3-hover-red w3-padding";
+
             } else if (Coluna7 == "Faturado")
             {
-                codePagam = "";
-                codeDelete = "excluirEntrega(" + Coluna0 + ");";
+                codePagam = "Em Aberto";
                 classPag = "w3-btn w3-round w3-padding";
-                classDelete = "w3-btn w3-round w3-hover-red w3-padding";
+
+                if (Coluna8 == "Em Aberto")
+                {
+                    codeDelete = "excluirEntrega(" + Coluna0 + ");";
+                    classDelete = "w3-btn w3-round w3-hover-red w3-padding";
+                }
+                else
+                {
+                    codeDelete = "";
+                    classDelete = "w3-btn w3-round w3-padding";
+                }
+                
             }
             else 
             {
                 codePagam = "";
                 classPag = "w3-btn w3-round w3-padding";
-                codeDelete = "";
-                classDelete = "w3-btn w3-round w3-padding";
+
+                if (Coluna8 == "Em Aberto")
+                {
+                    codeDelete = "excluirEntrega(" + Coluna0 + ");";
+                    classDelete = "w3-btn w3-round w3-hover-red w3-padding";
+                }
+                else
+                {
+                    codeDelete = "";
+                    classDelete = "w3-btn w3-round w3-padding";
+                }
             }
 
             string bt1 = "<a class='" + classPag + "' onclick='" + codePagam +  "'><i class='fa fa-usd' aria-hidden='true'></i></a>";
