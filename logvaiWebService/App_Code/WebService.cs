@@ -336,15 +336,17 @@ public class WebService : System.Web.Services.WebService
     public string DetalhesEntrega(int param1)
     {
         string Resultado = "";
-        string eBanco = "", HoraPartida = "";
+        string eBanco = "", HoraPartida = "", formaPag="";
 
         List<Object> resultado = new List<object>();
         try
         {
             OperacaoBanco operacao = new OperacaoBanco();
             SqlDataReader dados = operacao.Select("SELECT Endereco,numero,complemento,Contactar,Detalhes,Banco_Repart_Publica," +
-                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude, ID_Motoboy,Ordem,ID_Entrega " +
+                    "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude, Tbl_Entregas.ID_Motoboy, " +
+                    "Tbl_Entregas_Master.Forma_Pagam , Tbl_Entregas_Master.Valor_Total  " +
                     "FROM Tbl_Entregas " +
+                    "INNER JOIN Tbl_Entregas_Master ON Tbl_Entregas.ID_Entrega = Tbl_Entregas_Master.ID_Entrega  " + 
                     "where ID_Entrega_filho = " + param1);
             
 
@@ -352,6 +354,10 @@ public class WebService : System.Web.Services.WebService
             {
                 if (dados[5].ToString() == "True") { eBanco = "BANCO OU REPARTIÇÃO PÚBLICA"; }
                 if (dados[7].ToString() == "True") { HoraPartida = dados[8].ToString(); }
+
+                if (dados[12].ToString() == "Dinheiro") {
+                    formaPag = "Dinheiro : R$ " + dados[13].ToString();
+                } else { formaPag = ""; }
 
                 resultado.Add(new
                 {
@@ -365,7 +371,8 @@ public class WebService : System.Web.Services.WebService
                     HoraPartida = HoraPartida,
                     Latitude = dados[9].ToString(),
                     Longitude = dados[10].ToString(),
-                    IDMotoboy = dados[11].ToString()
+                    IDMotoboy = dados[11].ToString(),
+                    FormaPag = formaPag
                 });
             }
             ConexaoBancoSQL.fecharConexao();
