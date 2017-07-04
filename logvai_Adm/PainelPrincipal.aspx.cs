@@ -26,6 +26,7 @@ public partial class PainelPrincipal : System.Web.UI.Page
                 Session["IDUser"] = Request.QueryString["v1"];
                 lblUser.Text = Request.QueryString["v2"];
             }
+            
         }
 
     }

@@ -26,7 +26,7 @@
                     <a href="Faturas_Gerar.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Gerar Faturas</a>
                     <a href="Faturas_Historico.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Histórico</a>
                 </div>
-            </div>            
+            </div>
 
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-blue"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Solicitações</button>
@@ -52,7 +52,15 @@
 
     <!-- page content -->
     <div>
-        <iframe src="Home.aspx" width="100%" height="800" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+
+        <div class="w3-display-middle w3-opacity-max">
+            <img src="images/LOGO1.png" />
+        </div>
+
+        <div class="w3-container w3-padding-16 w3-light-grey">
+            <iframe src="Home.aspx" width="100%" height="770" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        </div>
+
     </div>
     <!-- page content -->
 

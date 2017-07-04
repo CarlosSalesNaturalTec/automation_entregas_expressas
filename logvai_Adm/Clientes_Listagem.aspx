@@ -29,7 +29,7 @@
     </div>
     <br />
 
-    <div class="w3-small">
+    <div class="w3-container w3-border w3-round w3-padding w3-light-gray w3-small w3-animate-left">
         <!-- Planilha  -->
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
         <!-- Planilha  -->

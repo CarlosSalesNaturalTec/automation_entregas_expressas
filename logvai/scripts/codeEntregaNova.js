@@ -119,7 +119,10 @@ function CalculoTempoEValor() {
     if (chkbanco2 == true) {
         eBanco = "1";
         valorTotal += adicionalBanco;
-    } else { eBanco = "0";}
+    } else { eBanco = "0"; }
+
+    // valor mínimo por entrega . Fixado em R$20,00
+    if (valorTotal < 20) { valorTotal = 20;}
 
     document.getElementById("txtValor").textContent = "R$ " + valorTotal.toFixed(2);
     document.getElementById("ValorHidden").value = valorTotal.toFixed(2);
