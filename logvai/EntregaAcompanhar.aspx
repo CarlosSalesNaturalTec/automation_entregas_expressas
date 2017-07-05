@@ -21,19 +21,19 @@
 
 <body>
 
-    <!-- QUADRO 1 -->
-    <div class="w3-animate-left" id="div1">
-        <header class="w3-container w3-blue w3-text-white w3-center w3-padding">
-            <h5><strong>Acompanhamento de Solicitações</strong></h5>
-        </header>
-        <br />
+    <br />
+    <div class="w3-container w3-border w3-round w3-padding w3-blue w3-center" style="margin-left: 2%; margin-right: 2%">
+        <h5><strong>Acompanhamento de Solicitações</strong></h5>
+    </div>
+    <br />
 
+    <!-- QUADRO 1 -->
+    <div id="div1" class="w3-container w3-border w3-round w3-padding w3-light-gray w3-animate-left" style="margin-left: 2%; margin-right: 2%">
         <div class="w3-small">
             <!-- Planilha  -->
             <asp:Literal ID="Literal1" runat="server"></asp:Literal>
             <!-- Planilha  -->
         </div>
-
     </div>
     <!-- QUADRO 1 -->
 
@@ -43,7 +43,7 @@
         function iniciapag(idMaster, valor) {
             $("body").css("cursor", "progress");
             var chkurl = "RedirectPagam.aspx?v1=" + valor + "&v2=" + idMaster;
-            window.open(chkurl, 'iframe_a');
+            window.open(chkurl, 'iframe');
         }
     </script>
     <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>

@@ -11,7 +11,7 @@ function ExibirModal() {
 
 function SignIn() {
     document.getElementById('id01').style.display = 'none';
-    window.open('SignIn.aspx', 'iframe_a');
+    window.open('SignIn.aspx', 'iframe');
 }
 
 function CalculoGeral() {

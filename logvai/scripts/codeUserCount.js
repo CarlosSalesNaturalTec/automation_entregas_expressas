@@ -29,7 +29,7 @@ function habilitacampos() {
 }
 
 function cancelar() {
-    window.open('UserCount.aspx', 'iframe_a');
+    window.open('UserCount.aspx', 'iframe');
 }
 
 function salvar() {
@@ -71,7 +71,7 @@ function salvar() {
         dataType: "json",
         success: function (response) {
             var linkurl = response.d;
-            window.open(linkurl, 'iframe_a');
+            window.open(linkurl, 'iframe');
         },
         failure: function (response) {
             alert('Tente Novamente');

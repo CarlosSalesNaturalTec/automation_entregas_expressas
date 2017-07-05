@@ -27,7 +27,7 @@
 
     <!-- page content -->
     <div class="right_col" role="main">
-        <iframe src="Cotacao.aspx" width="100%" height="880px" frameborder="0" name="iframe_a">
+        <iframe src="Cotacao.aspx" width="100%" height="880px" frameborder="0" name="iframe">
             <p>Seu browser não suporta iframes.</p>
         </iframe>
     </div>
@@ -72,7 +72,7 @@
 
         function SignIn() {
             document.getElementById('id01').style.display = 'none';
-            window.open('SignIn.aspx', 'iframe_a');
+            window.open('SignIn.aspx', 'iframe');
         }
     </script>
 

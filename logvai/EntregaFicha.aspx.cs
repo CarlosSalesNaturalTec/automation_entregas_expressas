@@ -4,6 +4,7 @@ using System.Text;
 public partial class EntregaHistorico : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
+    StringBuilder strFoto = new StringBuilder();
     String IDAux;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -19,15 +20,15 @@ public partial class EntregaHistorico : System.Web.UI.Page
         montaCabecalho();
         dadosCorpo(IDAux);
         montaRodape();
-        Literal2.Text = str.ToString();
     }
 
     private void PreencheCampos(string ID)
     {
-        string ScriptDados = "";
+        string ScriptDados = "", ScriptFoto = "";
+        string idmotoboy = "";
 
         string stringSelect = "select Data_OS, LocalOrigem, LocalDestino , Distancia_Total,Tipo_Atendimento, Valor_Total,  " +
-            "Forma_Pagam, Status_Pagam, Status_OS, PSCodTransacao " +
+            "Forma_Pagam, Status_Pagam, Status_OS, PSCodTransacao, ID_Motoboy " +
             "from Tbl_Entregas_Master " +
             "where ID_Entrega = " + ID;
 
@@ -37,23 +38,42 @@ public partial class EntregaHistorico : System.Web.UI.Page
         {
             ScriptDados = "<script type=\"text/javascript\">" +
                 "document.getElementById('IDHidden').value = \"" + ID + "\";" +
-                "document.getElementById('OSid').textContent = \"" + ID + "\";" +
+                "document.getElementById('OSid').textContent = \"OS: [" + ID + "]\";" +
                 "document.getElementById('OSdata').textContent = \"" + Convert.ToString(rcrdset[0]) + "\";" +
-                "document.getElementById('OSorigem').textContent = \"" + Convert.ToString(rcrdset[1]) + "\";" +
-                "document.getElementById('OSdestino').textContent = \"" + Convert.ToString(rcrdset[2]) + "\";" +
-                "document.getElementById('OSdist').textContent = \"" + Convert.ToString(rcrdset[3]) + "\";" +
-                "document.getElementById('OStipo').textContent = \"" + Convert.ToString(rcrdset[4]) + "\";" +
-                "document.getElementById('OSvalor').textContent = \"" + Convert.ToString(rcrdset[5]) + "\";" +
-                "document.getElementById('OSFormaPag').textContent = \"" + Convert.ToString(rcrdset[6]) + "\";" +
-                "document.getElementById('OSstatusPag').textContent = \"" + Convert.ToString(rcrdset[7]) + "\";" +
-                "document.getElementById('OSstatusOS').textContent = \"" + Convert.ToString(rcrdset[8]) + "\";" +
-                "document.getElementById('OSCod').textContent = \"" + Convert.ToString(rcrdset[9]) + "\";" +
+                "document.getElementById('OSorigem').textContent = \"Origem: " + Convert.ToString(rcrdset[1]) + "\";" +
+                "document.getElementById('OSdestino').textContent = \"Destino: " + Convert.ToString(rcrdset[2]) + "\";" +
+                "document.getElementById('OSdist').textContent = \"Distancia Total (Km): " + Convert.ToString(rcrdset[3]) + "\";" +
+                "document.getElementById('OStipo').textContent = \"Tipo Atendimento: " + Convert.ToString(rcrdset[4]) + "\";" +
+                "document.getElementById('OSvalor').textContent = \"Valor Total: " + Convert.ToString(rcrdset[5]) + "\";" +
+                "document.getElementById('OSFormaPag').textContent = \"Forma de Pagam.: " + Convert.ToString(rcrdset[6]) + "\";" +
+                "document.getElementById('OSstatusPag').textContent = \"Status do Pagam.: " + Convert.ToString(rcrdset[7]) + "\";" +
+                "document.getElementById('OSstatusOS').textContent = \"Status da OS: " + Convert.ToString(rcrdset[8]) + "\";" +
+                "document.getElementById('OSCod').textContent = \"Cod.Transação: " + Convert.ToString(rcrdset[9]) + "\";" +
+                "</script>";
+            idmotoboy = Convert.ToString(rcrdset[10]);
+        }
+        ConexaoBancoSQL.fecharConexao();
+        str.Clear();
+        str.Append(ScriptDados);
+
+
+        //foto do motoboy
+        stringSelect = "select FotoDataURI " +
+            "from Tbl_Motoboys " +
+            "where ID_Motoboy = " + idmotoboy;
+        operacao = new OperacaoBanco();
+        rcrdset = operacao.Select(stringSelect);
+        while (rcrdset.Read())
+        {
+            ScriptFoto = "<script type=\"text/javascript\">" +
+                "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[0]) + "\"/>'; " +
                 "</script>";
         }
         ConexaoBancoSQL.fecharConexao();
+        strFoto.Clear();
+        strFoto.Append(ScriptFoto);
+        LiteralFoto.Text = strFoto.ToString();
 
-        str.Clear();
-        str.Append(ScriptDados);
     }
 
     private void montaCabecalho()
@@ -101,5 +121,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
     {
         string footer = "</tbody></table>";
         str.Append(footer);
+
+        Literal2.Text = str.ToString();
     }
 }

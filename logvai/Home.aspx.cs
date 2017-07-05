@@ -54,7 +54,7 @@ public partial class Home : System.Web.UI.Page
 
             //adiciona coordenadas dos motoboys ativos nos últimos 5minutos
             coordenadas.Append("{ lat: " + Convert.ToString(dados1[2]) + ", lng: " + Convert.ToString(dados1[3]) + " },");
-            nomemotoboy.Append("'" + Convert.ToString(dados1[1]) + "',");
+            nomemotoboy.Append("'Motoboy: " + Convert.ToString(dados1[1]) + "',");
 
         }
         ConexaoBancoSQL.fecharConexao();
@@ -354,6 +354,7 @@ public partial class Home : System.Web.UI.Page
             marker4.addListener('click', function() {
                 infowindow4.open(marker4.get('map'), marker4);
             });
+
 
         }
 

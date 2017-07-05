@@ -256,7 +256,7 @@ function salvaPonto2() {
                 iniciarPagam();
             } else {
                 var urlLink = "EntregaNova_Email.aspx?v1=" + e1;
-                window.open(urlLink, 'iframe_a');
+                window.open(urlLink, 'iframe');
             }
 
         },
@@ -348,6 +348,6 @@ function iniciarPagam() {
     var chkvalor = document.getElementById("ValorHidden").value;
     var chkurl = "RedirectPagam.aspx?v1=" + chkvalor + "&v2=" + idNovaEntrega;
 
-    window.open(chkurl, 'iframe_a');
+    window.open(chkurl, 'iframe');
 
 }

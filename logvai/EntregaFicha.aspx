@@ -35,33 +35,22 @@
 
 <body>
 
-    <header class="w3-container w3-blue w3-text-white w3-center">
-        <h5><strong>Ficha Detalhe da Solicitação</strong></h5>
-    </header>
-
     <div class="w3-half w3-container w3-section w3-padding w3-light-grey w3-border w3-small ">
 
-        <div class="w3-section w3-padding">
-            <a class="w3-btn w3-blue w3-hover-light-blue w3-block" href="EntregaAcompanhar.aspx">Voltar</a>
+
+        <div class="w3-container w3-section w3-padding w3-grey w3-border w3-small">
+            <!-- Planilha  -->
+            <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+            <!-- Planilha  -->
         </div>
 
         <div>
             <div class="w3-half">
-                <p>Solicitação:</p>
-                <p>Local Origem:</p>
-                <p>Local Destino:</p>
-                <p>Distancia Total (Km):</p>
-                <p>Tipo Atendimento:</p>
-                <p>Valor Total:</p>
-                <p>Cod.Transação:</p>
-                <p>Forma de Pagam.:</p>
-                <p>Status do Pagam.:</p>
-                <p>Status da OS:</p>
-
+                <div id="results"></div>
             </div>
 
-            <div class="w3-half w3-padding">
-                <p>[<span id="OSid"></span>]&nbsp;&nbsp;<span id="OSdata"></span></p>
+            <div class="w3-half ">
+                <p><span id="OSid"></span>&nbsp;&nbsp;<span id="OSdata"></span></p>
                 <p><span id="OSorigem"></span></p>
                 <p><span id="OSdestino"></span></p>
                 <p><span id="OSdist"></span>Km</p>
@@ -73,12 +62,6 @@
                 <p><span id="OSstatusOS"></span></p>
 
             </div>
-        </div>
-
-        <div class="w3-small">
-            <!-- Planilha  -->
-            <asp:Literal ID="Literal2" runat="server"></asp:Literal>
-            <!-- Planilha  -->
         </div>
 
     </div>
@@ -94,6 +77,7 @@
 
     <!-- Scripts diversas -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    <asp:Literal ID="LiteralFoto" runat="server"></asp:Literal>
     <script src="scripts/codeEntregaFicha.js"></script>
     <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
