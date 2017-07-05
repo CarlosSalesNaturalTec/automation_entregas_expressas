@@ -224,12 +224,12 @@ public partial class Home : System.Web.UI.Page
         str.Append(retornoStr.ToString());
         str.Append(@"];");
 
-        str.Append(@"var image = 'images/motorbike24.png';
+        str.Append(@"var image = 'images/motorcycle32.png';
         
-        var imageEmAberto = 'images/flagEmAberto.png';
-        var imageEmAndamento = 'images/flagEmAndamento.png';
-        var imageEntregue = 'images/flagOk.png';
-        var imageRetorno = 'images/flagRetorno.png';
+        var imageEmAberto = 'images/emaberto32.png';
+        var imageEmAndamento = 'images/emandamento32.png';
+        var imageEntregue = 'images/realizada32.png';
+        var imageRetorno = 'images/retorno32.png';
 
         function initMap() {
 
@@ -267,6 +267,15 @@ public partial class Home : System.Web.UI.Page
             title: dadosc,
             map: map
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: dadosc
+            });
+
+            marker.addListener('click', function() {
+                infowindow.open(marker.get('map'), marker);
+            });
+
         }
 
         function MarcadorEntrega(position,info) {

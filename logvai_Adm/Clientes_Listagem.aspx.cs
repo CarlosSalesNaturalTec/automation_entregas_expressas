@@ -24,7 +24,6 @@ public partial class Clientes_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>E-MAIL</th>" +
-            "<th>CPF/CNPJ</th>" +
             "<th>CONTATO</th>" +
             "<th>TELEFONE</th>" +
             "<th>FATURAR</th>" +
@@ -49,7 +48,6 @@ public partial class Clientes_Listagem : System.Web.UI.Page
 
             string Coluna1 = Convert.ToString(dados[1]);
             string Coluna2 = Convert.ToString(dados[2]);
-            string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
             string Coluna5 = Convert.ToString(dados[5]);
             string Coluna6 = Convert.ToString(dados[6]); //permite faturar
@@ -63,7 +61,6 @@ public partial class Clientes_Listagem : System.Web.UI.Page
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
-                "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
                 "<td>" + Coluna5 + "</td>" +
                 "<td>" + Coluna6a + "</td>" +

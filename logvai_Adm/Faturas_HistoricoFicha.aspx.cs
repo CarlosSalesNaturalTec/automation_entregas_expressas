@@ -65,7 +65,7 @@ public partial class Faturas_HistoricoFicha : System.Web.UI.Page
             string Coluna7 = Convert.ToString(dados[6]);    //Status pagamento
             string Coluna8 = Convert.ToString(dados[7]);
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue' href='EntregaFicha.aspx?v1=" + Coluna0 + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue'  href='Entregas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + Coluna1 + "</td>" +
