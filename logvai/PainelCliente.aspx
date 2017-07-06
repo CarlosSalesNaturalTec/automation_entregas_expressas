@@ -16,27 +16,27 @@
 
     <div>
         <!-- Menu -->
-        <div class="w3-bar w3-light-blue">
+        <div class="w3-bar w3-blue">
 
-            <a href="#" class="w3-bar-item w3-btn w3-hover-blue w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
+            <a href="#" class="w3-bar-item w3-btn w3-hover-light-blue w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-blue"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Configurações</button>
+                <button class="w3-btn w3-hover-light-blue"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Configurações</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="UserCount.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Minha Conta</a>
                 </div>
             </div>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-blue"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Solicitações</button>
+                <button class="w3-btn w3-hover-light-blue"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Solicitações</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="EntregaNova.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Nova</a>
-                    <a href="EntregaAcompanhar.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Em Andamento</a>
+                    <a href="EntregaAcompanhar.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Acompanhamento</a>
                     <a href="EntregaHistorico.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-blue">Histórico</a>
                 </div>
             </div>
 
-            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-blue w3-right"><i class="fa fa-home"></i>&nbsp;Início</a>
+            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-light-blue w3-right"><i class="fa fa-home"></i>&nbsp;Mapa</a>
 
         </div>
 
@@ -44,9 +44,6 @@
 
     <!-- page content -->
     <div>
-        <div class="w3-display-middle w3-opacity-max">
-            <img src="images/LOGO1.png" />
-        </div>
         <div class="w3-container w3-padding-16 w3-light-grey">
             <iframe src="EntregaNova.aspx" width="100%" height="880" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
         </div>

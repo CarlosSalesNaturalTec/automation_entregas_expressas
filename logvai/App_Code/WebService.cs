@@ -207,6 +207,28 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    public string entregaArquivar(string param1)
+    {
+        string url = "Sorry.aspx";
+        OperacaoBanco operacao = new OperacaoBanco();
+        Boolean alterar = operacao.Update("update Tbl_Entregas_Master set " +
+            "Historico = 1 " + 
+            "where ID_Entrega  =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (alterar == true)
+        {
+            url = "EntregaAcompanhar.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
 }
 
 public class ConexaoBancoSQL

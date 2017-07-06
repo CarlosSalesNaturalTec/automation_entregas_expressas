@@ -17,60 +17,43 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-    <style>
-        #map {
-            height: 100%;
-            width: 50%;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-
 </head>
 
 <body>
 
-    <div class="w3-half w3-container w3-section w3-padding w3-light-grey w3-border w3-small ">
+    <!-- Mapa -->
+    <div class="w3-container w3-padding-16 w3-light-grey">
+        <iframe src="EntregaFicha_Mapa.aspx" width="100%" height="400" frameborder="0" name="iframeMap">Atualize seu Navegador!</iframe>
+    </div>
 
+    <div>
+        <div class="w3-third w3-container w3-section w3-padding w3-small">
 
-        <div class="w3-container w3-section w3-padding w3-grey w3-border w3-small">
-            <!-- Planilha  -->
-            <asp:Literal ID="Literal2" runat="server"></asp:Literal>
-            <!-- Planilha  -->
+            <h4>Dados da Solicitação</h4>
+            <p><span id="OSid"></span></p>
+            <p><span id="OSstatusOS"></span></p>
+            <p><span id="OSdata"></span>&nbsp;&nbsp;</p>            
+            <p><span id="OSdist"></span>Km</p>
+            <p><span id="OStipo"></span></p>
+            <p><span id="OSvalor"></span></p>
+            <p><span id="OSFormaPag"></span></p>
+            <p><span id="OSstatusPag"></span></p>
+            <p><span id="OSCod"></span></p>            
         </div>
 
-        <div>
-            <div class="w3-half">
-                <div id="results"></div>
-            </div>
+        <div class="w3-third w3-container w3-section w3-padding w3-small">
+            <h4>&nbsp;&nbsp;Status</h4>
+            <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+        </div>
 
-            <div class="w3-half ">
-                <p><span id="OSid"></span>&nbsp;&nbsp;<span id="OSdata"></span></p>
-                <p><span id="OSorigem"></span></p>
-                <p><span id="OSdestino"></span></p>
-                <p><span id="OSdist"></span>Km</p>
-                <p><span id="OStipo"></span></p>
-                <p>R$ <span id="OSvalor"></span></p>
-                <p><span id="OSCod"></span></p>
-                <p><span id="OSFormaPag"></span></p>
-                <p><span id="OSstatusPag"></span></p>
-                <p><span id="OSstatusOS"></span></p>
-
-            </div>
+        <div class="w3-third w3-container w3-section w3-padding w3-small w3-center">
+            <h4>Dados do Entregador/Motoboy</h4>
+            <p><span id="OSNome"></span></p>
+            <div id="results"></div>
         </div>
 
     </div>
 
-
-    <!-- MAPA -->
-    <div id="map" class="w3-right"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
-    <!-- MAPA -->
 
     <!-- campo auxiliar -->
     <input id="IDHidden" name="IDHidden" type="hidden" />
@@ -78,6 +61,8 @@
     <!-- Scripts diversas -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     <asp:Literal ID="LiteralFoto" runat="server"></asp:Literal>
+    <asp:Literal ID="LiteralMapa" runat="server"></asp:Literal>
+
     <script src="scripts/codeEntregaFicha.js"></script>
     <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 

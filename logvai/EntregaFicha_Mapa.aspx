@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EntregaFicha_Mapa.aspx.cs" Inherits="EntregaFicha_Mapa" %>
 
 <!DOCTYPE html>
 
@@ -24,15 +24,8 @@
 
 </head>
 <body>
-
-    <div id="map">
-        <div class="w3-display-middle w3-opacity-max">
-            <img src="images/LOGO1.png" />
-        </div>
-
-    </div>
+    <div id="map"></div>
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
-
 </body>
 </html>

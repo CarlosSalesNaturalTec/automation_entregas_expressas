@@ -224,7 +224,7 @@ public partial class Home : System.Web.UI.Page
         str.Append(retornoStr.ToString());
         str.Append(@"];");
 
-        str.Append(@"var image = 'images/motorcycle32.png';
+        str.Append(@"var image = 'images/motorcycleUpView22x54.png';
         
         var imageEmAberto = 'images/emaberto32.png';
         var imageEmAndamento = 'images/emandamento32.png';
@@ -234,7 +234,7 @@ public partial class Home : System.Web.UI.Page
         function initMap() {
 
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
+                zoom: 12,
                 center: { lat: -12.9525123, lng: -38.4535139 }
             });
 

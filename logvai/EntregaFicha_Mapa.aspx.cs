@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class Home : System.Web.UI.Page
+public partial class EntregaFicha_Mapa : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
 
@@ -24,16 +24,18 @@ public partial class Home : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            MotoboysOnLine();
+            LocalizacaoMotoboy();
             EntregasEmAberto();
             EntregasEmAndamento();
             EntregasRealizadas();
             EntregasRetorno();
             montaScript();
+
+
         }
     }
 
-    private void MotoboysOnLine()
+    private void LocalizacaoMotoboy()
     {
         OperacaoBanco operacao1 = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados1 = operacao1.Select("select ID_Motoboy, Nome ,Latitude ,Longitude, " +
@@ -54,7 +56,7 @@ public partial class Home : System.Web.UI.Page
 
             //adiciona coordenadas dos motoboys ativos nos últimos 5minutos
             coordenadas.Append("{ lat: " + Convert.ToString(dados1[2]) + ", lng: " + Convert.ToString(dados1[3]) + " },");
-            nomemotoboy.Append("'" + Convert.ToString(dados1[1]) + "',");
+            nomemotoboy.Append("'Motoboy: " + Convert.ToString(dados1[1]) + "',");
 
         }
         ConexaoBancoSQL.fecharConexao();
@@ -155,7 +157,7 @@ public partial class Home : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader dados3 = operacao3.Select("select Latitude ,Longitude, Endereco  " +
            "FROM Tbl_Entregas " +
            "where format(Data_Entrega ,'yyyy-MM-dd') ='" + datastatus + "' " +
-           "and Status_Entrega <> 'Concluído com Sucesso' "+
+           "and Status_Entrega <> 'Concluído com Sucesso' " +
            "and Chegada_Ok = 1");
 
 
@@ -355,6 +357,7 @@ public partial class Home : System.Web.UI.Page
                 infowindow4.open(marker4.get('map'), marker4);
             });
 
+
         }
 
         </script>");
@@ -362,5 +365,4 @@ public partial class Home : System.Web.UI.Page
         Literal1.Text = str.ToString();
 
     }
-
 }
