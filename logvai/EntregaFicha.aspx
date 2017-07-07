@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
+
     <title>LOGVAI - Ficha Detalhe de Entregas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,18 +18,24 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
     <!-- Mapa -->
-    <div class="w3-container w3-padding-16 w3-light-grey">
-        <iframe src="EntregaFicha_Mapa.aspx" width="100%" height="400" frameborder="0" name="iframeMap">Atualize seu Navegador!</iframe>
-    </div>
+    <div id="map" class="w3-container w3-padding" height="400px" frameborder="0" ></div>
 
+    <!-- Dados da Solicitação -->
     <div>
         <div class="w3-third w3-container w3-section w3-padding w3-small">
-
             <h4>Dados da Solicitação</h4>
             <p><span id="OSid"></span></p>
             <p><span id="OSstatusOS"></span></p>
@@ -42,7 +49,7 @@
         </div>
 
         <div class="w3-third w3-container w3-section w3-padding w3-small">
-            <h4>&nbsp;&nbsp;Status</h4>
+            <h4>&nbsp;Status</h4>
             <asp:Literal ID="Literal2" runat="server"></asp:Literal>
         </div>
 
@@ -64,7 +71,7 @@
     <asp:Literal ID="LiteralMapa" runat="server"></asp:Literal>
 
     <script src="scripts/codeEntregaFicha.js"></script>
-    <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
 

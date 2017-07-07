@@ -122,15 +122,17 @@ public partial class EntregaAcompanhar : System.Web.UI.Page
 
 
             String btarquivar = "";
+            string TipoFicha = "0";
             if (Coluna8 == "Concluída") {
                 btarquivar = "<a class='w3-btn w3-round w3-hover-green w3-padding' " +
                     "onclick='ArquivarEntrega(" + Coluna0 + ")'>" +
                     "<i class='fa fa-check-circle-o' aria-hidden='true'></i></a>";
+                TipoFicha = "1";
             }
 
             string bt1 = "<a class='" + classPag + "' onclick='" + codePagam +  "'>" + iconPag + "</a>";
             string bt2 = "<a class='" + classDelete + "' onclick='" + codeDelete + "'>" + iconDelete + "</a>";
-            string bt3 = "<a class='w3-btn w3-round w3-hover-blue' href='EntregaFicha.aspx?v1=" + Coluna0 + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
+            string bt3 = "<a class='w3-btn w3-round w3-hover-blue' href='EntregaFicha.aspx?v1=" + Coluna0 + "&v2=" + TipoFicha + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + Coluna1 + "</td>" +

@@ -1,16 +1,4 @@
-﻿var map;
-
-function initMap() {
-
-    // Mapa
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -12.990281, lng: -38.472187 },
-        zoom: 12
-    });
-
-}
-
-function ExcluirRegistro() {
+﻿function ExcluirRegistro() {
 
     var r = confirm("CONFIRMA EXCLUSÂO ?");
     if (r == false) {

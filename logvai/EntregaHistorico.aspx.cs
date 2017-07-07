@@ -59,7 +59,7 @@ public partial class EntregaHistorico : System.Web.UI.Page
             string Coluna6 = Convert.ToString(dados[5]);
             string Coluna7 = Convert.ToString(dados[6]);
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue' href='EntregaFicha.aspx?v1=" + Coluna1 + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue' href='EntregaFicha.aspx?v1=" + Coluna1 + "&v2=1'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + Coluna1 + "</td>" +

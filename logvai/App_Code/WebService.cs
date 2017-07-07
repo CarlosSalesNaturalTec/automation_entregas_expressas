@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.Script.Serialization;
+using System.Web.Script.Services;
 using System.Web.Services;
 using System.Data.SqlClient;
 
@@ -183,7 +186,6 @@ public class WebService : System.Web.Services.WebService
         return msg;
     }
 
-
     [WebMethod]
     public string entregaExcluir(string param1)
     {
@@ -229,6 +231,52 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string MotoboysOnLine()
+    {
+        
+        string Resultado = "";
+        List<Object> resultado = new List<object>();
+
+        try
+        {
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            SqlDataReader dados1 = operacao1.Select("select ID_Motoboy, Nome ,Latitude ,Longitude, " +
+            "DATEDIFF(MINUTE, GeoDataLoc, getdate()) AS Intervalo  " +
+            "FROM Tbl_Motoboys  ");
+
+            while (dados1.Read())
+            {
+                //validações diversas
+                int min1 = Convert.ToInt32(dados1[4]);  // diferença em minutos
+                if (min1 > 185) { continue; } // verifica se diferença é maior que 5minutos (+dif+3horas getdate)
+
+                resultado.Add(new
+                {
+                    ID_Motoboy = dados1[0].ToString(),
+                    Nome = dados1[1].ToString(),
+                    Latitude = dados1[2].ToString(),
+                    Longitude = dados1[3].ToString()
+                });
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            //O JavaScriptSerializer vai fazer o web service retornar JSON
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(resultado);
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA";
+        }
+
+        return Resultado;
+    }
+
+
 }
 
 public class ConexaoBancoSQL

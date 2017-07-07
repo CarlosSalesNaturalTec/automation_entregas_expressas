@@ -44,6 +44,9 @@
 
     <!-- page content -->
     <div>
+        <div class="w3-display-middle w3-opacity-max">
+            <img alt="Logomaca LogVai" src="images/LOGO1.png" />
+        </div>
         <div class="w3-container w3-padding-16 w3-light-grey">
             <iframe src="EntregaNova.aspx" width="100%" height="880" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
         </div>

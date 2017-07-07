@@ -24,7 +24,7 @@ public partial class Home : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            MotoboysOnLine();
+            //MotoboysOnLine();  --> vizualizado pOR jAVAsCRIPT
             EntregasEmAberto();
             EntregasEmAndamento();
             EntregasRealizadas();
