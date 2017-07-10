@@ -1,4 +1,6 @@
-﻿MostraMotoboys();
+﻿var markers = [];
+var image = 'images/motorcycleUpView22x54.png';
+var myVar = setInterval(MostraMotoboys, 1000);
 
 function MostraMotoboys() {
 
@@ -11,16 +13,17 @@ function MostraMotoboys() {
 
             // formata retorno em formato padrão JSON 
             var strRetorno = "{\"counters\": " + response.d + "}";
+
+            // apaga marcadores. 
+            deleteMarkers();
            
+            // parse Json
             var jsonData = JSON.parse(strRetorno);
             for (var i = 0; i < jsonData.counters.length; i++) {
                 var counter = jsonData.counters[i];
-
-                console.log(counter.Nome);
-                console.log(counter.Latitude);
-                console.log(counter.Longitude);
-            }
-
+                var cordTemp = new google.maps.LatLng(counter.Latitude, counter.Longitude);
+                addMarker(cordTemp, counter.Nome);
+            }         
 
         },
         failure: function (response) {
@@ -30,3 +33,36 @@ function MostraMotoboys() {
 
 }
 
+function addMarker(location,conteudo) {
+
+    // exibe marcador
+    var marker = new google.maps.Marker({
+        position: location,
+        title: conteudo,
+        icon: image,
+        map: map
+    });
+
+    // adiciona marcador em um array (para uso no deleteMarkers)
+    markers.push(marker);
+
+
+    //infwindow ao clicar
+    var infowindow = new google.maps.InfoWindow({
+        content: conteudo
+    });
+
+    marker.addListener('click', function () {
+        infowindow.open(marker.get('map'), marker);
+    });
+
+}
+
+function deleteMarkers() {
+
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+
+    markers = [];
+}

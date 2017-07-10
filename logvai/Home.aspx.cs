@@ -234,7 +234,7 @@ public partial class Home : System.Web.UI.Page
         function initMap() {
 
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
+                zoom: 13,
                 center: { lat: -12.9525123, lng: -38.4535139 }
             });
 
