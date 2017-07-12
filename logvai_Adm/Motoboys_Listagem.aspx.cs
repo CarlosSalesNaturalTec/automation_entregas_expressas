@@ -59,13 +59,23 @@ public partial class Motoboys_Listagem : System.Web.UI.Page
 
             //botão Status OnLine / OffLine
             string btStatus = "";
-            int min1 = Convert.ToInt32(dados[6]);  // verifica se diferença é maior que 5minutos (+dif+3horas getdate)
+            int min1;
+
+            try
+            {
+                min1 = Convert.ToInt32(dados[6]);  
+            }
+            catch (Exception)
+            {
+                min1=186;
+            }
+
+            // verifica se diferença é maior que 5minutos (+dif+3horas getdate)
             if (min1 > 185) {
                 btStatus = "<i class=\"fa fa-toggle-off w3-text-gray w3-btn w3-round \" aria-hidden=\"true\"></i>&nbsp;&nbsp;";
             } else
             {
                 btStatus = "<i class=\"fa fa-toggle-on w3-text-green w3-btn w3-round \" aria-hidden=\"true\"></i>&nbsp;&nbsp;";
-                
             }
 
             // <!-- *** CUSTOMIZAÇÂO ***  -->

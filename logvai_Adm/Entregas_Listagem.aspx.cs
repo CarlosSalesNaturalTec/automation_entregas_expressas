@@ -49,7 +49,7 @@ public partial class Entregas_Listagem : System.Web.UI.Page
                 "Tipo_Atendimento, Valor_Total, Forma_Pagam , Status_Pagam, Status_OS " +
                 "from Tbl_Entregas_Master " +
                 "INNER JOIN Tbl_Usuarios ON Tbl_Entregas_Master.ID_Cliente = Tbl_Usuarios.ID_User " +
-                "where Status_Pagam<>'Em Aberto' and Status_OS <> 'Concluída'";
+                "where Status_OS <> 'Concluída'";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -68,6 +68,14 @@ public partial class Entregas_Listagem : System.Web.UI.Page
             string Coluna7 = Convert.ToString(dados[7]);
             string Coluna8 = Convert.ToString(dados[8]);    
             string Coluna9 = Convert.ToString(dados[9]);
+            
+            if (Coluna7 != "Depósito")
+            {
+                if (Coluna8 == "Em Aberto" )
+                {
+                    continue;
+                }
+            }
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue' href='Entregas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-info-circle' aria-hidden='true'></i></a>";
 

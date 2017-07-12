@@ -21,75 +21,73 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string VerificaEntregas(int IdMotoboy)
+    public string TrocaDados(string param1, string param2, string param3)
     {
-        string Resultado = "";
+
         List<Object> resultado = new List<object>();
 
-        try
-        {
 
-            string result;
-            string retorno;
-
-            OperacaoBanco operacao = new OperacaoBanco();
-            System.Data.SqlClient.SqlDataReader dados = operacao.Select("SELECT count(ID_Entrega) as Total_Quant "
-                    + "FROM Tbl_Entregas_Master "
-                    + "where Status_Pagam<>'Em Aberto' and Status_OS = 'Em Aberto' ");  
-
-            while (dados.Read())
-            {
-
-                result = dados[0].ToString();
-
-                if (result == "0")
-                {
-                    retorno = "9999";
-                }
-                else
-                {
-                    retorno = result;
-                }
-
-                resultado.Add(new
-                {
-                    param = retorno,
-                });
-
-            }
-            ConexaoBancoSQL.fecharConexao();
-
-            //O JavaScriptSerializer vai fazer o web service retornar JSON
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            return js.Serialize(resultado);
-
-        }
-        catch (Exception)
-        {
-            Resultado = "FALHA";
-        }
-
-        return Resultado;
-    }
-
-    [WebMethod]
-    public string Localizacao(string param1, string param2, string param3)
-    {
-
-        string url = "XX";
+        //------------------------------------------------------------------------------------------------------------------------------------
+        //atualiza posição do motoboy
+        //------------------------------------------------------------------------------------------------------------------------------------
         OperacaoBanco operacao2 = new OperacaoBanco();
         bool inserir2 = operacao2.Insert("update Tbl_Motoboys set Latitude = '" + param2 + "', Longitude = '" + param3 +
             "', GeoDataLoc = dateadd(hh,-3,getdate())" +
             " where ID_Motoboy = " + param1);
         ConexaoBancoSQL.fecharConexao();
+        //------------------------------------------------------------------------------------------------------------------------------------
 
-        if (inserir2 == true)
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+        // verifica entregas em andamento
+        //------------------------------------------------------------------------------------------------------------------------------------
+        int TotalRegistros = 0;
+        OperacaoBanco operacaoEmAndamento = new OperacaoBanco();
+        SqlDataReader dadosEmAndamento = operacaoEmAndamento.Select("SELECT ID_Entrega "
+                + "FROM Tbl_Entregas_Master "
+                + "where Status_OS = 'Em Andamento' "
+                + "and ID_Motoboy =" + param1);
+        while (dadosEmAndamento.Read())
         {
-            url = "OK";
+            TotalRegistros++;
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        if (TotalRegistros > 0)
+        {
+            resultado.Add(new
+            {
+                param = "EM ANDAMENTO",
+            });
+        }
+        else
+        {
+
+            //------------------------------------------------------------------------------------------------------------------------------------
+            // verifica entregas em aberto
+            //------------------------------------------------------------------------------------------------------------------------------------
+            OperacaoBanco operacao = new OperacaoBanco();
+            SqlDataReader dados = operacao.Select("SELECT count(ID_Entrega) as Total_Quant "
+                    + "FROM Tbl_Entregas_Master "
+                    + "where Status_Pagam<>'Em Aberto' and Status_OS = 'Em Aberto' ");
+
+            while (dados.Read())
+            {
+                if (dados[0].ToString() != "0")
+                {
+                    resultado.Add(new
+                    {
+                        param = "EM ABERTO",
+                    });
+                }
+            }
+            ConexaoBancoSQL.fecharConexao();
         }
 
-        ConexaoBancoSQL.fecharConexao();
-        return url;
+        //O JavaScriptSerializer vai fazer o web service retornar JSON
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        return js.Serialize(resultado);
+
     }
 
     [WebMethod]
@@ -106,7 +104,7 @@ public class WebService : System.Web.Services.WebService
             SqlDataReader dados1 = operacao1.Select("select ID_Entrega,Tbl_Usuarios.Nome, LocalOrigem,LocalDestino,Distancia_Total "
                     + "FROM Tbl_Entregas_Master "
                     + "INNER JOIN Tbl_Usuarios ON Tbl_Entregas_Master.ID_Cliente = Tbl_Usuarios.ID_User "
-                    + "where Status_Pagam<>'Em Aberto' and Status_OS = 'Em Aberto' ");  
+                    + "where Status_Pagam<>'Em Aberto' and Status_OS = 'Em Aberto' ");
 
             while (dados1.Read())
             {
@@ -149,51 +147,9 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string EntregasEmAndamento(int IdMotoboy)
-    {
-
-        // verifica se existem entregas em aberto para o Motoboy
-
-        List<Object> resultado = new List<object>();
-        int TotalRegistros = 0;
-        string retorno = "";
-
-        OperacaoBanco operacaoEmAndamento = new OperacaoBanco();
-        SqlDataReader dadosEmAndamento = operacaoEmAndamento.Select("SELECT ID_Entrega "
-                + "FROM Tbl_Entregas_Master "
-                + "where Status_OS = 'Em Andamento' "
-                + "and ID_Motoboy =" + IdMotoboy);
-
-        while (dadosEmAndamento.Read())
-        {
-            TotalRegistros++;
-        }
-        ConexaoBancoSQL.fecharConexao();
-
-        if (TotalRegistros == 0)
-        {
-            retorno = "9999";
-        }else
-        {
-            retorno = TotalRegistros.ToString();
-        }
-
-        resultado.Add(new
-        {
-            EmAndamento = retorno
-        });
-
-        //O JavaScriptSerializer vai fazer o web service retornar JSON
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        return js.Serialize(resultado);
-
-    }
-
-    [WebMethod]
-    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string EmAndamento(int param1)
     {
-        // ENTREGA EM ANDAMENTO DO MOTOBOY
+        // DETALHES DA ENTREGA EM ANDAMENTO DO MOTOBOY
         string Resultado = "";
         int totalRegistros = 0;
         List<Object> resultado = new List<object>();
@@ -248,7 +204,7 @@ public class WebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ListaEntregas2(int param1)
     {
-        
+
         // PONTOS DA ENTREGA MASTER
         string Resultado = "";
         List<Object> resultado = new List<object>();
@@ -336,7 +292,7 @@ public class WebService : System.Web.Services.WebService
     public string DetalhesEntrega(int param1)
     {
         string Resultado = "";
-        string eBanco = "", HoraPartida = "", formaPag="";
+        string eBanco = "", HoraPartida = "", formaPag = "";
 
         List<Object> resultado = new List<object>();
         try
@@ -346,18 +302,20 @@ public class WebService : System.Web.Services.WebService
                     "Telefone,Partida_Ok,Partida_Data,Latitude,Longitude, Tbl_Entregas.ID_Motoboy, " +
                     "Tbl_Entregas_Master.Forma_Pagam , Tbl_Entregas_Master.Valor_Total  " +
                     "FROM Tbl_Entregas " +
-                    "INNER JOIN Tbl_Entregas_Master ON Tbl_Entregas.ID_Entrega = Tbl_Entregas_Master.ID_Entrega  " + 
+                    "INNER JOIN Tbl_Entregas_Master ON Tbl_Entregas.ID_Entrega = Tbl_Entregas_Master.ID_Entrega  " +
                     "where ID_Entrega_filho = " + param1);
-            
+
 
             while (dados.Read())
             {
                 if (dados[5].ToString() == "True") { eBanco = "BANCO OU REPARTIÇÃO PÚBLICA"; }
                 if (dados[7].ToString() == "True") { HoraPartida = dados[8].ToString(); }
 
-                if (dados[12].ToString() == "Dinheiro") {
+                if (dados[12].ToString() == "Dinheiro")
+                {
                     formaPag = "Dinheiro : R$ " + dados[13].ToString();
-                } else { formaPag = ""; }
+                }
+                else { formaPag = ""; }
 
                 resultado.Add(new
                 {
@@ -397,9 +355,9 @@ public class WebService : System.Web.Services.WebService
         string Resultado = "";
 
         //verifica se existe entrega de ordem anterior em aberto
-       
-            // atualiza status da entrega : VIAGEM INICIADA
-            OperacaoBanco operacao = new OperacaoBanco();
+
+        // atualiza status da entrega : VIAGEM INICIADA
+        OperacaoBanco operacao = new OperacaoBanco();
         Boolean atualizar = operacao.Update("update Tbl_Entregas set " +
             "Partida_Data = '" + dataLeitura + "', " +
             "Partida_Ok = 1, " +
@@ -409,7 +367,8 @@ public class WebService : System.Web.Services.WebService
 
         ConexaoBancoSQL.fecharConexao();
 
-        if (atualizar == true) {
+        if (atualizar == true)
+        {
 
             // atualiza status da entrega MASTER
             OperacaoBanco operacaoMaster = new OperacaoBanco();
@@ -425,7 +384,8 @@ public class WebService : System.Web.Services.WebService
             if (atualizarMaster == true) { Resultado = "OK"; } else { Resultado = "Erro ao atualizar Tabela Master"; }
 
         }
-        else {
+        else
+        {
             Resultado = "NÃO FOI POSSIVEL ATUALIZAR STATUS";
         }
 
