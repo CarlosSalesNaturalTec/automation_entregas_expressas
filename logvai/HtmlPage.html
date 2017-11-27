@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -17,30 +15,35 @@
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
 
-        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top: 40px; margin-bottom:40px; margin-right: 40px"
-            onclick="ExibirModal();">Entrar 
-            <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top: 20px; margin-bottom:20px; margin-right: 40px"
+           onclick="ExibirModal();">
+            Entrar
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </a>
     </div>
     <!-- MENU -->
-
     <!-- page content -->
     <div class="w3-display-container">
         <img src="images/LogVai_home.png" alt="background">
 
         <div class="w3-padding w3-display-left">
-        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-black">Faça sua cotação Grátis e Solicite</a>
-            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="w3-bar-item w3-btn w3-border w3-round">Faça sua cotação Grátis e Solicite</a>
+
         </div>
     </div>
     <!-- /page content -->
-
     <!-- Modal Login -->
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 400px">
 
             <header class="w3-container w3-blue w3-center">
                 <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
+                      class="w3-button w3-display-topright">&times;</span>
                 <h4>Área do Cliente</h4>
             </header>
 
@@ -48,7 +51,7 @@
                 <div class="w3-section">
                     <label><b>Usuario</b></label>
                     <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário" name="usrname"
-                        required>
+                           required>
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
 
@@ -62,7 +65,6 @@
         </div>
     </div>
     <!-- Modal Login -->
-
     <!-- Scripts diversas -->
     <script type="text/javascript">
 
