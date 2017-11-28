@@ -16,21 +16,17 @@
 
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
-
-        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top: 40px; margin-bottom:40px; margin-right: 40px"
-            onclick="ExibirModal();">Entrar 
-            <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top: 10px; margin-bottom:10px; margin-right: 40px"
+           onclick="ExibirModal();">
+            Entrar
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </a>
     </div>
     <!-- MENU -->
 
     <!-- page content -->
-    <div class="w3-display-container">
-        <img src="images/LogVai_home.png" alt="background">
-
-        <div class="w3-padding w3-display-left">
-        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-black">Faça sua cotação Grátis e Solicite</a>
-            
-        </div>
+    <div>
+        <iframe src="HtmlPage2.html" width="100%" height="790" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- /page content -->
 
@@ -38,9 +34,9 @@
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 400px">
 
-            <header class="w3-container w3-blue w3-center">
+            <header class="w3-container w3-red w3-center">
                 <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
+                      class="w3-button w3-display-topright">&times;</span>
                 <h4>Área do Cliente</h4>
             </header>
 
@@ -48,21 +44,20 @@
                 <div class="w3-section">
                     <label><b>Usuario</b></label>
                     <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário" name="usrname"
-                        required>
+                           required>
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
 
-                    <a id="btentrar" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue w3-section w3-padding" onclick="TentarLogin()">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    <a id="btentrar" class="w3-btn w3-block w3-round w3-border w3-hover-red w3-section w3-padding" onclick="TentarLogin()">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </div>
             </form>
 
-            <div class="w3-container w3-center w3-text-blue">
+            <div class="w3-container w3-center w3-text-red">
                 <p><a href="#" onclick="SignIn();">Criar Conta</a></p>
             </div>
         </div>
     </div>
     <!-- Modal Login -->
-
     <!-- Scripts diversas -->
     <script type="text/javascript">
 
