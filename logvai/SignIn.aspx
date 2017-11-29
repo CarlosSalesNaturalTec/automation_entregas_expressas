@@ -18,11 +18,11 @@
 
     <!-- Formulário -->
     <div class="w3-display-container">
-        <img src="images/imgmotoboy.png" alt="background" style="width: 100%">
+        <img src="images/LogVai_form.png" alt="background" style="width: 100%">
 
         <div class="w3-padding w3-display-middle">
-            <div class="w3-card-4" style="width: 800px">
-                <header class="w3-container w3-blue">
+            <div class="w3-card-4" style="width: 700px">
+                <header class="w3-container w3-red">
                     <h3><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Cadastro de Novo Usuário</h3>
                 </header>
                 <div class="w3-container w3-white">
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="w3-section">
-                                <input id="btSignIn" type="button" class="w3-button w3-block w3-blue w3-hover-light-blue w3-section w3-padding" onclick="NovoUsuario();" value="Salvar" disabled />
+                                <input id="btSignIn" type="button" class="w3-button w3-block w3-blue w3-hover-light-blue w3-section w3-padding" onclick="NovoUsuario();" value="Criar Conta" disabled />
                             </div>
 
                             <div id="divHidden" style="display: none" class="w3-center">
@@ -142,7 +142,6 @@
         function ExibirModal() {
             document.getElementById('idTermo').style.display = 'block';
         }
-
         function aceiteTermos() {
             var chktermo = document.getElementsByName('chkAceite');
             var chktermo2 = chktermo[0].checked;
@@ -151,14 +150,12 @@
             } else {
                 document.getElementById('btSignIn').disabled = true;
             }
-
         }
-
     </script>
     <!-- Modal Termos de Uso -->
 
     <!-- Script Autocomplete Endereço-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places"></script>
     <script type="text/javascript" src="scripts/codeSignIn.js"></script>
     <!-- Script Autocomplete Endereço-->
 

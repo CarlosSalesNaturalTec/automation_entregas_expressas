@@ -141,7 +141,7 @@
             </form>
 
             <div class="w3-container w3-center w3-text-blue">
-                <p><a href="SignIn.aspx" target="iframe">Criar Conta</a></p>
+                <p><a href="SignIn.aspx" target="iframe" class="w3-btn w3-block w3-round w3-light-blue w3-hover-blue w3-section w3-padding" >Criar Conta</a></p>
             </div>
         </div>
     </div>

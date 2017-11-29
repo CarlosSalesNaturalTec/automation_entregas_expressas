@@ -16,9 +16,8 @@
 
     <!-- MENU -->
     <div class="w3-bar w3-white" id="mypage">
-        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top: 10px; margin-bottom:10px; margin-right: 40px"
-           onclick="ExibirModal();">
-            Entrar
+        <a class="w3-bar-item w3-btn w3-border w3-round w3-right w3-text-red" style="margin-top: 10px; margin-bottom: 10px; margin-right: 40px"
+            onclick="ExibirModal();">Entrar
             <i class="fa fa-sign-in" aria-hidden="true"></i>
         </a>
     </div>
@@ -36,7 +35,7 @@
 
             <header class="w3-container w3-red w3-center">
                 <span onclick="document.getElementById('id01').style.display='none'"
-                      class="w3-button w3-display-topright">&times;</span>
+                    class="w3-button w3-display-topright">&times;</span>
                 <h4>Área do Cliente</h4>
             </header>
 
@@ -44,17 +43,14 @@
                 <div class="w3-section">
                     <label><b>Usuario</b></label>
                     <input id="input_User" class="w3-input w3-border w3-round w3-margin-bottom" type="text" placeholder="Nome do Usuário" name="usrname"
-                           required>
+                        required>
                     <label><b>Senha</b></label>
                     <input id="input_pwd" class="w3-input w3-border w3-round" type="password" placeholder="Digite sua senha" name="psw" required>
 
                     <a id="btentrar" class="w3-btn w3-block w3-round w3-border w3-hover-red w3-section w3-padding" onclick="TentarLogin()">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    <p><a href="#" class="w3-btn w3-block w3-round w3-border w3-hover-red w3-section w3-padding" onclick="SignIn();">Criar Conta</a></p>
                 </div>
             </form>
-
-            <div class="w3-container w3-center w3-text-red">
-                <p><a href="#" onclick="SignIn();">Criar Conta</a></p>
-            </div>
         </div>
     </div>
     <!-- Modal Login -->

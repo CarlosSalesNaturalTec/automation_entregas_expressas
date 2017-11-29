@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 /// <summary>
 /// Summary description for WebService
 /// </summary>
-[WebService(Namespace = "http://logvai.azurewebsites.net")]
+[WebService(Namespace = "http://logvaionline.azurewebsites.net")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 [System.Web.Script.Services.ScriptService]
@@ -52,8 +52,10 @@ public class WebService : System.Web.Services.WebService
                 int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                 string vValida4 = vValida3.ToString();
 
-                url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + 
-                    "&v3=" + vValida4 + "&v4=0" + "&v5=NewUser";
+                //url = "Redirect.aspx?v1=" + Convert.ToString(dados[0]) + "&v2=" + Convert.ToString(dados[1]) + 
+                //"&v3=" + vValida4 + "&v4=0" + "&v5=NewUser";
+
+                url = "SignIn_Confirm.aspx?v1=" + Convert.ToString(dados[2]);
             }
 
         }
