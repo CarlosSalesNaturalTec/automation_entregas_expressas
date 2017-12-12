@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{462A2202-D18F-4B69-A51E-0410D6324253}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai(1)", "..\logvai\", "{AAF3040C-0ED8-4AE5-9364-26D00B2C670A}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai", "..\logvai\", "{AAF3040C-0ED8-4AE5-9364-26D00B2C670A}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
 		ProjectReferences = "{babc5658-6afd-4f8e-81f1-434553663d99}|Uol.PagSeguro.dll;"
@@ -26,8 +26,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai(1)", "..\logvai\", "
 		VWDPort = "49754"
 		SlnRelativePath = "..\logvai\"
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "..\..\pagseguro-sdk-dotnet\source\Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvai_Adm", "..\logvai_Adm\", "{13AD305F-1D90-4ED7-88F8-6B329324399A}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -73,6 +71,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "logvaiWebService", "..\logv
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "..\..\pagseguro-sdk-dotnet\source\Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,14 +97,6 @@ Global
 		{AAF3040C-0ED8-4AE5-9364-26D00B2C670A}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{AAF3040C-0ED8-4AE5-9364-26D00B2C670A}.Release|x86.ActiveCfg = Debug|Any CPU
 		{AAF3040C-0ED8-4AE5-9364-26D00B2C670A}.Release|x86.Build.0 = Debug|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|x86.Build.0 = Debug|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|x86.ActiveCfg = Release|Any CPU
-		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|x86.Build.0 = Release|Any CPU
 		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13AD305F-1D90-4ED7-88F8-6B329324399A}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -121,6 +113,14 @@ Global
 		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|x86.ActiveCfg = Debug|Any CPU
 		{C33167D4-1562-4E7F-AE1F-CCAD73495207}.Release|x86.Build.0 = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|x86.Build.0 = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|x86.ActiveCfg = Release|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

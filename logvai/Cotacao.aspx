@@ -115,7 +115,7 @@
     <!-- SOLICITAÇÃO -->
 
     <!-- Script Autocomplete-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places"></script>
     <script type="text/javascript" src="scripts/codeCotacaoAutocomplete.js"></script>
     <!-- Script Autocomplete-->
 
