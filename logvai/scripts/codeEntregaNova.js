@@ -1,5 +1,4 @@
-﻿var Ponto1;
-var Ponto2;
+﻿var Ponto1, Ponto2, Ponto3, Ponto4;
 var DistanciaKM;
 
 var map;
@@ -26,12 +25,20 @@ function initMap() {
     // Autocomplete
     var input1 = document.getElementById('inputPonto1');
     var input2 = document.getElementById('inputPonto2');
+    var input3 = document.getElementById('inputPonto3');
+    var input4 = document.getElementById('inputPonto4');
 
     var autocomplete1 = new google.maps.places.Autocomplete(input1);
     autocomplete1.bindTo('bounds', map);
 
     var autocomplete2 = new google.maps.places.Autocomplete(input2);
     autocomplete2.bindTo('bounds', map);
+
+    var autocomplete3 = new google.maps.places.Autocomplete(input3);
+    autocomplete3.bindTo('bounds', map);
+
+    var autocomplete4 = new google.maps.places.Autocomplete(input4);
+    autocomplete4.bindTo('bounds', map);
     
     //tracar roteiro
     directionsService = new google.maps.DirectionsService;
@@ -61,13 +68,15 @@ function CalculoGeral() {
 
     Ponto1 = document.getElementById('inputPonto1').value + "," + document.getElementById('inputNumero1').value;
     Ponto2 = document.getElementById('inputPonto2').value + "," + document.getElementById('inputNumero2').value;
+    Ponto3 = document.getElementById('inputPonto3').value + "," + document.getElementById('inputNumero3').value;
+    Ponto4 = document.getElementById('inputPonto4').value + "," + document.getElementById('inputNumero4').value;
    
     //calcula distancia e tempo
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
         {
-            origins: [Ponto1, Ponto2],
-            destinations: [Ponto2, Ponto1],
+            origins: [Ponto1, Ponto2, Ponto3],
+            destinations: [Ponto2, Ponto3, Ponto4],
             travelMode: google.maps.TravelMode.DRIVING,
             unitSystem: google.maps.UnitSystem.METRIC,
             avoidHighways: false,
@@ -85,8 +94,18 @@ function retorno(response, status) {
             document.getElementById("btCalcular").style.cursor = "pointer";
             alert("Não foi possível encontrar roteiro! Verifique os endereços digitados");
         } else {
+
             var distance = response.rows[0].elements[0].distance;
-            DistanciaKM = (distance.value / 1000);
+
+            var distance1 = response.rows[1].elements[1].distance;
+            var dd1 = 0;
+            if (typeof distance1 != 'undefined') { dd1 = distance1.value;}
+
+            var distance2 = response.rows[2].elements[2].distance;
+            var dd2 = 0;
+            if (typeof distance2 != 'undefined') { dd2 = distance1.value; }
+
+            DistanciaKM = ((distance.value + dd1 + dd2) / 1000);
 
             document.getElementById("txtDist").textContent = DistanciaKM.toFixed(2) + 'Km';
             document.getElementById("DistanciaHidden").value = DistanciaKM.toFixed(2);
@@ -134,8 +153,8 @@ function CalculoTempoEValor() {
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
-        origin: Ponto1,
-        destination: Ponto2,
+        origin: Ponto1,Ponto2,Ponto3,
+        destination: Ponto2,Ponto3,Ponto4,
         travelMode: 'DRIVING'
     }, function (response, status) {
         if (status === 'OK') {

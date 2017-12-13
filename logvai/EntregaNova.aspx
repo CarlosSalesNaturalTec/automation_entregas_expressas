@@ -33,7 +33,7 @@
         <div id="divEnderecos1" class="w3-animate-left">
             <!-- PONTO1 -->
             <div class="w3-container">
-                <p><span id="badge1" class="w3-badge w3-red">A</span> Local de retirada (coleta) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="w3-small">Utilizar meu Endereço</a></p>
+                <p><span id="badge1" class="w3-badge w3-light-blue">A</span> Local de retirada (coleta) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="w3-small">Utilizar meu Endereço</a></p>
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto1" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero1" placeholder="No." style="width: 80px" />
                 <p>
@@ -49,8 +49,8 @@
 
             <!-- PONTO2 -->
             <div class="w3-container">
-                <p><span id="badge2" class="w3-badge w3-red">B</span> Local de destino (entrega)</p>
-                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto2" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
+                <p><span id="badge2" class="w3-badge w3-light-blue">B</span> Local de destino (entrega)</p>
+                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto2" placeholder="Ex: Av. Tanclight-blueo Neves" style="width: 400px" />
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero2" placeholder="No." style="width: 80px" />
                 <p>
                     <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento2" placeholder="Complemento.Ex: Sala 401" style="width: 220px" />
@@ -61,7 +61,7 @@
                     <textarea class="w3-input w3-border w3-round" name="detalhes2" id="detalhes2" rows="2" placeholder="O que deve ser feito?" style="width: 490px"></textarea>
                 </p>
                 <p class="w3-tiny">
-                    <span id="badgePlus" class="w3-badge w3-red">+</span>&nbsp;<a href="#" onclick="adicionarEndereco()">Adicionar Endereço</a>
+                    <span id="badgePlus" class="w3-badge w3-light-blue">+</span>&nbsp;<a href="#" onclick="adicionarEndereco()">Adicionar Destino</a>
                 </p>
             </div>
             <br />
@@ -69,17 +69,16 @@
         </div>
 
         <!-- ENDEREÇOS  Pontos C e D-->
-        <div id="divEnderecos2" style="display: none">
+        <div id="divEnderecos2" class="w3-animate-left" style="display: none">
 
             <!-- PONTO 3 - C -->
             <div class="w3-container">
-                <p><span id="badge3" class="w3-badge w3-red">C</span> Local de retirada (coleta)</p>
+                <p><span id="badge3" class="w3-badge w3-light-blue">C</span> Local de retirada (coleta)</p>
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto3" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero3" placeholder="No." style="width: 80px" />
                 <p>
                     <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento3" placeholder="Complemento" style="width: 220px" />
                     <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputdestinatario3" placeholder="Com quem falar?" style="width: 220px" />
-                    <input class="w3-check" type="checkbox" name="ChkBancoPonto3"><label class="w3-tiny">&nbsp;Banco,Rep.Pública ou Correios</label>
                 </p>
                 <p>
                     <textarea class="w3-input w3-border w3-round" id="detalhes3" rows="2" placeholder="O que deve ser feito?" style="width: 490px"></textarea>
@@ -90,19 +89,18 @@
 
             <!-- PONTO 4 - D  -->
             <div class="w3-container">
-                <p><span id="badge4" class="w3-badge w3-red">D</span> Local de destino (entrega)</p>
-                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto4" placeholder="Ex: Av. Tancredo Neves" style="width: 400px" />
+                <p><span id="badge4" class="w3-badge w3-light-blue">D</span> Local de destino (entrega)</p>
+                <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputPonto4" placeholder="Ex: Av. Tanclight-blueo Neves" style="width: 400px" />
                 <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputNumero4" placeholder="No." style="width: 80px" />
                 <p>
                     <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputComplemento4" placeholder="Complemento.Ex: Sala 401" style="width: 220px" />
                     <input class="w3-border w3-round w3-hover-light-gray" type="text" id="inputdestinatario4" placeholder="Com quem falar?" style="width: 220px" />
-                    <input class="w3-check" type="checkbox" name="ChkBancoPonto2"><label class="w3-tiny">&nbsp;Banco,Rep.Pública ou Correios</label>
                 </p>
                 <p>
                     <textarea class="w3-input w3-border w3-round" name="detalhes2" id="detalhes4" rows="2" placeholder="O que deve ser feito?" style="width: 490px"></textarea>
                 </p>
                 <p class="w3-tiny">
-                    <span id="badgeCancel" class="w3-badge w3-red">X</span>&nbsp;<a href="#" onclick="CancelarEndereco()">Cancelar Endereço</a>
+                    <span id="badgeCancel" class="w3-badge w3-light-blue">X</span>&nbsp;<a href="#" onclick="CancelarEndereco()">Remover Destinos Adicionais</a>
                 </p>
             </div>
             <br />
@@ -133,7 +131,7 @@
             <!-- TEMPO DE ATENDIMENTO -->
 
             <br>
-            <button id="btCalcular" class="w3-btn w3-block w3-round w3-red w3-hover-light-red" onclick="CalculoGeral();">Calcular</button>
+            <button id="btCalcular" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue" onclick="CalculoGeral();">Calcular</button>
             <br>
             <div class="w3-container">
                 <div class="w3-half w3-center w3-text-gray">Distância:</div>
@@ -142,16 +140,16 @@
 
             <div class="w3-container">
                 <div class="w3-half w3-center">
-                    <strong><span id="txtDist" class="w3-text-red">0Km</span></strong>
+                    <strong><span id="txtDist" class="w3-text-blue">0Km</span></strong>
                 </div>
                 <div class="w3-half w3-center">
-                    <strong><span id="txtValor" class="w3-text-red">R$ 0,00</span></strong>
+                    <strong><span id="txtValor" class="w3-text-blue">R$ 0,00</span></strong>
                 </div>
             </div>
 
             <div id="idDiv1" style="display: none">
                 <br>
-                <button id="btSolicitar" class="w3-btn w3-block w3-round w3-red w3-hover-light-red" onclick="exibirResumo();">Avançar</button>
+                <button id="btSolicitar" class="w3-btn w3-block w3-round w3-blue w3-hover-light-blue" onclick="exibirResumo();">Avançar</button>
                 <br>
             </div>
         </div>
@@ -169,30 +167,30 @@
     <!-- RESUMO -->
     <div id="divResumo" class="w3-half w3-animate-left" style="display: none">
 
-        <header class="w3-container w3-red w3-text-white w3-center">
+        <header class="w3-container w3-blue w3-text-white w3-center">
             <h6><strong>Resumo da Solicitação</strong></h6>
         </header>
 
         <section class="w3-section w3-padding w3-small">
-            <span class="w3-badge w3-light-red">A</span>&nbsp;<span id="Resumo_Ponto1"></span>
+            <span class="w3-badge w3-light-blue">A</span>&nbsp;<span id="Resumo_Ponto1"></span>
             <br />
             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="Resumo_Complem1"></span>
         </section>
 
         <section class="w3-section w3-padding w3-small">
-            <span class="w3-badge w3-light-red">B</span>&nbsp;<span id="Resumo_Ponto2"></span>
+            <span class="w3-badge w3-light-blue">B</span>&nbsp;<span id="Resumo_Ponto2"></span>
             <br />
             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="Resumo_Complem2"></span>
         </section>
 
         <section class="w3-section w3-padding w3-small">
-            <i class="fa fa-map fa-2x w3-light-red" aria-hidden="true"></i>&nbsp;
+            <i class="fa fa-map fa-2x w3-light-blue" aria-hidden="true"></i>&nbsp;
             <span>Distância:</span>&nbsp;<strong><span id="Resumo_Distancia"></span></strong>
         </section>
 
         <!-- FORMA DE PAGAMENTO -->
         <section class="w3-container w3-padding-16 w3-border w3-light-gray">
-            <i class="fa fa-calculator fa-2x w3-light-red" aria-hidden="true"></i>&nbsp;<span>Total:</span>&nbsp;<strong><span id="Resumo_Total"></span></strong>
+            <i class="fa fa-calculator fa-2x w3-light-blue" aria-hidden="true"></i>&nbsp;<span>Total:</span>&nbsp;<strong><span id="Resumo_Total"></span></strong>
             <br />
             <p>Selecione Forma de Pagamento</p>
             <p>
@@ -207,10 +205,10 @@
 
         <section id="sectionBotoes" class="w3-section w3-padding">
             <div class="w3-half w3-padding">
-                <input id="btVoltar" type="button" value="Voltar" class="w3-btn w3-round w3-block w3-red w3-hover-light-red" onclick="voltarEnderecos();" />
+                <input id="btVoltar" type="button" value="Voltar" class="w3-btn w3-round w3-block w3-blue w3-hover-light-blue" onclick="voltarEnderecos();" />
             </div>
             <div class="w3-half w3-padding">
-                <input id="btCheckOut" type="button" value="Concluir" class="w3-btn w3-round w3-block w3-red w3-hover-light-red" onclick="salvarMaster();" />
+                <input id="btCheckOut" type="button" value="Concluir" class="w3-btn w3-round w3-block w3-blue w3-hover-light-blue" onclick="salvarMaster();" />
             </div>
             <div id="divhidden" class="w3-container w3-padding w3-center" style="display: none">
                 <p>Aguarde <i class="fa fa-cog fa-spin fa-2x fa-fw"></i></p>
